@@ -1,0 +1,5 @@
+﻿@media only screen and (min-width: 980px)  {
+    body.menu-pin .page-container .page-content-wrapper .content {
+        padding-left: 125px !important;
+    }
+}

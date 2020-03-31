@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "UserCreate";
+    if (ViewBag.CallingForm1 == "index")
+    {
+    }
+    else
+    {
+        <ul class="breadcrumb">
+            <li><a href="#">@ViewBag.CallingForm</a></li>
+            <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+            @if (@ViewBag.CallingForm2 != null)
+            {
+                <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+            }
+        </ul>
+    }
+}
+<div class="panel panel-transparent">
+    <div class="panel-heading">
+        <div class="panel-title">
+            User
+        </div>
+    </div>
+
+    <div class="panel-body" ng-controller="userController">
+        <div class="row form-horizontal xl-mlr10" ng-init="editUserByID()">
+            <form name="UpdateUserForm">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                            @*<div class="form-group">
+                                <div class="form-inner13">
+                                    <label for="DepartmentName" class="left-col control-label">Company</label>
+                                    <div class="right-col">
+                                        <select2 style="width: 100%;" ng-model="editUser.CompanyID" s2-options="work.CompanyID as work.Name for work in companyList" ng-change="companyWiseBranch()" required
+                                                 placeholder="Select Company">
+                                        </select2>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label for="DepartmentName" class="left-col control-label">Branch</label>
+                                    <div class="right-col">
+                                        <select2 style="width: 100%;" ng-model="editUser.BranchID" s2-options="work.BranchID as work.Name for work in branchList" required
+                                                 placeholder="Select Branch">
+                                        </select2>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>*@                                   
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label class="left-col control-label">User Name (Employee Code)</label>
+                                    <div class="right-col">
+                                        <input type="text" class="form-control " ng-maxlength="20" ng-model="editUser.UserName" ng-trim="false" ng-change="user.UserName = user.UserName.split(' ').join('')" placeholder="Max. 20 Characters. User lowercase" required/>
+
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label for="DepartmentName" class="left-col control-label">User Group</label>
+                                    <div class="right-col">
+                                        <select class="form-control" ng-model="editUser.UserGroupID" ng-options="UserGroup.ID as UserGroup.Name for UserGroup in userGroupList" required>
+                                            <option value=""> Select User Group</option>
+                                        </select>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>     
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-bottom:40px;text-align:right">
+                            <div class="form-group">
+                                <div class="form-inner12">
+                                    <label for="fname" class="left-col control-label"></label>
+                                    <div class="right-col mt-org1">
+                                        <button type="button" class="btn btn-success custom-btn1 " name="Submit" ng-click="updateUser()">Submit</button>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $("#txtConfirmPassword").keyup(function () {
+            var password = $("#txtNewPassword").val();
+            $("#divCheckPasswordMatch").html(password == $(this).val() ? "" : "Password does not match!");
+        });
+    });
+</script>
+
+

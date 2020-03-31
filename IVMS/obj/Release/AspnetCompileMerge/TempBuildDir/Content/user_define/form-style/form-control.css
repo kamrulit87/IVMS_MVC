@@ -1,0 +1,214 @@
+﻿/*.field-validation-error {float:right !important; width:10px; height:10px; color:#eb525d; padding-top:5px; font-weight:bold; font-size:12px;}*/ 
+.field-validation-error {
+
+    float: right !important;
+    /*width: 10px;*/
+    height: 10px;
+    color: #eb525d;
+    padding-top: 8px;
+    font-weight: bold;
+    font-size: 11px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-right: 5px;
+}
+
+.error {
+
+    float: right !important;
+    /*width: 10px;*/
+    height: 10px;
+    color: #eb525d;
+    padding-top: 8px;
+    font-weight: bold;
+    font-size: 11px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-right: 5px;
+}
+
+.ibserror {
+    position: absolute;
+    z-index: 1;
+    bottom: -15px;
+    color: #eb525d;
+    font-size: 11px;
+    display: none;
+}
+
+.text-danger {
+
+    float: right !important;
+    /*width: 10px;*/
+    height: 10px;
+    color: #eb525d;
+    padding-top: 8px;
+    font-weight: bold;
+    font-size: 11px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-right: 5px;
+}
+
+/*.error {float:right !important; width:10px; height:10px; color:#eb525d; padding-top:8px; font-weight:bold; font-size:12px; position:absolute; right:0; top:0; }*/ 
+.form-inner30{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner30 .left-col{width:300px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  /*margin-top:3px;*/}
+.form-inner30 .right-col{float:left; width: -moz-calc(100% - 310px);width: -webkit-calc(100% - 310px); width: calc(100% - 310px); position:relative;}
+.form-inner30 .in-ctrl{width: -moz-calc(100% - 15px);width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}	
+
+
+.form-inner18{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner18 .left-col{width:180px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  /*margin-top:3px;*/}
+.form-inner18 .right-col{float:left; width: -moz-calc(100% - 190px);width: -webkit-calc(100% - 190px); width: calc(100% - 190px); position:relative;}
+.form-inner18 .in-ctrl{width: -moz-calc(100% - 15px);width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}	
+
+.form-inner17{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner17 .left-col{width:170px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  /*margin-top:3px;*/}
+.form-inner17 .right-col{float:left; width: -moz-calc(100% - 180px);width: -webkit-calc(100% - 180px); width: calc(100% - 180px); position:relative;}
+.form-inner17 .in-ctrl{width: -moz-calc(100% - 15px);width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}	
+
+.form-inner16{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner16 .left-col{width:160px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  /*margin-top:3px;*/}
+.form-inner16 .right-col{float:left; width: -moz-calc(100% - 170px);width: -webkit-calc(100% - 170px); width: calc(100% - 170px); position:relative;}
+.form-inner16 .in-ctrl{width: -moz-calc(100% - 15px);width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}	
+
+
+.form-inner15{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner15 .left-col{width:150px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  /*margin-top:3px;*/}
+.form-inner15 .right-col{float:left; width: -moz-calc(100% - 160px);width: -webkit-calc(100% - 160px); width: calc(100% - 160px); position:relative;}
+.form-inner15 .in-ctrl{width: -moz-calc(100% - 15px);width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;} 
+
+.form-inner14{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner14 .left-col{width:140px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  /*margin-top:3px;*/}
+.form-inner14 .right-col{float:left; width: -moz-calc(100% - 150px);width: -webkit-calc(100% - 150px); width: calc(100% - 150px); position:relative;}
+.form-inner14 .in-ctrl{width: -moz-calc(100% - 15px);width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;} 
+
+.form-inner13{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner13 .left-col{width:130px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  /*margin-top:3px;*/}
+.form-inner13 .right-col{float:left; width: -moz-calc(100% - 140px);width: -webkit-calc(100% - 140px); width: calc(100% - 140px); position:relative;}
+.form-inner13 .in-ctrl{width: -moz-calc(100% - 15px);width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}	
+
+.form-inner12{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; } 
+.form-inner12 .left-col{width:120px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  /*margin-top:3px;*/}
+.form-inner12 .right-col{float:left; width: -moz-calc(100% - 130px);width: -webkit-calc(100% - 130px); width: calc(100% - 130px); position:relative;}
+.form-inner12 .in-ctrl{ width: -moz-calc(100% - 15px); width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}
+
+
+.form-inner11{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner11 .left-col{width:110px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  /*margin-top:3px;*/}
+.form-inner11 .right-col{float:left; width: -moz-calc(100% - 120px);width: -webkit-calc(100% - 120px); width: calc(100% - 120px);position:relative;}
+.form-inner11 .in-ctrl{ width: -moz-calc(100% - 15px); width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}
+
+.form-inner10{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner10 .left-col{width:100px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  /*margin-top:3px;*/}
+.form-inner10 .right-col{float:left; width: -moz-calc(100% - 110px);width: -webkit-calc(100% - 110px); width: calc(100% - 110px);position:relative;}
+.form-inner10 .in-ctrl{ width: -moz-calc(100% - 15px); width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}
+
+.form-inner9{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner9 .left-col{width:90px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  /*margin-top:3px;*/}
+.form-inner9 .right-col{float:left; width: -moz-calc(100% - 100px);width: -webkit-calc(100% - 100px); width: calc(100% - 100px);position:relative;}
+.form-inner9 .in-ctrl{width: -moz-calc(100% - 15px); width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}
+
+.form-inner8{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner8 .left-col{width:80px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  /*margin-top:3px;*/}
+.form-inner8 .right-col{float:left; width: -moz-calc(100% - 90px);width: -webkit-calc(100% - 90px); width: calc(100% - 90px);position:relative;}
+.form-inner8 .in-ctrl{width: -moz-calc(100% - 15px); width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}
+
+.form-inner7{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner7 .left-col{width:70px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  /*margin-top:3px;*/}
+.form-inner7 .right-col{float:left; width: -moz-calc(100% - 80px);width: -webkit-calc(100% - 80px); width: calc(100% - 80px);position:relative;}
+.form-inner7 .in-ctrl{width: -moz-calc(100% - 15px); width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}
+
+.form-inner6{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner6 .left-col{width:60px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  /*margin-top:3px;*/}
+.form-inner6 .right-col{float:left; width: -moz-calc(100% - 70px);width: -webkit-calc(100% - 70px); width: calc(100% - 70px);position:relative;}
+.form-inner6 .in-ctrl{width: -moz-calc(100% - 15px); width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}
+
+	
+.form-inner-button13{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner-button13 .left-col{width:130px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  margin-top:3px;}
+.form-inner-button13 .middle-col{float:left; width: -moz-calc(70% - 140px);width: -webkit-calc(70% - 140px); width: calc(70% - 140px); margin-right:10px; position:relative;} 
+.form-inner-button13 .right-col{float:left; width: 100px; position:relative;}  
+.form-inner-button13 .in-ctrl{width: -moz-calc(100% - 15px); width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}	
+
+.form-inner-button12{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner-button12 .left-col{width:120px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  margin-top:3px;}
+.form-inner-button12 .middle-col{float:left; width: -moz-calc(70% - 130px);width: -webkit-calc(70% - 130px); width: calc(70% - 130px); margin-right:10px; position:relative;} 
+.form-inner-button12 .right-col{float:left; width: 100px; position:relative;}  
+.form-inner-button12 .in-ctrl{width: -moz-calc(100% - 15px); width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}	
+
+.form-inner-button11{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner-button11 .left-col{width:110px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  margin-top:3px;}
+.form-inner-button11 .middle-col{float:left; width: -moz-calc(70% - 120px);width: -webkit-calc(70% - 120px); width: calc(70% - 120px); margin-right:10px; position:relative;} 
+.form-inner-button11 .right-col{float:left; width: 100px; position:relative;}  
+.form-inner-button11 .in-ctrl{width: -moz-calc(100% - 15px); width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}	
+
+.form-inner-button10{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner-button10 .left-col{width:100px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  margin-top:3px;}
+.form-inner-button10 .middle-col{float:left; width: -moz-calc(70% - 110px);width: -webkit-calc(70% - 110px); width: calc(70% - 110px); margin-right:10px; position:relative;} 
+.form-inner-button10 .right-col{float:left; width: 100px; position:relative;}  
+.form-inner-button10 .in-ctrl{width: -moz-calc(100% - 15px); width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}	
+
+.form-inner-button9 {width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner-button9 .left-col{width:90px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  margin-top:3px;}
+.form-inner-button9 .middle-col{float:left; width: -moz-calc(70% - 100px);width: -webkit-calc(70% - 100px); width: calc(70% - 100px); margin-right:10px; position:relative;} 
+.form-inner-button9 .right-col{float:left; width: 100px; position:relative;}  
+.form-inner-button9 .in-ctrl{width: -moz-calc(100% - 15px); width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}	
+
+.form-inner-button8{width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner-button8 .left-col{width:80px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right;  margin-top:3px;}
+.form-inner-button8 .middle-col{float:left; width: -moz-calc(70% - 90px);width: -webkit-calc(70% - 90px); width: calc(70% - 90px); margin-right:10px; position:relative;} 
+.form-inner-button8 .right-col{float:left; width: 100px; position:relative;}  
+.form-inner-button8 .in-ctrl{width: -moz-calc(100% - 15px); width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}	
+
+.form-inner-button7 {width:100%; /*margin-bottom:10px;*/ display:block; clear:both; }
+.form-inner-button7 .left-col{width:70px; margin-right:10px; float:left; /*font-size:13px !important;*/ text-align:right; margin-top:3px;}
+.form-inner-button7 .middle-col{float:left; width: -moz-calc(70% - 80px);width: -webkit-calc(70% - 80px); width: calc(70% - 80px); margin-right:10px; position:relative;} 
+.form-inner-button7 .right-col{float:left; width: 100px; position:relative;}  
+.form-inner-button7 .in-ctrl{width: -moz-calc(100% - 15px); width: -webkit-calc(100% - 15px); width: calc(100% - 15px); float:left;}
+
+@media only screen and (max-width: 768px) {
+.form-inner13 .left-col{width: 100% !important; margin-right:0px; float:none; /*font-size:14px !important;*/ text-align:left; margin-bottom:2px;}
+.form-inner13 .right-col{float:none; width: 100% !important;}	
+
+.form-inner12 .left-col{width: 100% !important; margin-right:0px; float:none; /*font-size:14px !important;*/ text-align:left; margin-bottom:2px;}
+.form-inner12 .right-col{float:none; width: 100% !important;}	
+
+.form-inner11 .left-col{width: 100% !important; margin-right:0px; float:none; /*font-size:14px !important;*/ text-align:left; margin-bottom:2px;}
+.form-inner11 .right-col{float:none; width: 100% !important;}	
+
+.form-inner10 .left-col{width: 100% !important; margin-right:0px; float:none; /*font-size:14px !important;*/ text-align:left; margin-bottom:2px;}
+.form-inner10 .right-col{float:none; width: 100% !important;}	
+
+.form-inner9 .left-col{width: 100% !important; margin-right:0px; float:none; /*font-size:14px !important;*/ text-align:left; margin-bottom:2px;}
+.form-inner9 .right-col{float:none; width: 100% !important;}
+
+.form-inner9 .left-col{width: 100% !important; margin-right:0px; float:none; /*font-size:14px !important;*/ text-align:left; margin-bottom:2px;}
+.form-inner9 .right-col{float:none; width: 100% !important;}
+
+.form-inner8 .left-col{width: 100% !important; margin-right:0px; float:none; /*font-size:14px !important;*/ text-align:left; margin-bottom:2px;}
+.form-inner8 .right-col{float:none; width: 100% !important;}
+
+.form-inner7 .left-col{width: 100% !important; margin-right:0px; float:none; /*font-size:14px !important;*/ text-align:left; margin-bottom:2px;}
+.form-inner7 .right-col{float:none; width: 100% !important;}
+
+.form-inner-button12 .left-col{width: 100% !important; margin-right:0px; float:none; /*font-size:14px !important;*/ text-align:left; margin-bottom:2px;}
+.form-inner-button12 .middle-col{float:none; width: 100% !important;} 
+.form-inner-button12 .right-col{float:none; width: 100% !important;}  
+ 
+}
+
+
+ 
+
+
+
+
+
+
+
+
+

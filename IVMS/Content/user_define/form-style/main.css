@@ -1,0 +1,297 @@
+﻿
+.dsd {
+    font-size:16px; font-weight:700;
+    background-color:#ffffff
+}
+
+
+.clr {
+    /*clear: both;*/
+}
+
+.display-n {
+    display: none;
+}
+.display-b {
+    display: block;
+}
+
+.f-s11{
+    font-size:11px !important;
+}
+/*---------------------- Start:: Background Class ----------------------*/
+.b-g1 {
+    background-color: #eeeeee !important;
+}
+.b-g2 {
+    background-color: #fafafa !important;
+}
+
+/*----------------------- End:: Background Class ----------------------*/
+
+
+
+
+.fcolor1 {
+   color:#ffffff !important;
+}
+.lg-mlr10 {
+    margin-left:10px; margin-right:10px;
+}
+.clr-height20 {
+    height:20px !important; /*width:465px !important;*/
+}
+.clr-height30 {
+    height:30px !important; /*width:465px !important;*/
+}
+.clr-height40 {
+    height:30px !important; /*width:465px !important;*/
+}
+.clr-height {
+    height:120px !important; /*width:465px !important;*/
+}
+.clr-height60 {
+    height:60px !important; /*width:465px !important;*/
+}
+
+
+/*---------------------- Start:: Padding All Class ----------------------*/
+.pr0 {
+    padding-right:0px !important;
+} 
+.pr1 {
+    padding-right:10px;
+}
+.pr2 {
+    padding-top:20px;
+}
+
+.pt1 {
+    padding-top:10px;
+}
+
+.pt3 {
+    padding-top:30px;
+}
+
+.pt4 {
+    padding-top: 40px;
+}
+
+.pl07 {
+    padding-left:7px;
+}
+.pl0 {
+    padding-left:0px!important ;
+}
+
+.pl10 {
+    padding-left:10px;
+}
+.pl20 {
+    padding-left:20px;
+}
+.pl30 {
+    padding-left:30px;
+}
+/*----------------------- End:: Padding All Class -----------------------*/
+
+/*----------------------- Start:: Margin All Class ----------------------*/
+.mrf1 {
+    float: left;
+    margin-right: 10px;
+}
+.mt1 { 
+    margin-top: 10px;
+}
+.mt2 { 
+    margin-top: 20px;
+}
+.mt3 { 
+    margin-top: 30px;
+}
+.mt4 { 
+    margin-top: 40px;
+}
+
+.mt5 { 
+    margin-top: 50px;
+}
+
+
+.mb1 { 
+    margin-bottom: 10px;
+}
+.mb2 { 
+    margin-bottom: 20px;
+}
+.mb3 { 
+    margin-bottom: 30px;
+}
+.mb4 { 
+    margin-bottom: 40px;
+}
+
+.mb5 { 
+    margin-bottom: 50px;
+}
+
+.mr0{margin-right:0px !important;}
+.mr10{margin-right:10px;}
+.mr20{margin-right:20px;}
+/*------------------------ End:: Margin All Class -----------------------*/
+
+/*--------------------- Start:: Text Align All Class --------------------*/
+.ta-r{text-align:right !important;}
+/*---------------------- End:: Text Align All Class ---------------------*/
+
+/*--------------------- Start:: Text Align All Class --------------------*/
+.fb{font-weight:600;}
+/*---------------------- End:: Text Align All Class ---------------------*/
+
+ 
+/*--------------------- Start:: Sales Quotation --------------------*/
+.sq-tmpgrid{font-weight:700; font-size:14px; }
+/*---------------------- End:: Sales Quotation ---------------------*/
+
+.ibs-pos-rel {
+    position:relative;
+}
+
+
+
+/*============================================================
+	Select Section
+============================================================*/ 
+.category select {
+    padding: 3px 9px;
+    margin: 0;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    border: 1px solid rgba(0,0,0,0.07);
+    background-color: #fff;
+    outline: none;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 14px;
+    width: 100% !important;
+    height: 35px;
+    font-family: "Segoe UI",Arial,sans-serif;
+    white-space: nowrap;
+    line-height: 26px;
+    color: #444;
+    text-decoration: none;
+
+    
+}
+
+.category option {
+    border: 1px solid rgba(0,0,0,0.07);
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    padding-top: 5px;
+    z-index: 790;
+    width: 100%;
+    margin-top: -1px;
+    position: absolute;
+    top: 100%;
+    background: #fff;
+    color: #000;
+    border-top: none;
+    border-bottom: none;
+    -webkit-box-shadow: 0 4px 5px rgba(0,0,0,.15);
+    box-shadow: 0 4px 5px rgba(0,0,0,.15);
+}
+
+/*.category option {
+      background-color:#808080;
+}*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .category select {
+        padding-right: 18px;
+    }
+}
+.category label {
+    position: relative;
+    width: 100% !important;
+}
+    .category label:after {
+        content: '\f0d7';
+        font: 14px "FontAwesome", monospace;
+        color: #444444;
+        right: 16px;
+        top: 10px;
+        padding: 0 0 1px;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .category label:before {
+        content: '';
+        right: 6px;
+        top: 0px;
+        width: 10px;
+        height: 10px;
+        background-color: transparent;
+        position: absolute;
+        pointer-events: none;
+        display: block;
+    }
+/*============================================================
+	End Select Section
+============================================================*/
+
+
+@media (max-width: 1020px) {
+    .category select {
+        padding: 10px 10px 10px 10px !important;
+    }
+}
+@media (max-width: 320px) {
+    .category select {
+        padding: 10px 10px 10px 10px !important;
+    }
+}
+	
+@media only screen and (max-width: 1024px) {   
+    .clr {
+        height:10px; clear:both !important;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    
+}
+@media only screen and (max-width: 800px) {
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)and (-webkit-min-device-pixel-ratio: 2) {
+    .xl-mb30 {
+        margin-bottom: 20px !important; 
+    }
+}
+
+@media only screen and (min-device-width : 1024px) and (max-device-width : 768) and (orientation : landscape)and (-webkit-min-device-pixel-ratio: 2) {
+   
+}
+
+@media only screen and (max-width: 760px) {
+    .xl-mlr10 {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .xl-mb30 {
+        margin-bottom: 20px; 
+    }
+}
+
+@media only screen and (max-width: 640px) {
+}
+
+@media only screen and (max-width: 480px) {
+}

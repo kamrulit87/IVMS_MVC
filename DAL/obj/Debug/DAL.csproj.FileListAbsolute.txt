@@ -1,0 +1,44 @@
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\App.config
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\DAL.dll.config
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\DAL.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\DAL.pdb
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\EntityFramework.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\System.Web.Helpers.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\System.Web.Mvc.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\System.Web.Razor.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\System.Web.WebPages.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\System.Web.WebPages.Razor.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\EntityFramework.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\System.Web.Helpers.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\System.Web.Razor.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\System.Web.WebPages.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\bin\Debug\System.Web.WebPages.Razor.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\obj\Debug\DAL.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\DAL\obj\Debug\DAL.pdb
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\App.config
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\DAL.dll.config
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\DAL.dll
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\DAL.pdb
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\EntityFramework.dll
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\System.Web.Helpers.dll
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\System.Web.Razor.dll
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\System.Web.WebPages.dll
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\EntityFramework.xml
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\System.Web.Helpers.xml
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\System.Web.Razor.xml
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\System.Web.WebPages.xml
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Projects\Visitor_Management\NCC Bank\DAL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Projects\Visitor_Management\NCC Bank\DAL\obj\Debug\DAL.dll
+D:\Projects\Visitor_Management\NCC Bank\DAL\obj\Debug\DAL.pdb
+D:\Projects\Visitor_Management\NCC Bank\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

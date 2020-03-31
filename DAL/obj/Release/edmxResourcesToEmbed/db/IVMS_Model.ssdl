@@ -1,0 +1,756 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IVMS_DB2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Appointment">
+    <Key>
+      <PropertyRef Name="AppointmentID" />
+    </Key>
+    <Property Name="AppointmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisitorName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VisitorMobile" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="VisitorEmail" Type="varchar" MaxLength="30" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="Purpose" Type="varchar" MaxLength="500" />
+    <Property Name="AppointmentDate" Type="date" Nullable="false" />
+    <Property Name="AppointmentTime" Type="datetime" />
+    <Property Name="ReachTime" Type="datetime" />
+    <Property Name="EndTime" Type="datetime" />
+    <Property Name="CheckedInTime" Type="datetime" />
+    <Property Name="CheckedOutTime" Type="datetime" />
+    <Property Name="BreakOutTime" Type="datetime" />
+    <Property Name="BreakInTime" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="AppointmentBy" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Status" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="CardNO" Type="varchar" MaxLength="15" />
+    <Property Name="BankCardID" Type="varchar" MaxLength="15" />
+    <Property Name="NotifyMessage" Type="varchar" MaxLength="500" />
+    <Property Name="ReplayMessage" Type="varchar" MaxLength="500" />
+    <Property Name="AccessFloors" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Card">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeviceNO" Type="int" Nullable="false" />
+    <Property Name="CardID" Type="int" Nullable="false" />
+    <Property Name="CardNO" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Designation">
+    <Key>
+      <PropertyRef Name="DesignationID" />
+    </Key>
+    <Property Name="DesignationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DesignationName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DeviceInfo">
+    <Key>
+      <PropertyRef Name="DeviceID" />
+    </Key>
+    <Property Name="DeviceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeviceNO" Type="int" Nullable="false" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="PortNO" Type="int" Nullable="false" />
+    <Property Name="BranchID" Type="int" Nullable="false" />
+    <Property Name="FloorNO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailConfig">
+    <Key>
+      <PropertyRef Name="EmailID" />
+    </Key>
+    <Property Name="EmailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FromMailID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pass" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Port" Type="int" Nullable="false" />
+    <Property Name="Host" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OnBehalfEmployeeID" Type="int" />
+    <Property Name="BranchID" Type="int" Nullable="false" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="DesignationID" Type="int" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="50" />
+    <Property Name="EmpCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmpName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mobile" Type="varchar" MaxLength="15" />
+    <Property Name="PbxNumber" Type="varchar" MaxLength="15" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Floor" Type="int" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MeetingParticipant">
+    <Key>
+      <PropertyRef Name="ParticipantID" />
+    </Key>
+    <Property Name="ParticipantID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequisitionID" Type="int" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="DesignationID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MeetingRoom">
+    <Key>
+      <PropertyRef Name="MeetingRoomID" />
+    </Key>
+    <Property Name="MeetingRoomID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoomNo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FloorLocation" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SeatCapacity" Type="int" />
+    <Property Name="ProjectorAvailable" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MeetingRoomRequisition">
+    <Key>
+      <PropertyRef Name="RequisitionID" />
+    </Key>
+    <Property Name="RequisitionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MeetingRoomID" Type="int" Nullable="false" />
+    <Property Name="RequisitionBy" Type="int" Nullable="false" />
+    <Property Name="RequiredDate" Type="datetime" Nullable="false" />
+    <Property Name="FromTime" Type="time" Precision="7" />
+    <Property Name="ToTime" Type="time" Precision="7" />
+    <Property Name="Remarks" Type="varchar" MaxLength="500" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="RoomStatus" Type="char" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PasswordCore">
+    <Key>
+      <PropertyRef Name="PasswordId" />
+    </Key>
+    <Property Name="PasswordId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="PasswordH" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PasswordMode" Type="tinyint" Nullable="false" />
+    <Property Name="PassworDateLine" Type="datetime" Nullable="false" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PasswordHistory">
+    <Key>
+      <PropertyRef Name="HistoryId" />
+    </Key>
+    <Property Name="HistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PasswordId" Type="int" Nullable="false" />
+    <Property Name="PassworDate" Type="datetime" Nullable="false" />
+    <Property Name="PasswordH" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SEC_LoginStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="PresentLogInStatus" Type="bit" Nullable="false" />
+    <Property Name="LogInTime" Type="datetime" Nullable="false" />
+    <Property Name="LogOutTime" Type="datetime" Nullable="false" />
+    <Property Name="ForcedLogOutStatus" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SEC_Password">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NewPassword" Type="nvarchar" MaxLength="60" />
+    <Property Name="OldPassword" Type="nvarchar" MaxLength="60" />
+    <Property Name="IsSelfChanged" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="SEC_SecurityQuestion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SecurityQuestion" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="SecutiryAnswer" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="SEC_UIModule">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="UIName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ParentModulIDHierarchy" Type="char" MaxLength="110" />
+  </EntityType>
+  <EntityType Name="SEC_UIPage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UIPageName" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="ModuleID" Type="int" />
+    <Property Name="UrlID" Type="int" />
+  </EntityType>
+  <EntityType Name="SEC_UserActionMapping">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserGroupID" Type="int" Nullable="false" />
+    <Property Name="UIModuleID" Type="int" Nullable="false" />
+    <Property Name="UIPageID" Type="int" Nullable="false" />
+    <Property Name="IsSelect" Type="bit" Nullable="false" />
+    <Property Name="IsCreate" Type="bit" Nullable="false" />
+    <Property Name="IsEdit" Type="bit" Nullable="false" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="UrlID" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="SEC_UserGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsAdmin" Type="bit" Nullable="false" />
+    <Property Name="GroupCode" Type="varchar" MaxLength="30" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="SEC_UserInformation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="BranchID" Type="int" Nullable="false" />
+    <Property Name="UserFullName" Type="nvarchar" MaxLength="300" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="PasswordID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SecurityQuestionID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IsEMailVerified" Type="bit" />
+    <Property Name="IsPhoneNoVerified" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UserGroupID" Type="int" />
+  </EntityType>
+  <EntityType Name="SET_Company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NameBN" Type="nvarchar" MaxLength="100" />
+    <Property Name="ShortName" Type="varchar" MaxLength="100" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="TaxNo" Type="varchar" MaxLength="50" />
+    <Property Name="RegistrationNo" Type="varchar" MaxLength="50" />
+    <Property Name="ContactNo" Type="varchar" MaxLength="15" />
+    <Property Name="EmailID" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="200" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SET_CompanyBranch">
+    <Key>
+      <PropertyRef Name="BranchID" />
+    </Key>
+    <Property Name="BranchID" Type="int" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NameBN" Type="nvarchar" MaxLength="50" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="ContactNO" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="IsHeadOffice" Type="int" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="200" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="HierarchyValue" Type="int" />
+    <Property Name="NoOfFloor" Type="int" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="UserGroupId" />
+    </Key>
+    <Property Name="UserGroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserGroupHead" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="AccessArea" Type="varchar" MaxLength="500" />
+    <Property Name="GroupCode" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="UserTab">
+    <Key>
+      <PropertyRef Name="UserIndex" />
+    </Key>
+    <Property Name="UserIndex" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PasswordId" Type="int" Nullable="false" />
+    <Property Name="UserGroupId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Appointment_CreatedBy">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Appointment_EmpID">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_DepartmentID">
+    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_DesignationID">
+    <End Role="Designation" Type="Self.Designation" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Designation">
+        <PropertyRef Name="DesignationID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DesignationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Employee_BranchID">
+    <End Role="SET_CompanyBranch" Type="Self.SET_CompanyBranch" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SET_CompanyBranch">
+        <PropertyRef Name="BranchID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="BranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeetingParticipant_DeptID">
+    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="MeetingParticipant" Type="Self.MeetingParticipant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="MeetingParticipant">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeetingParticipant_EID">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="MeetingParticipant" Type="Self.MeetingParticipant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="MeetingParticipant">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeetingParticipant_RID">
+    <End Role="MeetingRoomRequisition" Type="Self.MeetingRoomRequisition" Multiplicity="1" />
+    <End Role="MeetingParticipant" Type="Self.MeetingParticipant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeetingRoomRequisition">
+        <PropertyRef Name="RequisitionID" />
+      </Principal>
+      <Dependent Role="MeetingParticipant">
+        <PropertyRef Name="RequisitionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeetingRoomRequisition_CreatedBy">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="MeetingRoomRequisition" Type="Self.MeetingRoomRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="MeetingRoomRequisition">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeetingRoomRequisition_EmpID">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="MeetingRoomRequisition" Type="Self.MeetingRoomRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="MeetingRoomRequisition">
+        <PropertyRef Name="RequisitionBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MeetingRoomRequisition_RoomID">
+    <End Role="MeetingRoom" Type="Self.MeetingRoom" Multiplicity="1" />
+    <End Role="MeetingRoomRequisition" Type="Self.MeetingRoomRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeetingRoom">
+        <PropertyRef Name="MeetingRoomID" />
+      </Principal>
+      <Dependent Role="MeetingRoomRequisition">
+        <PropertyRef Name="MeetingRoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PasswordCore_EmployeeID">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="PasswordCore" Type="Self.PasswordCore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="PasswordCore">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_UiPage_SEC_UiModule">
+    <End Role="SEC_UIModule" Type="Self.SEC_UIModule" Multiplicity="0..1" />
+    <End Role="SEC_UIPage" Type="Self.SEC_UIPage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEC_UIModule">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SEC_UIPage">
+        <PropertyRef Name="ModuleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_UserActionMapping_SEC_UserInformation_CreatedBy">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="SEC_UserActionMapping" Type="Self.SEC_UserActionMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="SEC_UserActionMapping">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_UserGroup_SEC_UserInformation_CreatedBy">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="SEC_UserGroup" Type="Self.SEC_UserGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="SEC_UserGroup">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_UserInformation_EmployeeID">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="SEC_UserInformation" Type="Self.SEC_UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="SEC_UserInformation">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_UserInformation_SEC_Password_PasswordID">
+    <End Role="SEC_Password" Type="Self.SEC_Password" Multiplicity="1" />
+    <End Role="SEC_UserInformation" Type="Self.SEC_UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEC_Password">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SEC_UserInformation">
+        <PropertyRef Name="PasswordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEC_UserInformation_SEC_UserGroup_UserGroupID">
+    <End Role="SEC_UserGroup" Type="Self.SEC_UserGroup" Multiplicity="0..1" />
+    <End Role="SEC_UserInformation" Type="Self.SEC_UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEC_UserGroup">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SEC_UserInformation">
+        <PropertyRef Name="UserGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SET_CBranch_CompanyID">
+    <End Role="SET_Company" Type="Self.SET_Company" Multiplicity="1" />
+    <End Role="SET_CompanyBranch" Type="Self.SET_CompanyBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SET_Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="SET_CompanyBranch">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKPasswordHistory">
+    <End Role="PasswordCore" Type="Self.PasswordCore" Multiplicity="1" />
+    <End Role="PasswordHistory" Type="Self.PasswordHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PasswordCore">
+        <PropertyRef Name="PasswordId" />
+      </Principal>
+      <Dependent Role="PasswordHistory">
+        <PropertyRef Name="PasswordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKUserTabF">
+    <End Role="PasswordCore" Type="Self.PasswordCore" Multiplicity="1" />
+    <End Role="UserTab" Type="Self.UserTab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PasswordCore">
+        <PropertyRef Name="PasswordId" />
+      </Principal>
+      <Dependent Role="UserTab">
+        <PropertyRef Name="PasswordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKUserTabS">
+    <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="1" />
+    <End Role="UserTab" Type="Self.UserTab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserGroup">
+        <PropertyRef Name="UserGroupId" />
+      </Principal>
+      <Dependent Role="UserTab">
+        <PropertyRef Name="UserGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="FxEnPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="iPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="FxPasswordChr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="iPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="FxPasswordPositionEX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iUserId" Type="varchar" Mode="In" />
+    <Parameter Name="iPasswordH" Type="varchar" Mode="In" />
+    <Parameter Name="iEntryDate" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="PasswordId" Type="int" />
+          <Property Name="UserId" Type="varchar" MaxLength="10" />
+          <Property Name="UserName" Type="varchar" MaxLength="256" />
+          <Property Name="PasswordDateLineStatus" Type="tinyint" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="UserGroupHead" Type="varchar" MaxLength="256" />
+          <Property Name="UserGroupId" Type="int" />
+          <Property Name="EmployeeID" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="FxPasswordTimeOut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="tinyint">
+    <Parameter Name="rUserId" Type="varchar" Mode="In" />
+    <Parameter Name="rPasswordH" Type="varchar" Mode="In" />
+    <Parameter Name="rEntryDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_AppointmentList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iStatus" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_ScheduleAppList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iEmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_VisitorInOutList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iFDate" Type="datetime" Mode="In" />
+    <Parameter Name="iTDate" Type="datetime" Mode="In" />
+    <Parameter Name="iDepartmentID" Type="int" Mode="In" />
+    <Parameter Name="iEmpID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spInsPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="rUserId" Type="varchar" Mode="In" />
+    <Parameter Name="rUserName" Type="varchar" Mode="In" />
+    <Parameter Name="rUserGroupId" Type="int" Mode="In" />
+    <Parameter Name="rPassword" Type="varchar" Mode="In" />
+    <Parameter Name="rBranchId" Type="int" Mode="In" />
+    <Parameter Name="rErr" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="USP_MultipleOptionWiseMeetingScheduleReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+    <Parameter Name="VisitorName" Type="varchar" Mode="In" />
+    <Parameter Name="MobileNo" Type="varchar" Mode="In" />
+    <Parameter Name="VisitorCard" Type="varchar" Mode="In" />
+    <Parameter Name="CompanyName" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="varchar" Mode="In" />
+    <Parameter Name="FromDate" Type="varchar" Mode="In" />
+    <Parameter Name="ToDate" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="IVMS_DB2ModelStoreContainer">
+    <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Designation" EntityType="Self.Designation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeviceInfo" EntityType="Self.DeviceInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailConfig" EntityType="Self.EmailConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MeetingParticipant" EntityType="Self.MeetingParticipant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MeetingRoom" EntityType="Self.MeetingRoom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MeetingRoomRequisition" EntityType="Self.MeetingRoomRequisition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PasswordCore" EntityType="Self.PasswordCore" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PasswordHistory" EntityType="Self.PasswordHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEC_LoginStatus" EntityType="Self.SEC_LoginStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEC_Password" EntityType="Self.SEC_Password" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEC_SecurityQuestion" EntityType="Self.SEC_SecurityQuestion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEC_UIModule" EntityType="Self.SEC_UIModule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEC_UIPage" EntityType="Self.SEC_UIPage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEC_UserActionMapping" EntityType="Self.SEC_UserActionMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEC_UserGroup" EntityType="Self.SEC_UserGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEC_UserInformation" EntityType="Self.SEC_UserInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SET_Company" EntityType="Self.SET_Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SET_CompanyBranch" EntityType="Self.SET_CompanyBranch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserGroup" EntityType="Self.UserGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTab" EntityType="Self.UserTab" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Appointment_CreatedBy" Association="Self.FK_Appointment_CreatedBy">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Appointment_EmpID" Association="Self.FK_Appointment_EmpID">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_DepartmentID" Association="Self.FK_Employee_DepartmentID">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_DesignationID" Association="Self.FK_Employee_DesignationID">
+      <End Role="Designation" EntitySet="Designation" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Employee_BranchID" Association="Self.FK_Employee_Employee_BranchID">
+      <End Role="SET_CompanyBranch" EntitySet="SET_CompanyBranch" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeetingParticipant_DeptID" Association="Self.FK_MeetingParticipant_DeptID">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="MeetingParticipant" EntitySet="MeetingParticipant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeetingParticipant_EID" Association="Self.FK_MeetingParticipant_EID">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="MeetingParticipant" EntitySet="MeetingParticipant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeetingParticipant_RID" Association="Self.FK_MeetingParticipant_RID">
+      <End Role="MeetingRoomRequisition" EntitySet="MeetingRoomRequisition" />
+      <End Role="MeetingParticipant" EntitySet="MeetingParticipant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeetingRoomRequisition_CreatedBy" Association="Self.FK_MeetingRoomRequisition_CreatedBy">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="MeetingRoomRequisition" EntitySet="MeetingRoomRequisition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeetingRoomRequisition_EmpID" Association="Self.FK_MeetingRoomRequisition_EmpID">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="MeetingRoomRequisition" EntitySet="MeetingRoomRequisition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MeetingRoomRequisition_RoomID" Association="Self.FK_MeetingRoomRequisition_RoomID">
+      <End Role="MeetingRoom" EntitySet="MeetingRoom" />
+      <End Role="MeetingRoomRequisition" EntitySet="MeetingRoomRequisition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PasswordCore_EmployeeID" Association="Self.FK_PasswordCore_EmployeeID">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="PasswordCore" EntitySet="PasswordCore" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_UiPage_SEC_UiModule" Association="Self.FK_SEC_UiPage_SEC_UiModule">
+      <End Role="SEC_UIModule" EntitySet="SEC_UIModule" />
+      <End Role="SEC_UIPage" EntitySet="SEC_UIPage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_UserActionMapping_SEC_UserInformation_CreatedBy" Association="Self.FK_SEC_UserActionMapping_SEC_UserInformation_CreatedBy">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="SEC_UserActionMapping" EntitySet="SEC_UserActionMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_UserGroup_SEC_UserInformation_CreatedBy" Association="Self.FK_SEC_UserGroup_SEC_UserInformation_CreatedBy">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="SEC_UserGroup" EntitySet="SEC_UserGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_UserInformation_EmployeeID" Association="Self.FK_SEC_UserInformation_EmployeeID">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="SEC_UserInformation" EntitySet="SEC_UserInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_UserInformation_SEC_Password_PasswordID" Association="Self.FK_SEC_UserInformation_SEC_Password_PasswordID">
+      <End Role="SEC_Password" EntitySet="SEC_Password" />
+      <End Role="SEC_UserInformation" EntitySet="SEC_UserInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEC_UserInformation_SEC_UserGroup_UserGroupID" Association="Self.FK_SEC_UserInformation_SEC_UserGroup_UserGroupID">
+      <End Role="SEC_UserGroup" EntitySet="SEC_UserGroup" />
+      <End Role="SEC_UserInformation" EntitySet="SEC_UserInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SET_CBranch_CompanyID" Association="Self.FK_SET_CBranch_CompanyID">
+      <End Role="SET_Company" EntitySet="SET_Company" />
+      <End Role="SET_CompanyBranch" EntitySet="SET_CompanyBranch" />
+    </AssociationSet>
+    <AssociationSet Name="FKPasswordHistory" Association="Self.FKPasswordHistory">
+      <End Role="PasswordCore" EntitySet="PasswordCore" />
+      <End Role="PasswordHistory" EntitySet="PasswordHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FKUserTabF" Association="Self.FKUserTabF">
+      <End Role="PasswordCore" EntitySet="PasswordCore" />
+      <End Role="UserTab" EntitySet="UserTab" />
+    </AssociationSet>
+    <AssociationSet Name="FKUserTabS" Association="Self.FKUserTabS">
+      <End Role="UserGroup" EntitySet="UserGroup" />
+      <End Role="UserTab" EntitySet="UserTab" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,559 @@
+﻿@{
+    ViewBag.Title = "Page";
+    if (ViewBag.CallingForm1 == "index")
+    {
+    }
+    else
+    {
+        <ul class="breadcrumb">
+            <li><a href="#">@ViewBag.CallingForm</a></li>
+            <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+            @if (@ViewBag.CallingForm2 != null)
+            {
+                <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+            }
+        </ul>
+    }
+}
+
+<link href="~/Content/calender.css" rel="stylesheet" />
+<link href="~/Content/fullcalendar.min.css" rel="stylesheet" />
+<link href="~/Content/fullcalendar.print.css" rel="stylesheet" media="print" />
+
+<style>
+    button.btn.btn-sm.btn-danger {
+        font-family: 'Montserrat' !important;
+    }
+
+    span.fc-time {
+        display: none !important;
+    }
+    span.fc-time {
+        display: none !important;
+    }
+    .width-350 {
+        min-width: 241px;
+        max-width: 241px;
+    }
+    /*.table thead tr th{
+        font-size: 10px;
+    }*/
+
+    .table-responsive {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 0px solid transparent;
+    }
+
+    .table-responsive>.table {
+        margin-bottom: 0;
+    }
+    .table-responsive>.table>tbody>tr>td, .table-responsive>.table>tbody>tr>th, .table-responsive>.table>tfoot>tr>td, .table-responsive>.table>tfoot>tr>th, .table-responsive>.table>thead>tr>td, .table-responsive>.table>thead>tr>th {
+        white-space: nowrap;
+    }
+    .tableFixHead { overflow-y: auto; height: 401px;}
+    .tableFixHead thead th {
+        position: sticky;
+        top: 0;
+    }
+    /* Just common table stuff. Really. */
+    table  { border-collapse: collapse; width: 100%; }
+    th, td { padding: 8px 16px; }
+    th     { background: #eee;
+        color: #000 !important;
+        opacity: 1;}
+</style>
+<div class="panel panel-transparent" ng-controller="appointmentController" ng-init="loadScheduleDropdowns()">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Schedule Appointment
+        </div>
+
+        <div class="pull-right m-t-15">
+            <div id="show-modal" class="btn btn-success">
+                <i class="fa fa-plus pr1"></i>
+                <a href="#!/ScheduleCreate" ng-click="removeCookies()">Add New</a>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="panel-body ">
+        <div class="tableFixHead table-responsive">
+            <table st-table="scheduleList" st-safe-src="appointmentList" class="table table-striped">
+                <thead>
+                    <tr>
+                        <td colspan="11" style="text-align: right;">
+                            <input style="width: 200px; float: right;" st-search placeholder="Search" class="input-sm form-control topsearch" type="search" autofocus />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th st-sort="OrderNO">SL</th>
+                        <th st-sort="OrderNO">Visitor Name</th>
+                        <th st-sort="OrderDate">Company Name</th>
+                        <th st-sort="OrderDate">Mobile Number</th>
+                        @*<th st-sort="SupplierName">Employee Name</th>
+                        <th st-sort="SupplierName">Department</th>
+                        <th st-sort="SupplierName">Designation</th>*@
+                        <th st-sort="SupplierName">Appointment Date</th>
+                        <th st-sort="Status">Appointment Time</th>
+                        @*<th st-sort="Status">Meeting Time</th>*@
+                        <th st-sort="Status">Purpose</th>
+                        <th style="width:500px;text-align:right;z-index: 2;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="row in scheduleList">
+                        <td>{{$index+1}}</td>
+                        <td>{{row.VisitorName}}</td>
+                        <td>{{row.CompanyName}}</td>
+                        <td>{{row.VisitorMobile}}</td>
+                        @*<td>{{row.EmpName}}</td>
+                        <td>{{row.DepartmentName}}</td>
+                        <td>{{row.DesignationName}}</td>*@
+                        <td>{{row.AppointmentDate}}</td>
+                        @*<td>{{row.AppointmentTime}}</td>*@
+                        <td>{{row.AppointmentTime}} - {{row.EndTime}}</td>
+                        <td>{{row.Purpose}}</td>
+                        <td align="right">
+                            <button type="button" class="btn btn-sm btn-primary" href="#" ng-click="breakCheckInRow(row)" ng-hide="row.hideForward" ng-disabled="row.disabledForward">Break</button>
+                            <button type="button" class="btn btn-sm btn-primary" href="#" ng-click="forwardScheduleRow($index, row)" ng-hide="row.hideForward" ng-disabled="row.disabledForward">Forward</button>
+                            <a class="btn btn-sm btn-success" ng-click="editScheduleRow(row)">Re-Schedule</a>
+                            <button type="button" class="btn btn-sm btn-danger" href="#" ng-click="cancelScheduleRow(row)" ng-disabled="row.disabledInBtn">Cancel</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      
+
+    </div>
+    <div class="modal fade stick-up" tabindex="-1" role="dialog" aria-hidden="true" my-modal my-modal-is-open="isCancelScheduleModal">
+        <div class="modal-dialog" style="top: 60px;">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <div class="row bold padding-10">Cancel Confirmation :</div>
+                </div>
+                <div class="modal-body">
+                    <div class="row bold padding-10">Are you Sure! You Want To Cancel This Appointment</div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success btn-sm" ng-disabled="disabledSaveBtn" type="button" ng-click="saveCancelSchedule()">Ok</button>
+                    <button class="btn btn-danger btn-sm" type="button" ng-click="cancelScheduleModalClose()">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade stick-up" tabindex="-1" role="dialog" aria-hidden="true" my-modal my-modal-is-open="isEditScheduleModal">
+        <div class="modal-dialog" style="top: 60px;">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <div class="row bold padding-10">Re Schedule Appointment :</div>
+                </div>
+                <div class="modal-body">
+                    <div class="row bold padding-10">Are you Sure! You Want To Re Schedule This Appointment</div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success btn-sm" ng-disabled="disabledSaveBtn" type="button" ng-click="editScheduleData()">Ok</button>
+                    <button class="btn btn-danger btn-sm" type="button" ng-click="editScheduleModalClose()">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade stick-up" tabindex="-1" role="dialog" aria-hidden="true" my-modal my-modal-is-open="isForwardModal">
+        <div class="modal-dialog" style="top: 60px;">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" ng-click="forwardModalClose()" aria-hidden="true">
+                        <i class="pg-close fs-14"></i>
+                    </button>
+                    <div class="row bold padding-10">Forwarding :</div>
+                </div>
+                <div class="modal-body">
+                    <form name="checkInForm">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                                <input type="text" class="form-control hidden" ng-model="appointment.AppointmentID" placeholder="" readonly />
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Visitor Name</label>
+                                        <div class="right-col">
+                                            <input type="text" class="form-control" ng-model="appointment.VisitorName" required readonly="readonly" />
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Company Name</label>
+                                        <div class="right-col">
+                                            <input type="text" class="form-control" ng-model="appointment.CompanyName" required readonly="readonly" />
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+                         <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Department</label>
+                                        <div class="right-col">
+                                            <select2 class="width-350" ng-model="appointment.DepartmentID" s2-options="dep.DepartmentID as dep.DepartmentName for dep in departmentList"
+                                                     required ng-change="getDepWiseDropdownEmployee()" placeholder="--Select Department--">
+                                            </select2>
+                                            @*<select class="form-control" ng-model="appointment.DepartmentID" ng-options="dep.DepartmentID as dep.DepartmentName for dep in departmentList"
+                                                    required ng-change="getDepWiseEmployee()">
+                                                <option value=""> --Select Department-- </option>
+                                            </select>*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Employee</label>
+                                        <div class="right-col">
+                                            <select2 class="width-350" ng-model="appointment.EmployeeID"
+                                                     s2-options="emp.EmployeeID as emp.EmpName for emp in depEmployeeList" placeholder="--Select Employee--" required>
+
+                                            </select2>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Proximity Card No</label>
+                                        <div class="right-col">
+                                            <input type="text" class="form-control" ng-model="appointment.CardNO" id="cardNO" readonly="readonly" />
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-sm btn-success" ng-disabled="disabledSaveBtn" type="button" ng-click="saveForward()">Forward</button>
+                    <button class="btn btn-sm btn-danger" type="button" ng-click="forwardModalClose()">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    @*Check In Model*@
+    <div id="checkInModal" class="modal fade stick-up" my-modal my-modal-is-open="isCheckInModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" style="top: 60px;">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" ng-click="checkInClose()" aria-hidden="true">
+                        <i class="pg-close fs-14"></i>
+                    </button>
+                    <div class="row bold padding-10">Visitor Break :</div>
+                </div>
+                <div class="modal-body">
+                    <form name="checkInForm">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                                <input type="text" class="form-control hidden" ng-model="appointment.AppointmentID" placeholder="" readonly />
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Visitor Name</label>
+                                        <div class="right-col">
+                                            <input type="text" class="form-control" ng-model="appointment.VisitorName" required readonly="readonly" />
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Employee</label>
+                                        <div class="right-col">
+                                            <select class="form-control" ng-model="appointment.EmployeeID"
+                                                    ng-options="emp.EmployeeID as emp.EmpName for emp in employeeList" required disabled="disabled">
+                                                <option value=""> --Select Employee-- </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*<div class="form-group">
+                                        <div class="form-inner13">
+                                            <label class="left-col control-label">Proximity Card No</label>
+                                            <div class="right-col">
+                                                <input type="text" class="form-control" ng-model="appointment.CardNO" id="cardNO" required />
+                                            </div>
+                                            <div class="clr"></div>
+                                        </div>
+                                    </div>*@
+                                <div class="form-group hidden">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Proximity Card No</label>
+                                        <div class="right-col">
+                                            <input type="text" class="form-control" ng-model="appointment.CardNO" id="cardNO" />
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group hidden">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Card No (Bank)</label>
+                                        <div class="right-col">
+                                            <input type="text" class="form-control" ng-model="appointment.BankCardID" />
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success btn-sm" ng-disabled="disabledSaveBtn" type="button" ng-click="saveBreakOut()">Break</button>
+                    <button class="btn btn-danger btn-sm" type="button" ng-click="checkInClose()">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</div>
+<div class="panel_bottom" ng-controller="appointmentController" ng-init="loadNotifyDropdowns()">
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    Event Calendar
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <div id="calender"></div>
+
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title"><span id="eventTitle"></span></h4>
+                            </div>
+                            <div class="modal-body">
+                                <p id="pDetails"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    Notification
+                </div>
+            </div>
+            <div class="panel-body">
+                <table st-table="notify" st-safe-src="notifyList" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th st-sort="OrderNO">Visitor Name</th>
+                            <th st-sort="OrderDate">Company Name</th>
+                            <th st-sort="SupplierName">Notify Message</th>
+                            <th style="width: 20%; text-align: right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="row in notify">
+                            <td>{{row.VisitorName}}</td>
+                            <td>{{row.CompanyName}}</td>
+                            <td>{{row.NotifyMessage}}</td>
+                            <td align="right">
+                                <a class="btn btn-sm btn-success" ng-click="replayRow(row)" ng-hide="row.hideReplay">Reply</a>
+                                <a class="btn btn-sm btn-success" ng-click="replayRow(row)" ng-show="row.showPending">Wait</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button id="notifySearch" class="hidden" ng-click="loadNotifyList()"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade stick-up" tabindex="-1" role="dialog" aria-hidden="true" my-modal my-modal-is-open="isReplayModal">
+        <div class="modal-dialog" style="top: 60px;">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" ng-click="replayModalClose()" aria-hidden="true">
+                        <i class="pg-close fs-14"></i>
+                    </button>
+                    <div class="row bold padding-10">Notification :</div>
+                </div>
+                <div class="modal-body">
+                    <form name="checkInForm">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                                <input type="text" class="form-control hidden" ng-model="appointment.AppointmentID" placeholder="" readonly />
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Visitor Name</label>
+                                        <div class="right-col">
+                                            <input type="text" class="form-control" ng-model="appointment.VisitorName" required readonly="readonly" />
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Company Name</label>
+                                        <div class="right-col">
+                                            <input type="text" class="form-control" ng-model="appointment.CompanyName" required readonly="readonly" />
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Employee</label>
+                                        <div class="right-col">
+                                            @*<select class="form-control" ng-model="appointment.EmployeeID"
+                                                        ng-options="emp.EmployeeID as emp.EmpName for emp in employeeList" required disabled="disabled">
+                                                    <option value=""> --Select Employee-- </option>
+                                                </select>*@
+                                            <select2 style="width: 100%;" ng-model="appointment.EmployeeID" s2-options="emp.EmployeeID as emp.EmpName for emp in employeeList"
+                                                     required disabled="disabled" placeholder="--Select Employee--">
+                                            </select2>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Reply Message</label>
+                                        <div class="right-col">
+                                            @*<input type="text" class="form-control" ng-model="appointment.NotifyMessage" />*@
+                                            <textarea class="form-control" ng-model="appointment.ReplayMessage" rows="3" required></textarea>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-sm btn-success" ng-disabled="disabledSaveBtn" type="button" ng-click="saveAccept()">Accept</button>
+                    <button class="btn btn-sm btn-success" ng-disabled="disabledSaveBtn" type="button" ng-click="savePending()">Waiting</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+</div>
+
+@*calendar css*@
+
+
+<script src="~/Content/moment.min.js"></script>
+<script src="~/Content/fullcalendar.min.js"></script>
+
+@*<script>
+    $(document).ready(function () {
+        var events = [];
+        $.ajax({
+            type: "GET",
+            url: "/mstr_basic/GetEvents",
+            success: function (data) {
+                $.each(data,
+                    function (i, v) {
+                        if (v.AppointmentBy == "E" || v.AppointmentBy == "R" || v.AppointmentBy == "F") {
+                            events.push({
+                                title: 'Meeting With : ' + v.VisitorName,
+                                companyName: v.CompanyName,
+                                purpose: v.Purpose,
+                                start: moment(v.AppointmentDate),
+                                end: v.AppointmentTime != null ? moment(v.AppointmentTime) : null,
+                                color: "#7986CB",
+                                allDay: v.IsFullDay
+
+                            });
+                        }
+                    });
+                GenerateCalender(events);
+            },
+            error: function (error) {
+                alert('failed');
+            }
+        });
+        function GenerateCalender(events) {
+            $('#calender').fullCalendar('destroy');
+            $('#calender').fullCalendar({
+                contentHeight: 400,
+                defaultDate: new Date(),
+                timeFormat: 'h(:mm)a',
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,basicWeek,basicDay'
+                },
+                eventLimit: true,
+                eventColor: '#378006',
+                events: events,
+                eventClick: function (calEvent, jsEvent, view) {
+                    $('#myModal #eventTitle').text(calEvent.title);
+                    var $purpose = $('<div/>');
+                    $purpose.append($('<p/>').html('<b>Company: </b>' + calEvent.companyName));
+                    $purpose.append($('<p/>').html('<b>Date: </b>' + calEvent.start.format("DD-MMM-YYYY ")));
+                    if (calEvent.end != null) {
+                        $purpose.append($('<p/>').html('<b>Time: </b>' + calEvent.end.format("HH:mm a")));
+                    }
+                    $purpose.append($('<p/>').html('<b>Purpose: </b>' + calEvent.purpose));
+
+
+                    $('#myModal #pDetails').empty().html($purpose);
+
+                    $('#myModal').modal();
+                }
+            })
+        }
+    })
+</script>*@
+
+<script>
+    $(document).ready(function () {
+        setInterval('refreshPage()', 20000);
+        setTimeout(function () {
+            $('#notifySearch').trigger('click');
+        }, 20000);
+    });
+
+    function refreshPage() {
+        setTimeout(function () {
+            $('#notifySearch').trigger('click');
+        }, 20000);
+    }
+
+</script>
+
+
+

@@ -1,0 +1,163 @@
+D:\Projects\IVMS_Repository\Device\bin\Debug\Device.dll
+D:\Projects\IVMS_Repository\Device\bin\Debug\Device.pdb
+D:\Projects\IVMS_Repository\Device\obj\Debug\Device.csprojResolveAssemblyReference.cache
+D:\Projects\IVMS_Repository\Device\obj\Debug\Device.dll
+D:\Projects\IVMS_Repository\Device\obj\Debug\Device.pdb
+D:\Projects\Visitor Management\IVMS_Repository\Device\bin\Debug\Device.dll
+D:\Projects\Visitor Management\IVMS_Repository\Device\bin\Debug\Device.pdb
+D:\Projects\Visitor Management\IVMS_Repository\Device\obj\Debug\Device.dll
+D:\Projects\Visitor Management\IVMS_Repository\Device\obj\Debug\Device.pdb
+D:\Projects\Visitor Management\IVMS_Repository\Device\obj\Debug\Device.csprojResolveAssemblyReference.cache
+D:\Projects\Visitor Management\IVMS_Repository\Device\bin\Debug\BLL.dll
+D:\Projects\Visitor Management\IVMS_Repository\Device\bin\Debug\EntityFramework.dll
+D:\Projects\Visitor Management\IVMS_Repository\Device\bin\Debug\DAL.dll
+D:\Projects\Visitor Management\IVMS_Repository\Device\bin\Debug\BLL.pdb
+D:\Projects\Visitor Management\IVMS_Repository\Device\bin\Debug\EntityFramework.xml
+D:\Projects\Visitor Management\IVMS_Repository\Device\bin\Debug\DAL.pdb
+D:\Projects\Visitor Management\IVMS_Repository\Device\bin\Debug\App.config
+D:\Projects\Visitor Management\10.05.2019\IVMS_Repository\Device\bin\Debug\App.config
+D:\Projects\Visitor Management\10.05.2019\IVMS_Repository\Device\bin\Debug\Device.dll
+D:\Projects\Visitor Management\10.05.2019\IVMS_Repository\Device\bin\Debug\Device.pdb
+D:\Projects\Visitor Management\10.05.2019\IVMS_Repository\Device\bin\Debug\BLL.dll
+D:\Projects\Visitor Management\10.05.2019\IVMS_Repository\Device\bin\Debug\EntityFramework.dll
+D:\Projects\Visitor Management\10.05.2019\IVMS_Repository\Device\bin\Debug\DAL.dll
+D:\Projects\Visitor Management\10.05.2019\IVMS_Repository\Device\bin\Debug\BLL.pdb
+D:\Projects\Visitor Management\10.05.2019\IVMS_Repository\Device\bin\Debug\EntityFramework.xml
+D:\Projects\Visitor Management\10.05.2019\IVMS_Repository\Device\bin\Debug\DAL.pdb
+D:\Projects\Visitor Management\10.05.2019\IVMS_Repository\Device\obj\Debug\Device.csprojResolveAssemblyReference.cache
+D:\Projects\Visitor Management\10.05.2019\IVMS_Repository\Device\obj\Debug\Device.dll
+D:\Projects\Visitor Management\10.05.2019\IVMS_Repository\Device\obj\Debug\Device.pdb
+D:\Projects\Visitor Management\Final\IVMS_Repository\Device\bin\Debug\App.config
+D:\Projects\Visitor Management\Final\IVMS_Repository\Device\bin\Debug\Device.dll
+D:\Projects\Visitor Management\Final\IVMS_Repository\Device\bin\Debug\Device.pdb
+D:\Projects\Visitor Management\Final\IVMS_Repository\Device\bin\Debug\BLL.dll
+D:\Projects\Visitor Management\Final\IVMS_Repository\Device\bin\Debug\EntityFramework.dll
+D:\Projects\Visitor Management\Final\IVMS_Repository\Device\bin\Debug\DAL.dll
+D:\Projects\Visitor Management\Final\IVMS_Repository\Device\bin\Debug\BLL.pdb
+D:\Projects\Visitor Management\Final\IVMS_Repository\Device\bin\Debug\EntityFramework.xml
+D:\Projects\Visitor Management\Final\IVMS_Repository\Device\bin\Debug\DAL.pdb
+D:\Projects\Visitor Management\Final\IVMS_Repository\Device\obj\Debug\Device.csprojResolveAssemblyReference.cache
+D:\Projects\Visitor Management\Final\IVMS_Repository\Device\obj\Debug\Device.dll
+D:\Projects\Visitor Management\Final\IVMS_Repository\Device\obj\Debug\Device.pdb
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository\Device\bin\Debug\App.config
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository\Device\bin\Debug\Device.dll
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository\Device\bin\Debug\Device.pdb
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository\Device\bin\Debug\BLL.dll
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository\Device\bin\Debug\EntityFramework.dll
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository\Device\bin\Debug\DAL.dll
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository\Device\bin\Debug\BLL.pdb
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository\Device\bin\Debug\EntityFramework.xml
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository\Device\bin\Debug\DAL.pdb
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository\Device\obj\Debug\Device.csprojResolveAssemblyReference.cache
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository\Device\obj\Debug\Device.dll
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository\Device\obj\Debug\Device.pdb
+D:\Projects\Visitor Management\13.01.2020\IVMS_Repository\Device\bin\Debug\App.config
+D:\Projects\Visitor Management\13.01.2020\IVMS_Repository\Device\bin\Debug\Device.dll
+D:\Projects\Visitor Management\13.01.2020\IVMS_Repository\Device\bin\Debug\Device.pdb
+D:\Projects\Visitor Management\13.01.2020\IVMS_Repository\Device\bin\Debug\BLL.dll
+D:\Projects\Visitor Management\13.01.2020\IVMS_Repository\Device\bin\Debug\EntityFramework.dll
+D:\Projects\Visitor Management\13.01.2020\IVMS_Repository\Device\bin\Debug\DAL.dll
+D:\Projects\Visitor Management\13.01.2020\IVMS_Repository\Device\bin\Debug\BLL.pdb
+D:\Projects\Visitor Management\13.01.2020\IVMS_Repository\Device\bin\Debug\EntityFramework.xml
+D:\Projects\Visitor Management\13.01.2020\IVMS_Repository\Device\bin\Debug\DAL.pdb
+D:\Projects\Visitor Management\13.01.2020\IVMS_Repository\Device\obj\Debug\Device.csprojResolveAssemblyReference.cache
+D:\Projects\Visitor Management\13.01.2020\IVMS_Repository\Device\obj\Debug\Device.dll
+D:\Projects\Visitor Management\13.01.2020\IVMS_Repository\Device\obj\Debug\Device.pdb
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository_UpdatedInBank\Device\bin\Debug\App.config
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository_UpdatedInBank\Device\bin\Debug\Device.dll
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository_UpdatedInBank\Device\bin\Debug\Device.pdb
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository_UpdatedInBank\Device\bin\Debug\BLL.dll
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository_UpdatedInBank\Device\bin\Debug\EntityFramework.dll
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository_UpdatedInBank\Device\bin\Debug\DAL.dll
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository_UpdatedInBank\Device\bin\Debug\BLL.pdb
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository_UpdatedInBank\Device\bin\Debug\EntityFramework.xml
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository_UpdatedInBank\Device\bin\Debug\DAL.pdb
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository_UpdatedInBank\Device\obj\Debug\Device.csprojResolveAssemblyReference.cache
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository_UpdatedInBank\Device\obj\Debug\Device.dll
+D:\Projects\Visitor_Management\Final\Without_Biomatric_Device\IVMS_Repository_UpdatedInBank\Device\obj\Debug\Device.pdb
+D:\Projects\Visitor_Management\NCC Bank\Device\bin\Debug\App.config
+D:\Projects\Visitor_Management\NCC Bank\Device\bin\Debug\Device.dll
+D:\Projects\Visitor_Management\NCC Bank\Device\bin\Debug\Device.pdb
+D:\Projects\Visitor_Management\NCC Bank\Device\bin\Debug\BLL.dll
+D:\Projects\Visitor_Management\NCC Bank\Device\bin\Debug\EntityFramework.dll
+D:\Projects\Visitor_Management\NCC Bank\Device\bin\Debug\DAL.dll
+D:\Projects\Visitor_Management\NCC Bank\Device\bin\Debug\BLL.pdb
+D:\Projects\Visitor_Management\NCC Bank\Device\bin\Debug\EntityFramework.xml
+D:\Projects\Visitor_Management\NCC Bank\Device\bin\Debug\DAL.pdb
+D:\Projects\Visitor_Management\NCC Bank\Device\obj\Debug\Device.csprojResolveAssemblyReference.cache
+D:\Projects\Visitor_Management\NCC Bank\Device\obj\Debug\Device.dll
+D:\Projects\Visitor_Management\NCC Bank\Device\obj\Debug\Device.pdb
+D:\Projects\Visitor Management\20.01.2020\NCC Bank\Device\bin\Debug\App.config
+D:\Projects\Visitor Management\20.01.2020\NCC Bank\Device\bin\Debug\Device.dll
+D:\Projects\Visitor Management\20.01.2020\NCC Bank\Device\bin\Debug\Device.pdb
+D:\Projects\Visitor Management\20.01.2020\NCC Bank\Device\bin\Debug\BLL.dll
+D:\Projects\Visitor Management\20.01.2020\NCC Bank\Device\bin\Debug\EntityFramework.dll
+D:\Projects\Visitor Management\20.01.2020\NCC Bank\Device\bin\Debug\DAL.dll
+D:\Projects\Visitor Management\20.01.2020\NCC Bank\Device\bin\Debug\BLL.pdb
+D:\Projects\Visitor Management\20.01.2020\NCC Bank\Device\bin\Debug\EntityFramework.xml
+D:\Projects\Visitor Management\20.01.2020\NCC Bank\Device\bin\Debug\DAL.pdb
+D:\Projects\Visitor Management\20.01.2020\NCC Bank\Device\obj\Debug\Device.csprojResolveAssemblyReference.cache
+D:\Projects\Visitor Management\20.01.2020\NCC Bank\Device\obj\Debug\Device.dll
+D:\Projects\Visitor Management\20.01.2020\NCC Bank\Device\obj\Debug\Device.pdb
+D:\Projects\Visitor_Management\28.01.2020\NCC Bank\Device\bin\Debug\App.config
+D:\Projects\Visitor_Management\28.01.2020\NCC Bank\Device\bin\Debug\Device.dll
+D:\Projects\Visitor_Management\28.01.2020\NCC Bank\Device\bin\Debug\Device.pdb
+D:\Projects\Visitor_Management\28.01.2020\NCC Bank\Device\bin\Debug\BLL.dll
+D:\Projects\Visitor_Management\28.01.2020\NCC Bank\Device\bin\Debug\EntityFramework.dll
+D:\Projects\Visitor_Management\28.01.2020\NCC Bank\Device\bin\Debug\DAL.dll
+D:\Projects\Visitor_Management\28.01.2020\NCC Bank\Device\bin\Debug\BLL.pdb
+D:\Projects\Visitor_Management\28.01.2020\NCC Bank\Device\bin\Debug\EntityFramework.xml
+D:\Projects\Visitor_Management\28.01.2020\NCC Bank\Device\bin\Debug\DAL.pdb
+D:\Projects\Visitor_Management\28.01.2020\NCC Bank\Device\obj\Debug\Device.csprojResolveAssemblyReference.cache
+D:\Projects\Visitor_Management\28.01.2020\NCC Bank\Device\obj\Debug\Device.dll
+D:\Projects\Visitor_Management\28.01.2020\NCC Bank\Device\obj\Debug\Device.pdb
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\App.config
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\Device.dll
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\Device.pdb
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\BLL.dll
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\DAL.dll
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\EntityFramework.dll
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\System.Web.Mvc.dll
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\Microsoft.ReportViewer.WebForms.dll
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\System.Web.Razor.dll
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\System.Web.WebPages.dll
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\BLL.pdb
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\BLL.dll.config
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\DAL.pdb
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\DAL.dll.config
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\EntityFramework.xml
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\System.Web.Mvc.xml
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\Microsoft.ReportViewer.WebForms.xml
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\System.Web.Razor.xml
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\System.Web.WebPages.xml
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\Microsoft.Web.Infrastructure.xml
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\obj\Debug\Device.csprojAssemblyReference.cache
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\obj\Debug\Device.csproj.CoreCompileInputs.cache
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\obj\Debug\Device.csproj.CopyComplete
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\obj\Debug\Device.dll
+D:\Projects\Visitor Management\30-01-2020\NCC Bank\Device\obj\Debug\Device.pdb
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\bin\Debug\App.config
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\bin\Debug\Device.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\bin\Debug\Device.pdb
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\bin\Debug\BLL.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\bin\Debug\EntityFramework.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\bin\Debug\DAL.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\bin\Debug\System.Web.Mvc.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\bin\Debug\System.Web.Razor.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\bin\Debug\System.Web.WebPages.Razor.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\bin\Debug\System.Web.WebPages.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\bin\Debug\BLL.pdb
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\bin\Debug\EntityFramework.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\bin\Debug\DAL.pdb
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\obj\Debug\Device.csprojResolveAssemblyReference.cache
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\obj\Debug\Device.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\obj\Debug\Device.pdb
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\Device\bin\Debug\Device.dll.config
+D:\Projects\Visitor_Management\NCC Bank\Device\bin\Debug\Device.dll.config

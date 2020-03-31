@@ -1,0 +1,291 @@
+﻿@{
+    ViewBag.Title = "IVMS Login";
+    Layout = null;
+}
+<!-- start: LOGIN -->
+<link href="~/Content/user_define/form-style/fonts.css" rel="stylesheet" />
+<link href="~/Content/user_define/form-style/flexslider.css" rel="stylesheet" />
+<style>
+    .login-branch {
+        width: 310px !important;
+    }
+
+    .branch-form {
+        display: none;
+    }
+
+    .login-form {
+        display: block;
+    }
+
+    .inv_mkl_left {
+        margin-left: -6%;
+        font-family: 'Montserrat' !important;
+        color: #999999;
+        font-size: 7px;
+        font-weight: 400;
+    }
+
+    .content-login {
+        position: absolute;
+        z-index: 15;
+        top: 47%;
+        left: 0px;
+        padding-left: 37px;
+        margin: -100px 0 0 0px;
+    }
+
+    .slidelogin {
+        overflow: hidden;
+    }
+
+    .slidelogin img {
+        position: absolute;
+        bottom: 0px;
+    }
+    #loading {
+        position: absolute;
+        opacity: 0.5;
+        background-color: #fff !important;
+        z-index: 99999;
+        width: 100%;
+        height: 100%;
+    }
+
+    #imagen {
+        position: absolute;
+        top: 7%;
+        left: 77%;
+        z-index: 100;
+    }
+    .login_body {
+        padding: 15px;
+        width: 100%;
+        display: block;
+        position: relative;
+        height: 100vh;
+    }
+    .select2-container .select2-choice {
+        height: 41px;
+        line-height: 33px;
+        border-radius: 5px;
+    }
+    .select2-container.ng-valid:before {
+        height: 41px;
+        border-radius: 5px 0px 0px 5px;
+    }
+    
+</style>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 nopad">
+        <div class="slidelogin hidden-xs">
+            <img src="~/Content/user_define/images/slid4.png" alt="invogue" title="invogue" />
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 nopad">
+        <div class="login-container bg-white " ng-controller="logInController">
+            <div ng-init="loadDropdowns()">
+
+                <div id="loading">
+                    <img id="imagen" src="~/Content/built_in/pages/img/progress/progress-circle-success.svg" alt="Loading..."/>
+                </div>
+
+                <div class="p-l-20 p-r-20">
+                    <div class="panel-body login_body">
+                        @using (Html.BeginForm("login", "security", FormMethod.Post, new {@id = "form-login", @class = "p-t-15", role = "form", autocomplete = "off"}))
+                        {
+                            <div class="content-login">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                                        <div class="form-group" style="font-size: 20px; font-family: Segoe UI; margin-bottom: 40px;">
+                                            <strong style="color: #e36204;">NCC</strong> VMS
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="login-form">
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                                            <div class="form-group">
+                                                <select2 style="width: 330px;" ng-model="login.CompanyID" s2-options="work.CompanyID as work.Name for work in companyList" ng-change="companyWiseBranch()" required  placeholder="Select Company">
+                                                </select2>
+
+                                                <div class="clr"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                                            <div class="form-group">
+                                                <select2 style="width:330px;" ng-model="login.BranchID" s2-options="work.BranchID as work.Name for work in branchList" required
+                                                         placeholder="Select Branch">
+                                                </select2>
+
+                                                <div class="clr"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" style="width: 330px;height: 41px;border-radius: 5px;font-size: 15px !important" ng-model="login.UserName" data-ng-keypress="onEnterKeyPress($event)" placeholder="User Id" required/>
+                                                <div class="clr"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" style="width: 330px;height: 41px;border-radius: 5px;font-size: 15px !important" ng-model="login.Password" data-ng-keypress="onEnterKeyPress($event)" placeholder="Password" required/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 no-padding">
+                                            <div class="checkbox ">
+                                                <input type="checkbox" value="1" id="checkbox1">
+                                                <label for="checkbox1">Keep Me Signed in</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div style="margin-bottom: 20px"></div>
+                                    <div class="btn btn-success custom-btn1 mr0" id="btnSignin" ng-click="loginUser()">Sign in</div>
+                                </div>
+                            </div>
+
+                            <div style="bottom: 30px; left: 32px; position: absolute; right: 32px;">
+                                <div style="float: left;" class="">
+                                    <img style="float: left;" src="@Url.Content("~/Content/built_in/assets/img/logo6.png")" alt="logo" data-src="@Url.Content("~/Content/built_in/assets/img/logo6.png")" data-src-retina="@Url.Content("~/Content/built_in/assets/img/logo_2x.png")" width="20" height="30">
+
+                                    <div class="inv_mkl_left" style="width: 200px; margin-top: 8px;"> invoguesoft.com (880) 989-3572</div>
+                                </div>
+                                <div class="inv_mkl_left" style="float: right; margin-top: 8px; right: 0;">a INVOGUE SOFTWARE LIMITED Company</div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end: LOGIN -->
+<script src="~/Content/user_define/js/custom.js"></script>
+<script src="~/Content/user_define/js/jquery.flexslider.js"></script>
+<script src="~/Content/user_define/js/jquery.cookie.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var slideloginHeight = $(window).outerHeight();
+        $(".slidelogin").css({ "height": slideloginHeight });
+
+        $(".slidelogin img").css({ "height": slideloginHeight + 100 });
+        // Login after enter key press in password textbox.
+        //$('.input').keypress(function (e) {
+        //    if (e.which == 13) {
+        //        login();
+        //        return false;
+        //    }
+        //});
+        // Hide Loader
+        $('#loading').hide();
+
+        // Set Value from Cookie In Login Form
+        //var com = $.cookie('CompanyName');
+        //var brnch = $.cookie('BranchName');
+        //var uName = $.cookie('UserName');
+        //var pass = $.cookie('password');
+        //if (com != null && brnch != null && uName != null && pass != null) {
+        //    $('#CompanyID').val(comName);
+        //    $('#BranchID').val(brnName);
+        //    $('#UserId').val(uName);
+        //    $('#PasswordID').val(pass);
+        //    $('#checkbox1').attr('checked', 'checked');
+        //}
+        //else {
+        //    $('#CompanyID').val('');
+        //    $('#BranchID').val('');
+        //    $('#UserId').val('');
+        //    $('#PasswordID').val('');
+        //    $('#checkbox1').removeAttr('checked');
+        //}
+
+        // Sign In Button
+        //$("#btnSignin").click(function () {
+        //    login();
+        //});
+
+        @*function login() {
+
+            var data = {
+                "CompanyID": $("#CompanyID").val(),
+                "BranchID": $("BranchID").val(),
+                "UserName": $('#UserId').val(),
+                "Password": $('#PasswordH').val(),
+                "rememberme": $('#checkbox1').is(':checked')
+            };
+
+            var isValidItem = true;
+            //Login if valid
+            if (isValidItem) {
+
+                $.ajax({
+                    url: '@Url.Action("Login", "Security")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ model: data }),
+                    async: false,
+                    processData: false,
+                    cache: false,
+                    beforeSend: function () {
+                        $('#loading').show();
+                    },
+                    complete: function () {
+                        //setTimeout(function () { $(".login-form").hide(); }, 2000);
+                        setTimeout(function () { $("#loading").hide(); }, 2000);
+                        //setTimeout(function () { $(".branch-form").show(); }, 2020);
+                    },
+                    success: function (data) {
+                        if (data.success == true) {
+                            location.reload();
+                        }
+                        else {
+                            location.reload();
+                            alert(data.message);
+                        }
+                    },
+                    error: function (xhr) {
+                        alert("error");
+                    }
+                });
+            }
+            else {
+                alert('error');
+            };
+        }*@
+
+
+
+        //Windows Load
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                controlsContainer: ".slider-num",
+                //animation: "slide",
+                animation: "fade",
+                animationSpeed: 1000,
+                slideshowSpeed: 5000,
+                directionNav: false,
+                slideshow: true,
+                sync: ".flexslider-manual-controls-second"
+            });
+        });
+    }) 
+</script>

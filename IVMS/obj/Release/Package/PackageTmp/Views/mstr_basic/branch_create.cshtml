@@ -1,0 +1,309 @@
+﻿@model DAL.db.Branch
+@*@using Presentation.Areas.Inventory.Models..Common*@
+
+@{
+    ViewBag.Title = "Branch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section section_top
+{
+    <link href="~/Content/built_in/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" />
+    <link href="~/Content/built_in/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" /> 
+}
+
+<div class="container-fluid container-fixed-lg">
+    <div class="panel panel-transparent">
+        <div class="panel-heading">
+            <div class="panel-title">
+                Branch Information
+            </div>
+        </div>
+        <div class="panel-body">
+            @using (Html.BeginForm("frmbranch_create", "mstr_basic", FormMethod.Post, new { @id = "form-work", @class = "form-horizontal xl-mlr10", role = "form", autocomplete = "off" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.BranchId)
+                <div style="margin-left:0px; color:#ff6a00; font-size:16px; margin-bottom:10px;" class="viewbag-validation">@ViewBag.Validation</div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label class="left-col control-label" for="OrganizationName">Org. Name</label>
+                                <div class="right-col">
+                                    <div class="ibs-pos-rel">
+                                        @Html.DropDownList("OrganizationID", (SelectList)ViewData["cboOrganizationID"], ">> Select ", new { @class = "full-width", @id = "OrganizationID", data_init_plugin = "select2" })
+                                    </div>
+                                    <span class="ibserror" id="Err_OrganizationID">Organization is required.</span>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label class="left-col control-label" for="BranchCode">Branch Code</label>
+                                <div class="right-col">
+                                    @Html.TextBoxFor(model => model.BranchCode, new { @maxlength = 2, @class = "form-control IsNumber", @placeholder = "Branch Code", @disabled = "disabled" })
+                                    <span class="ibserror" id="Err_BranchCode">Branch Code is required.</span>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label class="left-col control-label" for="BranchName">Branch Name</label>
+                                <div class="right-col">
+                                    @Html.TextBoxFor(model => model.BranchName, new { @class = "form-control", @placeholder = "Branch Name" })
+                                    <span class="ibserror" id="Err_BranchName">Branch Name is required.</span>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label class="left-col control-label" for="LunchDate">Launch Date</label>
+                                <div class="right-col">
+                                    <div id="datepicker-component" class="input-group date">
+                                        @Html.TextBoxFor(model => model.LaunchDate, "{0:dd-MMM-yyyy}", new { @class = "form-control", @id = "LaunchDate", @placeholder = "Date", @readonly = "readonly" })
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                    <span class="ibserror" id="Err_LaunchDate">Launch Date is required.</span>
+                                </div>
+                                <span class="error">*</span>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label class="left-col control-label" for="ReportAddress1">Address 1</label>
+                                <div class="right-col">
+                                    @Html.TextAreaFor(model => model.ReportAddress1, new { @class = "form-control", @placeholder = "Report Address 1" })
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label class="left-col control-label" for="ReportAddress2">Address 2</label>
+                                <div class="right-col">
+                                    @Html.TextAreaFor(model => model.ReportAddress2, new { @class = "form-control", @placeholder = "Report Address 2" })
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 frm-manage-pad2">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label class="left-col control-label" for="BranchStatus">Branch Status</label>
+                                <div class="right-col">
+                                    <div class="ibs-pos-rel">
+                                        @Html.DropDownList("BranchStatus", (SelectList)ViewData["cboStatus"], new { @class = "full-width", @id = "BranchStatus", data_init_plugin = "select2", @disabled = "disabled" })
+                                    </div>
+                                    <span class="ibserror" id="Err_BranchStatus">Branch Status is required.</span>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 frm-manage-pad2">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label for="fname" class="left-col control-label"></label>
+                                <div class="right-col mt-org1">
+                                    <button type="button" class="btn btn-success custom-btn1 @ViewBag.btnVsbSubmit" id="btnSubmit">Submit</button>
+                                    <button type="button" class="btn btn-success custom-btn1 @ViewBag.btnVsbSave" id="btnSave">Save</button>
+                                    <div class="btn btn-default custom-btn1" id="btnClear"><i class="pg-close"></i> Clear</div>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+
+@section section_footer
+{ 
+<script src="~/Content/built_in/assets/plugins/bootstrap-select2/select2.min.js"></script>
+<script src="~/Content/built_in/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("select").select2({
+                dropdownAutoWidth: true
+            });
+
+            //Status Disable false
+            if ($("#BranchId").val() > 0) {
+                $("#BranchStatus").prop("disabled", false);
+            }
+
+            //Branch Code characters Validation
+            $("#BranchCode").blur(function () {
+                var BranchCode = $('#BranchCode').val().length;
+                if (BranchCode != 2) {
+                    $('#Err_BranchCode').show();
+                    $("#Err_BranchCode").html("Branch Code must be 2 characters.");
+                }
+            });
+
+            //Branch Code characters Validation
+            $("#BranchCode").keypress(function () {
+                $("#Err_BranchCode").show();
+                $("#Err_BranchCode").html("Branch Code must be 2 characters.");
+            });
+
+
+
+            //Branch Code Button
+            $("#btnClear").click(function () {
+                FrmClear(true);
+            });
+
+            $("#btnSubmit, #btnSave").on('click', function () {
+                //e.preventDefault();
+                var isValid = checkRequiredField();
+                if (isValid) {
+                    var id = $('#BranchId').val();
+                    if (id == '') {
+                        id = 0;
+                    }
+                               
+                    var branchInfo = {
+                        BranchId: id,
+                        OrganizationID: $('#OrganizationID').val(),
+                        BranchName: $('#BranchName').val(),
+                        BranchCode: $("#BranchCode").val() == "" ? 0 : ($("#BranchCode").val()),
+                        LaunchDate: $('#LaunchDate').val(),
+                        ReportAddress1: $('#ReportAddress1').val(),
+                        ReportAddress2: $('#ReportAddress2').val(),
+                        BranchStatus: $('#BranchStatus').val()
+                    }
+
+                    $.ajax({
+                        url: '@Url.Action("FxBranchCreate", "mstr_basic")',
+                        dataType: "json",
+                        type: "POST",
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify(branchInfo),
+                        async: false,
+                        processData: false,
+                        cache: false,
+                        success: function (data) {
+                            if (data.isCompleted == true) {
+                                ShowOpMessage("Submit", true, "FrmClear");
+                                $('.jqiclose').html('');
+                            }
+                            else { 
+                                if (data.sMessage != "") {
+                                    ShowMessageBox_OK(data.sMessage, "Warning", "");
+                                }
+                                else { 
+                                    $.each(data.Errors, function (key) {
+                                        if (data.Errors[key].Value != null) {
+                                            $("#Err_" + data.Errors[key].Key.replace('.', '')).show();
+                                            $("#Err_" + data.Errors[key].Key.replace('.', '')).html(data.Errors[key].Value);
+                                        }
+                                    });
+                                }
+                            }                            
+                        },
+                        error: function (xhr) {
+                            ShowMessageBox_OK("Branch Operation Failed.", "Error", ""); 
+                        }
+                    });
+                }
+            });
+        });
+
+        function FrmClear(v) {
+            if (v) {
+                $('#OrganizationID').select2('val', '');
+                $('#BranchId').val('0');
+                $('#BranchName').val('');
+                $('#BranchCode').val('');
+                $('#LaunchDate').val('');
+                $('#ReportAddress1').val('');
+                $('#ReportAddress2').val('');
+                $('#BranchStatus').select2('val', '0');
+                $("#BranchStatus").prop("disabled", true);
+                $("#btnSubmit")
+                $("#btnVsbSave")
+                $(".ibserror").hide();
+                window.history.pushState("", "", "/mstr_basic/branch_create");
+            }
+        }
+
+        function checkRequiredField() {
+            var isValidItem = true;
+            if ($('#OrganizationID').val() == '') {
+                isValidItem = false;
+                $('#Err_OrganizationID').show();
+            }
+            else {
+                $('#Err_OrganizationID').hide();
+            }
+            if ($('#BranchName').val() == '') {
+                isValidItem = false;
+                $('#Err_BranchName').show();
+            }
+            else {
+                $('#Err_BranchName').hide();
+            }
+            //if ($('#BranchCode').val() == '') {
+            //    isValidItem = false;
+            //    $('#Err_BranchCode').show();
+            //}
+            //else {
+            //    $('#Err_BranchCode').hide();
+            //}
+            if ($('#LaunchDate').val() == '') {
+                isValidItem = false;
+                $('#Err_LaunchDate').show();
+            }
+            else {
+                $('#Err_LaunchDate').hide();
+            }
+            if ($('#BranchStatus').val() == '') {
+                isValidItem = false;
+                $('#Err_BranchStatus').show();
+            }
+            else {
+                $('#Err_BranchStatus').hide();
+            }
+            return isValidItem;
+        }
+    </script>
+}

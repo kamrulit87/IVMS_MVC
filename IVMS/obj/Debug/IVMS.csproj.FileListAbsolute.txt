@@ -1,0 +1,133 @@
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\App.config
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\IVMS.dll.config
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\IVMS.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\IVMS.pdb
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Antlr3.Runtime.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\BLL.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\DAL.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Device.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\EntityFramework.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\EntityFramework.SqlServer.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.AspNet.Identity.Core.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.Security.Cookies.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.Security.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.Security.Facebook.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.Security.Google.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.Security.OAuth.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.Security.Twitter.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Web.Infrastructure.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Newtonsoft.Json.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Owin.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\System.Web.Helpers.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\System.Web.Mvc.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\System.Web.Optimization.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\System.Web.Razor.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\System.Web.WebPages.Deployment.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\System.Web.WebPages.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\System.Web.WebPages.Razor.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\WebGrease.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\BLL.pdb
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\DAL.pdb
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Device.pdb
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\System.Web.Helpers.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\System.Web.Mvc.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\System.Web.Razor.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\System.Web.WebPages.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\System.Web.WebPages.Deployment.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\System.Web.WebPages.Razor.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\System.Web.Optimization.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Antlr3.Runtime.pdb
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Newtonsoft.Json.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\EntityFramework.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\EntityFramework.SqlServer.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.AspNet.Identity.Core.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.Security.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.Security.Facebook.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.Security.Cookies.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.Security.OAuth.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.Security.Google.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.Security.Twitter.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\obj\Debug\IVMS.csprojResolveAssemblyReference.cache
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\obj\Debug\IVMS.csproj.ResolveComReference.cache
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\obj\Debug\RdlCompile.cache
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\obj\Debug\RdlCompile.compiled
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\obj\Debug\IVMS.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\IVMS\obj\Debug\IVMS.pdb
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\App.config
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\IVMS.dll.config
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\IVMS.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\IVMS.pdb
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Antlr3.Runtime.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\BLL.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\DAL.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Device.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\EntityFramework.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\EntityFramework.SqlServer.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.Security.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.Security.Google.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Newtonsoft.Json.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Owin.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\System.Web.Helpers.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\System.Web.Mvc.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\System.Web.Optimization.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\System.Web.Razor.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\System.Web.WebPages.Deployment.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\System.Web.WebPages.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\System.Web.WebPages.Razor.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\WebGrease.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\BLL.pdb
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\DAL.pdb
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Device.pdb
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\System.Web.Helpers.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\System.Web.Mvc.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\System.Web.Razor.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\System.Web.WebPages.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\System.Web.WebPages.Deployment.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\System.Web.WebPages.Razor.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\System.Web.Optimization.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Antlr3.Runtime.pdb
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Newtonsoft.Json.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\EntityFramework.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\EntityFramework.SqlServer.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.Security.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.Security.Google.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Projects\Visitor_Management\NCC Bank\IVMS\obj\Debug\IVMS.csprojResolveAssemblyReference.cache
+D:\Projects\Visitor_Management\NCC Bank\IVMS\obj\Debug\IVMS.csproj.ResolveComReference.cache
+D:\Projects\Visitor_Management\NCC Bank\IVMS\obj\Debug\RdlCompile.cache
+D:\Projects\Visitor_Management\NCC Bank\IVMS\obj\Debug\RdlCompile.compiled
+D:\Projects\Visitor_Management\NCC Bank\IVMS\obj\Debug\IVMS.dll
+D:\Projects\Visitor_Management\NCC Bank\IVMS\obj\Debug\IVMS.pdb
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Areas\Reports\RDLC\BlankLandscape.rdlc
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Areas\Reports\RDLC\BlankPortrait.rdlc
+D:\Projects\Visitor_Management\NCC Bank\IVMS\bin\Areas\Reports\RDLC\VisitorInOutReport.rdlc

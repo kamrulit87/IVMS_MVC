@@ -1,0 +1,13 @@
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Release\App.config
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Release\BLL.dll.config
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Release\BLL.dll
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Release\BLL.pdb
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Release\DAL.dll
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Release\EntityFramework.dll
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Release\EntityFramework.SqlServer.dll
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Release\DAL.pdb
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Release\EntityFramework.xml
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Release\EntityFramework.SqlServer.xml
+D:\Projects\Visitor_Management\NCC Bank\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+D:\Projects\Visitor_Management\NCC Bank\BLL\obj\Release\BLL.dll
+D:\Projects\Visitor_Management\NCC Bank\BLL\obj\Release\BLL.pdb

@@ -1,0 +1,257 @@
+﻿@model DAL.db.UserMultipleAccess
+@{
+    ViewBag.Title = "User Multiple Access Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section section_top
+{
+    <link href="~/Content/built_in/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" />
+    <link href="~/Content/built_in/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
+}
+
+<div class="container-fluid container-fixed-lg">
+    <div class="panel panel-transparent">
+        <div class="panel-heading">
+            <div class="panel-title">
+                User Multiple Access Information
+            </div>
+        </div>
+
+        <div class="panel-body">
+            @using (Html.BeginForm("multiple_usergroup_manager_create", "security", FormMethod.Post, new { @id = "form-work", @class = "form-horizontal xl-mlr10", role = "form", autocomplete = "off" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.UserMultipleAccessId)
+                
+                <div style="margin-left:0px; color:#ff6a00; font-size:16px; margin-bottom:10px;" class="viewbag-validation">@ViewBag.SuccessMsg</div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label for="IdUserName" class="left-col control-label">User Name</label>
+                                <div class="right-col">
+                                    <div class="ibs-pos-rel">
+                                        @Html.DropDownList("PasswordId", (SelectList)ViewData["CboPasswordId"], ">> Select", new { @class = "full-width cmbo", data_init_plugin = "select2" })
+                                    </div>
+                                    <span class="ibserror" id="Err_PasswordId">User ID is required.</span>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label for="IdBranch" class="left-col control-label">Branch</label>
+                                <div class="right-col">
+                                    <div class="ibs-pos-rel">
+                                        @Html.DropDownList("BranchCode", (SelectList)ViewData["CboBranchCode"], ">> Select", new { @class = "full-width cmbo", data_init_plugin = "select2" })
+                                    </div>
+                                    <span class="ibserror" id="Err_BranchCode">Branch Name is required.</span>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label class="left-col control-label">Status</label>
+                                <div class="right-col">
+                                    <div class="ibs-pos-rel">
+                                        <select class="full-width" data-init-plugin="select2" name="CboStatus" id="CboStatus" disabled="disabled">
+                                            <option value="0" @(ViewBag.CboStatus == "0" ? "selected" : String.Empty)>Active</option>
+                                            <option value="1" @(ViewBag.CboStatus == "1" ? "selected" : String.Empty)>Inactive</option>
+                                        </select>
+                                    </div>
+                                    <span class="ibserror" id="Err_CboStatus">Status is required.</span>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 frm-manage-pad2">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label for="fname" class="left-col control-label"></label>
+                                <div class="right-col mt-org1">
+                                    <button class="btn btn-success custom-btn1 @ViewBag.btnVsbSubmit" name="Submit" type="button" id="btnSubmit">Submit</button>
+                                    <button class="btn btn-success custom-btn1  @ViewBag.btnVsbSave" name="Edit" type="button" id="btnSave">Save</button>
+                                    <div class="btn btn-default custom-btn1" id="btnClear"><i class="pg-close"></i> Clear</div>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+@section section_footer
+{
+    <script src="~/Content/built_in/assets/plugins/bootstrap-select2/select2.min.js"></script>
+    <script src="~/Content/built_in/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+    <script>
+    $(document).ready(function () {
+        //Status Disable false
+        if ($("#UserMultipleAccessId").val() > 0) {
+            $("#CboStatus").prop("disabled", false);
+        }
+
+        $("#btnClear").click(function () {
+            FrmClear(true)
+        });
+
+        $("#btnSubmit").click(function () {
+            if (IsFrmValid()) {
+                var data = {
+                    PasswordId: $("#PasswordId").val().trim(),
+                    UserId: $('#PasswordId').select2('data').text,
+                    BranchCode: $("#BranchCode").val().trim(),
+                    Status: $("#CboStatus").val().trim()
+                };
+
+                console.log(data);
+                $.ajax({
+                    url: '@Url.Action("FxUMASubmit", "security")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(data),
+                    async: false,
+                    processData: false,
+                    cache: false,
+                    success: function (data) {
+                        if (data.isCompleted == true) {
+                            ShowOpMessage("Submit", true, "FrmClear");
+                            $('.jqiclose').html('');
+                        }
+                        else {
+                            $.each(data.Errors, function (key) {
+                                if (data.Errors[key].Value != null) {
+                                    $("#Err_" + data.Errors[key].Key.replace('.', '')).show();
+                                    $("#Err_" + data.Errors[key].Key.replace('.', '')).html(data.Errors[key].Value);
+                                }
+                            });
+
+                        }
+                    },
+                    error: function (xhr) {
+                        ShowOpMessage("Submit", false, "");
+                    }
+                });
+            };
+        });
+
+
+        // Cost Center Save Button
+        $("#btnSave").click(function () {
+            if (IsFrmValid()) {
+                var data = {
+                    UserMultipleAccessId: $("#UserMultipleAccessId").val(),
+                    PasswordId: $("#PasswordId").val().trim(),
+                    UserId: $('#PasswordId').select2('data').text,
+                    BranchCode: $("#BranchCode").val().trim(),
+                    Status: $("#CboStatus").val().trim()
+                };
+                console.log(data);
+
+                $.ajax({
+                    url: '@Url.Action("FxUMASubmit", "security")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(data),
+                    async: false,
+                    processData: false,
+                    cache: false,
+                    success: function (data) {
+                        if (data.isCompleted == true) {
+                            ShowOpMessage("Save", true, "FrmClear");
+                            $('.jqiclose').html('');
+                        }
+                        else {
+                            $.each(data.Errors, function (key) {
+                                if (data.Errors[key].Value != null) {
+                                    $("#Err_" + data.Errors[key].Key.replace('.', '')).show();
+                                    $("#Err_" + data.Errors[key].Key.replace('.', '')).html(data.Errors[key].Value);
+                                }
+                            });
+                        }
+                    },
+                    error: function (xhr) {
+                        ShowOpMessage("Save", false, "");
+                    }
+                });
+            };
+        });
+
+    });
+
+
+    function IsFrmValid() {
+        var isValidItem = true;
+
+        if ($('#PasswordId').val().trim() == '') {
+            isValidItem = false;
+            $('#Err_PasswordId').show();
+        }
+        else {
+            $('#Err_PasswordId').hide();
+        }
+
+        if ($('#BranchCode').val() == '') {
+            isValidItem = false;
+            $('#Err_BranchCode').show();
+        }
+        else {
+            $('#Err_BranchCode').hide();
+        }
+
+        if ($('#CboStatus').val() == '') {
+            isValidItem = false;
+            $('#Err_CboStatus').show();
+        }
+        else {
+            $('#Err_CboStatus').hide();
+        }
+
+        return isValidItem;
+    }
+
+
+    function FrmClear(v) {
+        if (v) {
+            $('#UserMultipleAccessId').val("0");
+            $('#PasswordId').select2("val", "");
+            $('#BranchCode').select2("val", "");
+            $('#CboStatus').select2("val", "0");
+
+
+            $('#btnSave').hide();
+            $('#btnSubmit').removeClass("visibility: hidden");
+            $('.ibserror').hide();
+            window.history.pushState("", "", "/security/multiple_usergroup_manager_create");
+        }
+    }
+    </script>
+
+}
+
+
+
+
+

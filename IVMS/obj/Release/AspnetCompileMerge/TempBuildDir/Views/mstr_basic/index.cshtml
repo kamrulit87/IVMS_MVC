@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "Calender";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@section section_top
+{
+    <link href="~/Content/calender.css" rel="stylesheet" />
+    <link href="~/Content/fullcalendar.min.css" rel="stylesheet" />
+    <link href="~/Content/fullcalendar.print.css" rel="stylesheet" media="print" />
+<link href="~/Content/built_in/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" />
+}
+<style>
+    span.fc-time {
+    display: none !important;
+} 
+</style>
+
+<h2 style="margin-top: 15px !important;margin-bottom: 30px !important;font-size: 19px !important;">Event Calendar</h2>
+<div id="calender"></div>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><span id="eventTitle"></span></h4>
+            </div>
+            <div class="modal-body">
+                <p id="pDetails"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section section_footer{
+    <script src="~/Content/moment.min.js"></script>
+    <script src="~/Content/fullcalendar.min.js"></script>
+<script src="~/Content/built_in/assets/plugins/bootstrap-select2/select2.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var events = [];
+        $.ajax({
+            type: "GET",
+            url: "/mstr_basic/GetEvents",
+            success: function (data) {
+                $.each(data, function (i, v) {
+                    if (v.AppointmentBy == "E") {
+                        events.push({
+                            title: 'Meeting With : ' + v.VisitorName,
+                            companyName: v.CompanyName,
+                            purpose: v.Purpose,
+                            start: moment(v.AppointmentDate),
+                            end: v.AppointmentTime != null ? moment(v.AppointmentTime) : null,
+                            color: "#7986CB",
+                            allDay: v.IsFullDay,
+
+                        });
+                    }
+                    if (v.AppointmentBy == "R") {
+                        events.push({
+                            title: 'Meeting With : ' + v.VisitorName,
+                            companyName: v.CompanyName,
+                            purpose: v.Purpose,
+                            start: moment(v.AppointmentDate),
+                            end: v.AppointmentTime != null ? moment(v.AppointmentTime) : null,
+                            color: "#B80672",
+                            allDay: v.IsFullDay,
+
+                        });
+                    }
+
+                }
+
+                )
+
+                GenerateCalender(events);
+            },
+            error: function (error) {
+                alert('failed');
+            }
+        })
+
+        function GenerateCalender(events) {
+            $('#calender').fullCalendar('destroy');
+            $('#calender').fullCalendar({
+                contentHeight: 400,
+                defaultDate: new Date(),
+                timeFormat: 'h(:mm)a',
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,basicWeek,basicDay'
+                },
+                eventLimit: true,
+                eventColor: '#378006',
+                events: events,
+                eventClick: function (calEvent, jsEvent, view) {
+                    $('#myModal #eventTitle').text(calEvent.title);
+                    var $purpose = $('<div/>');
+                    $purpose.append($('<p/>').html('<b>Company: </b>' + calEvent.companyName));
+                    $purpose.append($('<p/>').html('<b>Date: </b>' + calEvent.start.format("DD-MMM-YYYY ")));
+                    if (calEvent.end != null) {
+                        $purpose.append($('<p/>').html('<b>Time: </b>' + calEvent.end.format("HH:mm a")));
+                    }
+                    $purpose.append($('<p/>').html('<b>Purpose: </b>' + calEvent.purpose));
+
+
+                    $('#myModal #pDetails').empty().html($purpose);
+
+                    $('#myModal').modal();
+                }
+            })
+        }
+    })
+</script>
+
+}
+
+

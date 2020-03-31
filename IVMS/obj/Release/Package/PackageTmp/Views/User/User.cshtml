@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "User";
+    if (ViewBag.CallingForm1 == "index")
+    {
+    }
+    else
+    {
+        <ul class="breadcrumb">
+            <li><a href="#">@ViewBag.CallingForm</a></li>
+            <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+            @if (@ViewBag.CallingForm2 != null)
+            {
+                <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+            }
+        </ul>
+    }
+}
+<style>
+    input[type=search] {
+        -webkit-appearance: unset;
+        margin-left: 79%;
+        width: 21%;
+    }
+
+    .panel.panel-transparent.pt4.ng-scope {
+        margin-top: -24px;
+    }
+
+    .btn-info, .btn-info:focus {
+        color: #ffffff;
+        width: 70px;
+    }
+
+    .panel-heading a:not(.btn) {
+        color: #efeeee !important;
+        opacity: 1;
+    }
+
+    th {
+        color: #484747 !important;
+    }
+</style>
+<div ng-controller="userController">
+    <div class="panel panel-transparent">
+        <div class="panel-heading">
+            <div class="panel-title">
+                User
+            </div>
+
+            <div class="pull-right m-t-15">
+                <div id="show-modal" class="btn btn-success">
+                    <i class="fa fa-plus pr1"></i>
+                    <a href="#!/AddUser" ng-click="removeCookies()">Add New</a>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="panel-body">
+            <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped" ng-init="getUser()">
+                <thead>
+                    <tr>
+                        <th colspan="7">
+                            <input st-search id="myInput" class="input-sm form-control topsearch" type="search" placeholder="Search" style="width: 200px; float: right;" />
+                        </th>
+                        
+                    </tr>
+                    <tr>
+                        <th st-sort="UserFullName" style="width:15%">Employee Name</th>
+                        @*<th st-sort="UserFullName" style="width:15%">Full Name</th>*@
+                        <th st-sort="User" style="width:10%">User Name</th>
+                        @*<th st-sort="Address" style="width:20%">Address</th>
+                        <th st-sort="PhoneNo" style="width:10%">Contact No</th>*@
+                        <th style="width:10%">Is Active</th>
+                        <th style="width: 5%; text-align: center;">Edit </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in displayedCollection" ng-dblclick="OpenDetail(row.ID)">
+                        <td>{{row.EmpName}}</td>
+                        @*<td>{{row.UserFullName}}</td>*@
+                        <td>{{row.User}}</td>
+                        @*<td>{{row.Address}}</td>
+                        <td>{{row.PhoneNo}}</td>*@
+                        <td>
+                            <div class="checkbox_inline">
+                                <div class="checkbox check-primary checkbox-circle">
+                                    <input type="checkbox" id="checkbox{{$index+1}}" value="row.IsActive" ng-model="row.IsActive" ng-change="activeOrInActive(row.ID, row.IsActive)">
+                                    <label for="checkbox{{$index+1}}"></label>
+                                </div>
+                            </div>
+                        </td>
+                        <td align="center">
+                            <button type="button" ng-click="editRow(row)" class="btn btn-success btn-xs">
+                                <i class="fa fa-pencil"></i>
+                            </button>
+                        </td>
+                        @*<td align="center"> 
+                            <button type="button" ng-click="deleteRow(row.ID)" class="btn btn-danger btn-xs">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+                        </td>*@
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7" class="text-center">
+                            <div st-pagination="" st-items-by-page="itemsByPage"></div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+        </div>
+    </div>
+</div>
+

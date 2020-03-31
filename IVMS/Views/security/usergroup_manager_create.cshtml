@@ -1,0 +1,431 @@
+﻿@model SAL.Security.SecurityModel
+@{
+    ViewBag.Title = "User Group Manager Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section section_top
+{
+    <link href="~/Content/built_in/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" />
+    <link href="~/Content/built_in/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
+}
+
+
+<div class="container-fluid container-fixed-lg">
+    <div class="panel panel-transparent">
+        <div class="panel-heading">
+            <div class="panel-title">
+                User Group Manager Information
+            </div>
+        </div>
+
+        <div class="panel-body">
+            @using (Html.BeginForm("usergroup_manager_create", "security", FormMethod.Post, new { @id = "form-work", @class = "form-horizontal xl-mlr10", role = "form", autocomplete = "off" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <div style="margin-left:0px; color:#ff6a00; font-size:16px; margin-bottom:10px;" class="viewbag-validation">@ViewBag.Validation</div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label for="IdOrganization" class="left-col control-label">Employee Name</label>
+                                <div class="right-col">
+                                    <div class="ibs-pos-rel">
+                                        @Html.DropDownList("EmployeeID", (SelectList)ViewData["cboEmployeeName"], ">> Select", new { @class = "full-width", data_init_plugin = "select2" })
+                                    </div>
+                                    <span class="ibserror" id="Err_EmployeeID">Employee Name is required.</span>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label for="IdOrganization" class="left-col control-label">User Id</label>
+                                <div class="right-col">
+                                    @Html.HiddenFor(model => model.ObjPasswordCore.PasswordId)
+                                    @Html.TextBoxFor(model => model.ObjPasswordCore.UserId, new { @class = "form-control", @placeholder = "User Id" })
+                                    <span class="ibserror" id="Err_ObjPasswordCoreUserId">User Id is required.</span>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label for="IdOrganization" class="left-col control-label">User Name</label>
+                                <div class="right-col">
+                                    @Html.TextBoxFor(model => model.ObjPasswordCore.UserName, new { @class = "form-control", @placeholder = "User Name" })
+                                    <span class="ibserror" id="Err_ObjPasswordCoreUserName">User Name is required.</span>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+
+                <div class="row hidden">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label for="IdOrganization" class="left-col control-label">Group Name</label>
+                                <div class="right-col">
+                                    <div class="ibs-pos-rel">
+                                        @Html.DropDownList("GroupName", (SelectList)ViewData["cboGroupName"], ">> Select", new { @class = "full-width", data_init_plugin = "select2" })
+                                    </div>
+                                    <span class="ibserror" id="Err_GroupName">Group Name is required.</span>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @*<div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label for="IdBranch" class="left-col control-label">Branch</label>
+                                <div class="right-col">
+                                    <div class="ibs-pos-rel">
+                                        @Html.DropDownList("BranchId", (SelectList)ViewData["cboBranchId"], ">> Select", new { @class = "full-width", data_init_plugin = "select2", required = "required" })
+                                    </div>
+                                    <span class="ibserror" id="Err_BranchId">Branch Id is required.</span>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label class="left-col control-label" for="AdmissionDate">Passwor Date Line</label>
+                                <div class="right-col">
+                                    <div id="datepicker-component" class="input-group date">
+                                        @Html.TextBoxFor(model => model.ObjPasswordCore.PassworDateLine, "{0:dd-MMM-yyyy}", new { @class = "form-control", @placeholder = "Date" })
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                    <span class="ibserror" id="Err_ObjPasswordCorePassworDateLine">Passwor Date Line is required.</span>
+                                </div>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label for="IdOrganization" class="left-col control-label">Password</label>
+                                <div class="right-col">
+                                    @Html.TextBoxFor(model => model.ObjPasswordCore.PasswordH, new { @class = "form-control", type = "password" })
+                                    <span class="ibserror" id="Err_ObjPasswordCorePasswordH">Passwor is required.</span>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label for="IdOrganization" class="left-col control-label">Confirm Password</label>
+                                <div class="right-col">
+                                    @Html.TextBox("ConfirmPasswordH", (string)ViewBag.txtConfirmPasswordH, new { @class = "form-control ", type = "password" })
+                                    <span class="ibserror" id="Err_ConfirmPasswordH">Confirm PasswordH is required.</span>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label for="IdOrganization" class="left-col control-label">Status</label>
+                                <div class="right-col">
+                                    <div class="ibs-pos-rel">
+                                        <select class="full-width" data-init-plugin="select2" name="cboPasswordMode" id="cboPasswordMode" disabled="disabled">
+                                            <option value="0" @(ViewBag.cboPasswordMode == "0" ? "selected" : String.Empty)>Active</option>
+                                            <option value="1" @(ViewBag.cboPasswordMode == "1" ? "selected" : String.Empty)>Inactive</option>
+                                        </select>
+                                    </div>
+                                    <span class="ibserror" id="Err_Status">Status is required.</span>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 frm-manage-pad2">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label for="fname" class="left-col control-label"></label>
+                                <div class="right-col mt-org1">
+                                    <button class="btn btn-success custom-btn1 @ViewBag.btnVsbSubmit" name="Submit" type="button" id="btnSubmit">Submit</button>
+                                    <button class="btn btn-success custom-btn1  @ViewBag.btnVsbSave" name="Edit" type="button" id="btnSave">Save</button>
+                                    <div class="btn btn-default custom-btn1" id="btnClear"><i class="pg-close"></i> Clear</div>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div> 
+
+@section section_footer
+{
+    <script src="~/Content/built_in/assets/plugins/bootstrap-select2/select2.min.js"></script>
+    <script src="~/Content/built_in/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+ <script> 
+     $(document).ready(function () {
+         $("select").select2({
+             dropdownAutoWidth: true
+         });
+
+         //Status Disable false
+         if ($("#ObjPasswordCore_PasswordId").val() > 0) {
+             $("#cboPasswordMode").prop("disabled", false);
+             $("#ObjPasswordCore_UserId").prop("disabled", true);
+             $("#ObjPasswordCore_UserName").prop("disabled", true); 
+         }
+
+         $("#btnClear").click(function () {
+             FrmClear(true);
+         });
+
+         $("#btnSubmit").click(function () {
+             if (IsFrmValid()) {
+                 var data = {
+                     UserId: $("#ObjPasswordCore_UserId").val().trim(),
+                     UserName: $("#ObjPasswordCore_UserName").val().trim(),
+                     BranchId: $("#BranchId").val(),
+                     PasswordH: $("#ObjPasswordCore_PasswordH").val().trim(),
+                     PassworDateLine: $("#ObjPasswordCore_PassworDateLine").val().trim(),
+                     EmployeeID: $("#EmployeeID").val().trim()
+                 };
+
+                 $.ajax({
+                     url: '@Url.Action("FxUserGroupManagerSubmit", "security")',
+                     dataType: "json",
+                     type: "POST",
+                     contentType: 'application/json; charset=utf-8',
+                     data: JSON.stringify({ passwordCore: data, ConfirmPassword: $("#ConfirmPasswordH").val().trim(), UserGroupId: $("#GroupName").val().trim() }),
+                     //data: JSON.stringify(data),
+                     async: false,
+                     processData: false,
+                     cache: false,
+                     success: function (data) {
+                         if (data.isCompleted == true) {
+                             ShowOpMessage("Submit", true, "FrmClear");
+                             $('.jqiclose').html('');
+                         }
+                         else {
+                             if (data.sMessage != "") {
+                                 ShowWarningMsg(data.sMessage);
+                             }
+
+                             $.each(data.Errors, function (key) {
+                                 if (data.Errors[key].Value != null) {
+                                     $("#Err_" + data.Errors[key].Key.replace('.', '')).show();
+                                     $("#Err_" + data.Errors[key].Key.replace('.', '')).html(data.Errors[key].Value);
+                                 }
+                             });
+                         }
+                     },
+                     error: function (xhr) {
+                         ShowOpMessage("Submit", false, "");
+                     }
+                 });
+             };
+         });
+
+
+         // Cost Center Save Button
+         $("#btnSave").click(function () {
+             if (IsFrmValid()) {
+                 var data = {
+                     PasswordId: $("#ObjPasswordCore_PasswordId").val().trim(),
+                     UserId: $("#ObjPasswordCore_UserId").val().trim(),
+                     UserName: $("#ObjPasswordCore_UserName").val().trim(),
+                     BranchId: $("#BranchId").val(),
+                     PasswordH: $("#ObjPasswordCore_PasswordH").val().trim(),
+                     PassworDateLine: $("#ObjPasswordCore_PassworDateLine").val().trim(),
+                     PasswordMode: $("#cboPasswordMode").val().trim(),
+                     EmployeeID: $("#EmployeeID").val().trim()
+                 };
+
+                 $.ajax({
+                     url: '@Url.Action("FxUserGroupManagerSubmit", "security")',
+                     dataType: "json",
+                     type: "POST",
+                     contentType: 'application/json; charset=utf-8',
+                     data: JSON.stringify({ passwordCore: data, ConfirmPassword: $("#ConfirmPasswordH").val().trim(), UserGroupId: $("#GroupName").val().trim() }),
+                     async: false,
+                     processData: false,
+                     cache: false,
+                     success: function (data) {
+                         if (data.isCompleted == true) {
+                             ShowOpMessage("Save", true, "FrmClear");
+                             $('.jqiclose').html('');
+                         }
+                         else {
+                             if (data.sMessage != "") {
+                                 ShowWarningMsg(data.sMessage);
+                             }
+
+                             $.each(data.Errors, function (key) {
+                                 if (data.Errors[key].Value != null) {
+                                     $("#Err_" + data.Errors[key].Key.replace('.', '')).show();
+                                     $("#Err_" + data.Errors[key].Key.replace('.', '')).html(data.Errors[key].Value);
+                                 }
+                             });
+                         }
+                     },
+                     error: function (xhr) {
+                         ShowOpMessage("Save", false, "");
+                     }
+                 });
+             };
+         });
+
+     });
+
+
+     function IsFrmValid() {
+         var isValidItem = true;
+
+         if ($('#ObjPasswordCore_UserId').val().trim() == '') {
+             isValidItem = false;
+             $('#Err_ObjPasswordCoreUserId').show();
+         }
+         else {
+             $('#Err_ObjPasswordCoreUserId').hide();
+         }
+
+         if ($('#ObjPasswordCore_UserName').val() == '') {
+             isValidItem = false;
+             $('#Err_ObjPasswordCoreUserName').show();
+         }
+         else {
+             $('#Err_ObjPasswordCoreUserName').hide();
+         }
+
+         if ($('#GroupName').val() == '') {
+             isValidItem = false;
+             $('#Err_GroupName').show();
+         }
+         else {
+             $('#Err_GroupName').hide();
+         }
+
+         if ($('#EmployeeID').val() == '') {
+             isValidItem = false;
+             $('#Err_EmployeeID').show();
+         }
+         else {
+             $('#Err_EmployeeID').hide();
+         }
+
+         if ($('#BranchId').val() == '') {
+             isValidItem = false;
+             $('#Err_BranchId').show();
+         }
+         else {
+             $('#Err_BranchId').hide();
+         }
+
+
+         if ($('#ObjPasswordCore_PassworDateLine').val() == '') {
+             isValidItem = false;
+             $('#Err_ObjPasswordCorePassworDateLine').show();
+         }
+         else {
+             $('#Err_ObjPasswordCorePassworDateLine').hide();
+         }
+
+         if ($('#ObjPasswordCore_PasswordH').val() == '') {
+             isValidItem = false;
+             $('#Err_ObjPasswordCorePasswordH').show();
+         }
+         else {
+             $('#Err_ObjPasswordCorePasswordH').hide();
+         }
+
+         if ($('#ConfirmPasswordH').val() == '') {
+             isValidItem = false;
+             $('#Err_ConfirmPasswordH').show();
+         }
+         else {
+             $('#Err_ConfirmPasswordH').hide();
+         }
+
+         if ($('#cboPasswordMode').val() == '') {
+             isValidItem = false;
+             $('#Err_Status').show();
+         }
+         else {
+             $('#Err_Status').hide();
+         }
+
+         if (!isValidItem) {
+             ShowWarningMsg("Please fill the mandatory fields.");
+         }
+
+         return isValidItem;
+     }
+
+
+     function FrmClear(v) {
+         if (v) {
+             $('#ObjPasswordCore_PasswordId').val('');
+             $('#ObjPasswordCore_UserId').val('');
+             $('#ObjPasswordCore_UserName').val('');
+             //$("#GroupName").select2("val", '');
+             $("#EmployeeID").select2("val", '');
+             $("#BranchId").select2("val", '');
+             $('#ObjPasswordCore_PassworDateLine').val('');
+             $('#ObjPasswordCore_PasswordH').val('');
+             $('#ConfirmPasswordH').val('');
+             $("#cboPasswordMode").select2("val", '0').trigger("change");
+             $("#cboPasswordMode").prop("disabled", true);
+
+             $('#btnSubmit').removeClass("visibility: hidden");
+             $('#btnSubmit').show();
+             $('#btnSave').hide();
+
+             $('.ibserror').hide();
+             window.history.pushState("", "", "/security/usergroup_manager_create");
+         }
+     }
+</script>
+
+}

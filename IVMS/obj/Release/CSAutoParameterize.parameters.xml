@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IVMS_DBEntities-Web.config Connection String" description="IVMS_DBEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/db.IVMS_Model.csdl|res://*/db.IVMS_Model.ssdl|res://*/db.IVMS_Model.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=192.168.1.25;initial catalog=IVMS_DB2;user id=sa;password=123;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Projects\\Visitor_Management\\NCC\ Bank\\IVMS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='IVMS_DBEntities']/@connectionString" />
+  </parameter>
+</parameters>

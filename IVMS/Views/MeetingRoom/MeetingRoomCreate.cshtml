@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Page";
+    if (ViewBag.CallingForm1 == "index")
+    {
+    }
+    else
+    {
+        <ul class="breadcrumb">
+            <li><a href="#">@ViewBag.CallingForm</a></li>
+            <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+            @if (@ViewBag.CallingForm2 != null)
+            {
+                <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+            }
+        </ul>
+    }
+}
+<div class="panel panel-transparent">
+    <div class="panel-heading">
+        <div class="panel-title">
+            MeetingRoom
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-12 form-horizontal xl-mlr10" ng-controller="meetingRoomController">
+                <form name="meetingRoomForm" ng-init="loadDropdowns()">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                        <input class="form-control in-ctrl" ng-model="meetingRoom.MeetingRoomID" style="display: none;" type="text" value="">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Room No</label>
+                                        <div class="right-col">
+                                            <input type="text" class="form-control" ng-model="meetingRoom.RoomNo" required />
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Floor Location</label>
+                                        <div class="right-col">
+                                            <input type="text" class="form-control" ng-model="meetingRoom.FloorLocation" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Seat Capacity</label>
+                                        <div class="right-col">
+                                            <input type="text" class="form-control" ng-model="meetingRoom.SeatCapacity" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Projector Available</label>
+                                        <div class="right-col">
+                                            <select class="form-control" ng-model="meetingRoom.ProjectorAvailable"
+                                                    ng-options="status.Status as status.StatusLabel for status in availableStatusList">
+                                                <option value=""> --Select ProjectorAvailable-- </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 40px; text-align: right">
+                                        <div class="form-group">
+                                            <div class="form-inner12">
+                                                <label for="fname" class="left-col control-label"></label>
+                                                <div class="right-col mt-org1">
+                                                    <button class="btn btn-success custom-btn1 " name="Submit" ng-click="saveMeetingRoom()" ng-disabled="disableSub">Submit</button>
+                                                    <button class="btn btn-default custom-btn1" name="Clear" ng-click="clearData()" type="button"><i class="pg-close"></i> Clear</button>
+                                                </div>
+                                                <div class="clr"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="~/Content/built_in/assets/plugins/moment/moment.min.js"></script>
+

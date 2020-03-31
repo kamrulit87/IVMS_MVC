@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IVMS_DB2ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Appointments">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.Appointment">
+        <MappingFragment StoreEntitySet="Appointment">
+          <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+          <ScalarProperty Name="VisitorName" ColumnName="VisitorName" />
+          <ScalarProperty Name="VisitorMobile" ColumnName="VisitorMobile" />
+          <ScalarProperty Name="VisitorEmail" ColumnName="VisitorEmail" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+          <ScalarProperty Name="AppointmentTime" ColumnName="AppointmentTime" />
+          <ScalarProperty Name="ReachTime" ColumnName="ReachTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="CheckedInTime" ColumnName="CheckedInTime" />
+          <ScalarProperty Name="CheckedOutTime" ColumnName="CheckedOutTime" />
+          <ScalarProperty Name="BreakOutTime" ColumnName="BreakOutTime" />
+          <ScalarProperty Name="BreakInTime" ColumnName="BreakInTime" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="AppointmentBy" ColumnName="AppointmentBy" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CardNO" ColumnName="CardNO" />
+          <ScalarProperty Name="BankCardID" ColumnName="BankCardID" />
+          <ScalarProperty Name="NotifyMessage" ColumnName="NotifyMessage" />
+          <ScalarProperty Name="ReplayMessage" ColumnName="ReplayMessage" />
+          <ScalarProperty Name="AccessFloors" ColumnName="AccessFloors" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cards">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.Card">
+        <MappingFragment StoreEntitySet="Card">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DeviceNO" ColumnName="DeviceNO" />
+          <ScalarProperty Name="CardID" ColumnName="CardID" />
+          <ScalarProperty Name="CardNO" ColumnName="CardNO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Designations">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.Designation">
+        <MappingFragment StoreEntitySet="Designation">
+          <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+          <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeviceInfoes">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.DeviceInfo">
+        <MappingFragment StoreEntitySet="DeviceInfo">
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="DeviceNO" ColumnName="DeviceNO" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="PortNO" ColumnName="PortNO" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="FloorNO" ColumnName="FloorNO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailConfigs">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.EmailConfig">
+        <MappingFragment StoreEntitySet="EmailConfig">
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="FromMailID" ColumnName="FromMailID" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+          <ScalarProperty Name="Host" ColumnName="Host" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="OnBehalfEmployeeID" ColumnName="OnBehalfEmployeeID" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="PbxNumber" ColumnName="PbxNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Floor" ColumnName="Floor" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeetingParticipants">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.MeetingParticipant">
+        <MappingFragment StoreEntitySet="MeetingParticipant">
+          <ScalarProperty Name="ParticipantID" ColumnName="ParticipantID" />
+          <ScalarProperty Name="RequisitionID" ColumnName="RequisitionID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeetingRooms">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.MeetingRoom">
+        <MappingFragment StoreEntitySet="MeetingRoom">
+          <ScalarProperty Name="MeetingRoomID" ColumnName="MeetingRoomID" />
+          <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
+          <ScalarProperty Name="FloorLocation" ColumnName="FloorLocation" />
+          <ScalarProperty Name="SeatCapacity" ColumnName="SeatCapacity" />
+          <ScalarProperty Name="ProjectorAvailable" ColumnName="ProjectorAvailable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeetingRoomRequisitions">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.MeetingRoomRequisition">
+        <MappingFragment StoreEntitySet="MeetingRoomRequisition">
+          <ScalarProperty Name="RequisitionID" ColumnName="RequisitionID" />
+          <ScalarProperty Name="MeetingRoomID" ColumnName="MeetingRoomID" />
+          <ScalarProperty Name="RequisitionBy" ColumnName="RequisitionBy" />
+          <ScalarProperty Name="RequiredDate" ColumnName="RequiredDate" />
+          <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+          <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="RoomStatus" ColumnName="RoomStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PasswordCores">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.PasswordCore">
+        <MappingFragment StoreEntitySet="PasswordCore">
+          <ScalarProperty Name="PasswordId" ColumnName="PasswordId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PasswordH" ColumnName="PasswordH" />
+          <ScalarProperty Name="PasswordMode" ColumnName="PasswordMode" />
+          <ScalarProperty Name="PassworDateLine" ColumnName="PassworDateLine" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PasswordHistories">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.PasswordHistory">
+        <MappingFragment StoreEntitySet="PasswordHistory">
+          <ScalarProperty Name="HistoryId" ColumnName="HistoryId" />
+          <ScalarProperty Name="PasswordId" ColumnName="PasswordId" />
+          <ScalarProperty Name="PassworDate" ColumnName="PassworDate" />
+          <ScalarProperty Name="PasswordH" ColumnName="PasswordH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEC_LoginStatus">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.SEC_LoginStatus">
+        <MappingFragment StoreEntitySet="SEC_LoginStatus">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PresentLogInStatus" ColumnName="PresentLogInStatus" />
+          <ScalarProperty Name="LogInTime" ColumnName="LogInTime" />
+          <ScalarProperty Name="LogOutTime" ColumnName="LogOutTime" />
+          <ScalarProperty Name="ForcedLogOutStatus" ColumnName="ForcedLogOutStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEC_Password">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.SEC_Password">
+        <MappingFragment StoreEntitySet="SEC_Password">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NewPassword" ColumnName="NewPassword" />
+          <ScalarProperty Name="OldPassword" ColumnName="OldPassword" />
+          <ScalarProperty Name="IsSelfChanged" ColumnName="IsSelfChanged" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEC_SecurityQuestion">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.SEC_SecurityQuestion">
+        <MappingFragment StoreEntitySet="SEC_SecurityQuestion">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SecurityQuestion" ColumnName="SecurityQuestion" />
+          <ScalarProperty Name="SecutiryAnswer" ColumnName="SecutiryAnswer" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEC_UIModule">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.SEC_UIModule">
+        <MappingFragment StoreEntitySet="SEC_UIModule">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UIName" ColumnName="UIName" />
+          <ScalarProperty Name="ParentModulIDHierarchy" ColumnName="ParentModulIDHierarchy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEC_UIPage">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.SEC_UIPage">
+        <MappingFragment StoreEntitySet="SEC_UIPage">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UIPageName" ColumnName="UIPageName" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="UrlID" ColumnName="UrlID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEC_UserActionMapping">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.SEC_UserActionMapping">
+        <MappingFragment StoreEntitySet="SEC_UserActionMapping">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserGroupID" ColumnName="UserGroupID" />
+          <ScalarProperty Name="UIModuleID" ColumnName="UIModuleID" />
+          <ScalarProperty Name="UIPageID" ColumnName="UIPageID" />
+          <ScalarProperty Name="IsSelect" ColumnName="IsSelect" />
+          <ScalarProperty Name="IsCreate" ColumnName="IsCreate" />
+          <ScalarProperty Name="IsEdit" ColumnName="IsEdit" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="UrlID" ColumnName="UrlID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEC_UserGroup">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.SEC_UserGroup">
+        <MappingFragment StoreEntitySet="SEC_UserGroup">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEC_UserInformation">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.SEC_UserInformation">
+        <MappingFragment StoreEntitySet="SEC_UserInformation">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="PasswordID" ColumnName="PasswordID" />
+          <ScalarProperty Name="SecurityQuestionID" ColumnName="SecurityQuestionID" />
+          <ScalarProperty Name="IsEMailVerified" ColumnName="IsEMailVerified" />
+          <ScalarProperty Name="IsPhoneNoVerified" ColumnName="IsPhoneNoVerified" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UserGroupID" ColumnName="UserGroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SET_Company">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.SET_Company">
+        <MappingFragment StoreEntitySet="SET_Company">
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NameBN" ColumnName="NameBN" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="TaxNo" ColumnName="TaxNo" />
+          <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SET_CompanyBranch">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.SET_CompanyBranch">
+        <MappingFragment StoreEntitySet="SET_CompanyBranch">
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NameBN" ColumnName="NameBN" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ContactNO" ColumnName="ContactNO" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IsHeadOffice" ColumnName="IsHeadOffice" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="HierarchyValue" ColumnName="HierarchyValue" />
+          <ScalarProperty Name="NoOfFloor" ColumnName="NoOfFloor" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserGroups">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.UserGroup">
+        <MappingFragment StoreEntitySet="UserGroup">
+          <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
+          <ScalarProperty Name="UserGroupHead" ColumnName="UserGroupHead" />
+          <ScalarProperty Name="AccessArea" ColumnName="AccessArea" />
+          <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTabs">
+      <EntityTypeMapping TypeName="IVMS_DB2Model.UserTab">
+        <MappingFragment StoreEntitySet="UserTab">
+          <ScalarProperty Name="UserIndex" ColumnName="UserIndex" />
+          <ScalarProperty Name="PasswordId" ColumnName="PasswordId" />
+          <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="IVMS_DB2Model.Store.FxPasswordPositionEX" FunctionImportName="FxPasswordPositionEX">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IVMS_DB2Model.FxPasswordPositionEX_Result">
+          <ScalarProperty Name="PasswordId" ColumnName="PasswordId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PasswordDateLineStatus" ColumnName="PasswordDateLineStatus" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="UserGroupHead" ColumnName="UserGroupHead" />
+          <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_AppointmentList" FunctionName="IVMS_DB2Model.Store.sp_AppointmentList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IVMS_DB2Model.sp_AppointmentList_Result">
+          <ScalarProperty Name="AppointmentBy" ColumnName="AppointmentBy" />
+          <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+          <ScalarProperty Name="AppointmentTime" ColumnName="AppointmentTime" />
+          <ScalarProperty Name="ReachTime" ColumnName="ReachTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="CheckedInTime" ColumnName="CheckedInTime" />
+          <ScalarProperty Name="CheckedOutTime" ColumnName="CheckedOutTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CardNO" ColumnName="CardNO" />
+          <ScalarProperty Name="VisitorName" ColumnName="VisitorName" />
+          <ScalarProperty Name="VisitorMobile" ColumnName="VisitorMobile" />
+          <ScalarProperty Name="VisitorEmail" ColumnName="VisitorEmail" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="BreakOutTime" ColumnName="BreakOutTime" />
+          <ScalarProperty Name="BreakInTime" ColumnName="BreakInTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_ScheduleAppList" FunctionName="IVMS_DB2Model.Store.sp_ScheduleAppList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IVMS_DB2Model.sp_ScheduleAppList_Result">
+          <ScalarProperty Name="AppointmentBy" ColumnName="AppointmentBy" />
+          <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="VisitorMobile" ColumnName="VisitorMobile" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+          <ScalarProperty Name="AppointmentTime" ColumnName="AppointmentTime" />
+          <ScalarProperty Name="ReachTime" ColumnName="ReachTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="CardNO" ColumnName="CardNO" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="VisitorName" ColumnName="VisitorName" />
+          <ScalarProperty Name="VisitorEmail" ColumnName="VisitorEmail" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CheckedInTime" ColumnName="CheckedInTime" />
+          <ScalarProperty Name="CheckedOutTime" ColumnName="CheckedOutTime" />
+          <ScalarProperty Name="AccessFloors" ColumnName="AccessFloors" />
+          <ScalarProperty Name="NotifyMessage" ColumnName="NotifyMessage" />
+          <ScalarProperty Name="ReplayMessage" ColumnName="ReplayMessage" />
+          <ScalarProperty Name="FirstWordMsg" ColumnName="FirstWordMsg" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+          <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
+          <ScalarProperty Name="FirstWordMsg1" ColumnName="FirstWordMsg1" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_VisitorInOutList" FunctionName="IVMS_DB2Model.Store.sp_VisitorInOutList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IVMS_DB2Model.sp_VisitorInOutList_Result">
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+          <ScalarProperty Name="VisitorName" ColumnName="VisitorName" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+          <ScalarProperty Name="CheckedInDate" ColumnName="CheckedInDate" />
+          <ScalarProperty Name="CheckedInTime" ColumnName="CheckedInTime" />
+          <ScalarProperty Name="CheckedOutTime" ColumnName="CheckedOutTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spInsPassword" FunctionName="IVMS_DB2Model.Store.spInsPassword" />
+    <FunctionImportMapping FunctionImportName="USP_MultipleOptionWiseMeetingScheduleReport" FunctionName="IVMS_DB2Model.Store.USP_MultipleOptionWiseMeetingScheduleReport" />
+  </EntityContainerMapping>
+</Mapping>

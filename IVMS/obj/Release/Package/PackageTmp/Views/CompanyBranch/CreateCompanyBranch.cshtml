@@ -1,0 +1,165 @@
+﻿@{
+    ViewBag.Title = "Branch";
+    if (ViewBag.CallingForm1 == "index")
+    {
+    }
+    else
+    {
+        <ul class="breadcrumb">
+            <li><a href="#">@ViewBag.CallingForm</a></li>
+            <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+            @if (@ViewBag.CallingForm2 != null)
+            {
+                <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+            }
+        </ul>
+    }
+}
+<style>
+    .checkbox_vertical {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .checkbox_vertical label {
+            margin: 0;
+        }
+</style>
+<div class="panel panel-transparent">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Branch
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="row form-horizontal xl-mlr10" ng-controller="companyBranchController">
+            <form name="CreateBranchForm" ng-init="loadDropdowns()">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                    <input type="text" class="form-control hidden" ng-model="companyBranch.BranchID" readonly />
+                    <div class="form-group">
+                        <div class="form-inner13">
+                            <label class="left-col control-label">Bank</label>
+                            <div class="right-col">
+                                <select2 style="width: 100%;" ng-model="companyBranch.CompanyID" s2-options="company.CompanyID as company.Name for company in companyList"
+                                         placeholder="--Select company--" required>
+                                </select2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-inner13">
+                            <label class="left-col control-label">Branch Name</label>
+                            <div class="right-col">
+                                <input type="text" class="form-control" ng-model="companyBranch.Name" placeholder="" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-inner13">
+                            <label class="left-col control-label">Branch Code</label>
+                            <div class="right-col">
+                                <input type="text" class="form-control" ng-model="companyBranch.Code" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-inner13">
+                            <label class="left-col control-label">No Of Floor</label>
+                            <div class="right-col">
+                                <input type="text" class="form-control IsNumber" ng-model="companyBranch.NoOfFloor" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-inner13">
+                            <label class="left-col control-label">Contact No</label>
+                            <div class="right-col">
+                                <input type="text" class="form-control" ng-model="companyBranch.ContactNO" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-inner13">
+                            <label class="left-col control-label">Email</label>
+                            <div class="right-col">
+                                <input type="text" class="form-control" ng-model="companyBranch.Email" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-inner13">
+                            <label class="left-col control-label">Is Head Office</label>
+                            <div class="right-col">
+                                <div class="checkbox check-primary checkbox-circle">
+                                    <input type="checkbox" id="head1" ng-model="companyBranch.IsHeadOffice" ng-true-value="1" value="1" ng-checked="companyBranch.IsHeadOffice=='1'">
+                                    <label for="head1"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-inner13">
+                            <label class="left-col control-label">Address</label>
+                            <div class="right-col">
+                                <textarea rows="3" class="form-control" ng-model="companyBranch.Address"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-inner13">
+                            <label class="left-col control-label">Description</label>
+                            <div class="right-col">
+                                <textarea rows="3" class="form-control" ng-model="companyBranch.Description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-inner13">
+                            <label class="left-col control-label">Status</label>
+                            <div class="right-col">
+                                <select class="form-control" ng-model="companyBranch.Status"
+                                        ng-options="status.id as status.label for status in statusList" required>
+                                    <option value="">--Select Status--</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-inner12">
+                            <label for="fname" class="left-col control-label"></label>
+                            <div class="right-col mt-org1" style="text-align:right">
+                                <button type="button" class="btn btn-success custom-btn1" name="Submit" data-ng-click="saveCompanyBranch()">Submit</button>
+                                <button type="button" class="btn btn-default custom-btn1" name="Clear" ng-click="Reload()"><i class="pg-close"></i> Clear</button>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(".IsNumber").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+            // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+            // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+            // let it happen, don't do anything
+            return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+</script>
+
+

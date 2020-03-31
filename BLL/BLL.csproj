@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E41DE1EA-0CE7-486C-AAA7-06224FBF9E77}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BLL</RootNamespace>
+    <AssemblyName>BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\IVMS_Repository_barcode\BLL\dll\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\EmailUtility.cs" />
+    <Compile Include="Common\Function.cs" />
+    <Compile Include="Common\HelpClass.cs" />
+    <Compile Include="Common\HelpGlobalVariable.cs" />
+    <Compile Include="Common\Result.cs" />
+    <Compile Include="Factory\Appointment\CardFactory.cs" />
+    <Compile Include="Factory\Appointment\ScheduleAppointmentFactory.cs" />
+    <Compile Include="Factory\Appointment\UnScheduleAppointmentFactory.cs" />
+    <Compile Include="Factory\GenericFactory.cs" />
+    <Compile Include="Factory\MeetingRoom\MeetingRoomFactory.cs" />
+    <Compile Include="Factory\MeetingRoom\MeetingRoomReqFactory.cs" />
+    <Compile Include="Factory\PaginationFactory.cs" />
+    <Compile Include="Factory\Security\ChangePasswordFactory.cs" />
+    <Compile Include="Factory\Security\SecurityFactory.cs" />
+    <Compile Include="Factory\Setup\CompanyBranchFactory.cs" />
+    <Compile Include="Factory\Setup\DepartmentFactory.cs" />
+    <Compile Include="Factory\Setup\DesignationFactory.cs" />
+    <Compile Include="Factory\Setup\EmployeeFactory.cs" />
+    <Compile Include="Factory\SQLFactory.cs" />
+    <Compile Include="Interfaces\Appointment\IAppointmentFactory.cs" />
+    <Compile Include="Interfaces\IGenericFactory.cs" />
+    <Compile Include="Interfaces\IPaginationFactory.cs" />
+    <Compile Include="Interfaces\ISQLFactory.cs" />
+    <Compile Include="Interfaces\MeetingRoom\IMeetingRoomFactory.cs" />
+    <Compile Include="Interfaces\Security\ISecurityFactory.cs" />
+    <Compile Include="Interfaces\Setup\ICompanyBranchFactory.cs" />
+    <Compile Include="Interfaces\Setup\IDepartmentFactory.cs" />
+    <Compile Include="Interfaces\Setup\IDesignationFactory.cs" />
+    <Compile Include="Interfaces\Setup\IEmployeeFactory.cs" />
+    <Compile Include="Models\ChangePasswordModel.cs" />
+    <Compile Include="Models\LogInStatus.cs" />
+    <Compile Include="Models\MenuItemVM.cs" />
+    <Compile Include="Models\PagePermission.cs" />
+    <Compile Include="Models\PagePermissionVM.cs" />
+    <Compile Include="Models\VM_Pagination.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{3ddbb9a6-6946-453e-b5fa-7c95bc7c777d}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Master\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

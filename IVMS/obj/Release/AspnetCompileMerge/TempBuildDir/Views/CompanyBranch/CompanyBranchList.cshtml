@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Page";
+    if (ViewBag.CallingForm1 == "index")
+    {
+    }
+    else
+    {
+        <ul class="breadcrumb">
+            <li><a href="#">@ViewBag.CallingForm</a></li>
+            <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+            @if (@ViewBag.CallingForm2 != null)
+            {
+                <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+            }
+        </ul>
+    }
+}
+<div ng-controller="companyBranchController">
+    <div class="panel panel-transparent">
+        <div class="panel-heading">
+            <div class="panel-title">
+                Branch
+            </div>
+
+            <div class="pull-right m-t-15">
+                <div id="show-modal" class="btn btn-success">
+                    <i class="fa fa-plus pr1"></i>
+                    <a href="#!/CreateCompanyBranch" ng-click="removeCookies()">Add New</a>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="panel-body">
+            <table st-table="branch" st-safe-src="companyBranchList" class="table table-striped" ng-init="loadCompanyBranch()">
+                <thead>
+                    <tr>
+                        <th colspan="5" style="padding-right: 0px;">
+                            <input st-search class="input-sm form-control topsearch" type="search" placeholder="Search" style="width: 200px; float: right" />
+                        </th>
+
+                    </tr>
+                    <tr>
+                        <th>Bank Name</th>
+                        <th>Branch Name</th>
+                        <th>Branch Code</th>
+                        <th>Status</th>
+                        <th style="width: 10%">Action </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in branch">
+                        <td>{{row.CompanyName}}</td>
+                        <td>{{row.Name}}</td>
+                        <td>{{row.Code}}</td>
+                        <td>{{row.Status == 1 ? "Active":"Inactive"}}</td>
+                        <td align="center">
+                            <button type="button" ng-click="editRow(row)" class="btn btn-success btn-xs">
+                                <i class="fa fa-pencil"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6" class="Page-align">
+                            <div st-pagination="" st-items-by-page="itemsByPage"></div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+        </div>
+    </div>
+</div>
+

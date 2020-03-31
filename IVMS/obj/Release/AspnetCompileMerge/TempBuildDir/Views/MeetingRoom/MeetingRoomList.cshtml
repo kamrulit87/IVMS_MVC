@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Page";
+    if (ViewBag.CallingForm1 == "index")
+    {
+    }
+    else
+    {
+        <ul class="breadcrumb">
+            <li><a href="#">@ViewBag.CallingForm</a></li>
+            <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+            @if (@ViewBag.CallingForm2 != null)
+            {
+                <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+            }
+        </ul>
+    }
+}
+<div class="panel panel-transparent" ng-controller="meetingRoomController" ng-init="loadMeetingRoom()">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Meeting Room
+        </div>
+
+        <div class="pull-right m-t-15">
+            <div id="show-modal" class="btn btn-success">
+                <i class="fa fa-plus pr1"></i>
+                <a href="#!/MeetingRoomCreate" ng-click="removeCookies()">Add New</a>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="panel-body">
+        <table st-table="data" st-safe-src="meetingRoomList" class="table table-striped">
+            <thead>
+                <tr>
+                    <td colspan="5">
+                        <input st-search placeholder="Search" class="input-sm form-control topsearch" type="search" autofocus style="width: 200px;float:right;" />
+                    </td>
+                </tr>
+                <tr>
+                    <th st-sort="RoomNo">Room NO.</th>
+                    <th st-sort="FloorLocation">Floor</th>
+                    <th st-sort="SeatCapacity">Seat Capacity</th>
+                    <th st-sort="ProjectorAvailable">Projector Available</th>
+                    <th style="width:125px;text-align:right">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="row in data">
+                    <td>{{row.RoomNo}}</td>
+                    <td>{{row.FloorLocation}}</td>
+                    <td>{{row.SeatCapacity}}</td>
+                    <td>{{row.ProjectorAvailable}}</td>
+                    <td align="right">
+                        <a class="btn btn-sm btn-success btn-xs" ng-click="editRow(row)">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div><div class="container-fluid container-fixed-lg">
+    
+</div>
+

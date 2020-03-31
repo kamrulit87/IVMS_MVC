@@ -1,0 +1,649 @@
+﻿/*==================================================================
+========================= Start:: Common ==========================*/
+ 
+body {
+    color: #000!important;
+}
+.pgn-circle .alert .close {
+    top: 40% !important;
+    color: #626262;
+    font-size:15px;
+ }
+.form-horizontal .form-group .control-label {
+    opacity: .52;
+}
+.input-group-addon{
+    color: #000!important;
+}
+.page-container .page-content-wrapper .content {
+    min-height:calc(100vh - 0px);
+}
+ 
+.mouse-pointer{
+    cursor: pointer;
+}
+.datepicker table tr td.today{
+    background-color: #929292;
+    color: #ffffff;
+}
+.datepicker table tr td.today:hover{
+    background-color: #929292!important;
+    color: #ffffff!important;
+}
+
+.btn.btn-success.rptBtn.BtnLoad {
+    font-size: 12px !important;
+}
+.btn-excel, .btn-excel:focus {
+    background-color: #227446;
+    border-color: #227446;
+    color: #ffffff;
+}
+.btn-excel:hover {
+    background-color:#4d966d;
+    border-color: #4d966d;
+    color: #ffffff;
+}
+ .btn-word, .btn-word:focus {
+    background-color: #2a579a;
+    border-color: #2a579a;
+    color: #ffffff;
+}
+ .btn-word:hover {
+    background-color:#466ea9;
+    border-color: #466ea9;
+    color: #ffffff;
+}
+
+
+/*==================================================================
+=========================== End:: Common ===========================*/
+
+
+/*==================================================================
+========================= Start:: Menu ==========================*/
+
+.page-sidebar .sidebar-menu .menu-items > li > a {
+    padding-left: 15px;
+}
+         
+.page-sidebar .sidebar-menu .menu-items > li ul.sub-menu > li {
+    padding: 0px 10px 0 15px !important;
+}
+.page-sidebar .sidebar-menu .menu-items > li ul.sub-menu > li.p-l-4{
+    padding: 0px 10px 0 4px !important;
+}
+.page-sidebar .sidebar-menu .menu-items > li ul.sub-menu > li > a {
+     width: 100%;
+}
+.page-sidebar .sidebar-menu .menu-items > li ul.sub-menu > li.p-l-4 > a{
+    width: 100%;
+}
+
+.page-sidebar .sidebar-menu .menu-items > li ul.sub-menu > li .icon-thumbnail {
+    width: 17px !important;
+}
+
+.icon-thumbnail{
+    margin-right: 16px;
+}
+.page-sidebar a, .page-sidebar button {
+   color: #c6c0c0;
+}
+.page-sidebar a:hover,.page-sidebar button:hover,.page-sidebar a:active,.page-sidebar button:active {
+    color: #ffffff;
+}
+
+.page-sidebar a:visited,.page-sidebar button:visited,.page-sidebar a:focus,.page-sidebar button:focus {
+    color: #c6c0c0;
+}
+
+
+
+/*==================================================================
+=========================== End:: Menu ===========================*/
+
+
+
+
+
+/*==================================================================
+====================================================================
+=========================== Start:: GL ===========================*/
+
+/*------------------ Start:: form Organization -------------------*/
+.mt-org1 {
+    margin-top:25px; 
+}
+/*------------------ End :: form Organization --------------------*/
+
+/*----------------------- Start:: Voucher ------------------------*/
+.v-drcramtcheck {
+    border: 3px solid #eb525d !important;
+}
+/*------------------------ End :: Voucher ------------------------*/
+
+
+/*----------------- Start:: Receivable_Payabled ------------------*/
+.repapost-c-ac-cus-sup-n{
+    width: 145px;
+}
+
+.repapost-a-d-c {
+    width: 90px;
+}
+/*------------------------ End :: Voucher ------------------------*/  
+
+/*-------------- Start:: form Account Configuration --------------*/
+.mt-aCon1 {
+    margin-top:30px; 
+}
+/*--------------- End :: form Account Configuration --------------*/
+
+/*------------------ Start:: form Voucher Search -----------------*/
+.dtod {
+    font-family: 'Montserrat' !important;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 400;
+    opacity: .6;
+    background-color:#fafafa !important;
+}
+.dtod:hover {
+    opacity: .9;
+}
+/*------------------- End :: form Voucher Search -----------------*/
+/*==================================================================
+============================ End:: GL ============================*/
+
+
+
+
+/*==================================================================
+======================= Start:: Inventory ========================*/
+ 
+ 
+/*--------------------- Start:: Requisition ----------------------*/
+
+#form-requisition-entry {
+    padding-right: 20px;
+}
+
+.reqentry-create-cat-prod {
+    width: 215px;
+} 
+ 
+.reqentry-create-des {
+    width: 190px;
+}
+
+.reqentry-create-u {
+    width: 150px;
+} 
+
+.reqentry-create-q {
+    width: 95px;
+}
+
+/*---------------------- End:: Requisition -----------------------*/
+
+
+
+
+/*------------------- Start:: Purchase Order ---------------------*/
+#form-purchase-order #idGrandTotal, #form-purchase-order #idSubTotal {
+    padding-right: 20px;
+}
+
+.purchaseord-create-cat-prod {
+    width: 125px;
+}
+.purchaseord-create-des {
+     width: 115px;
+}
+.purchaseord-create-u-q-up-ta {
+    width: 75px;
+}
+
+.purchaseord-create-vp {
+    width:36px;
+    padding: 9px!important;
+}
+
+.purchaseord-create-vamt {
+    width:60px;
+    padding: 8px!important;
+}
+
+/*--------------------- End:: Purchase Order ---------------------*/
+
+/*------------------ Start:: Purchase Invoice --------------------*/
+#form-purchase_invoice_create #idGrandTotal, #form-purchase_invoice_create #idSubTotal {
+    padding-right: 20px;
+}
+
+.purchaseinv-create-cat-prod {
+    width: 155px;
+}
+.purchaseinv-create-u-q-up-d-ta {
+    width: 85px;
+}
+
+.purchaseinv-create-vp{
+    width: 35px;
+    padding: 8px;
+}
+
+.purchaseinv-create-vamt{
+    width: 65px;
+}
+
+
+
+/*-------------------- End:: Purchase Invoice --------------------*/
+
+/*------------------- Start:: Item Purchase  ---------------------*/
+#form-itempurchase #idGrandTotal, #form-itempurchase #idSubTotal {
+    padding-right: 20px;
+} 
+
+.itempurchase-create-cat-product {
+    width: 125px;
+}
+.itempurchase-create-remark {
+    width: 100px;
+}
+
+.itempurchase-create-u-q-up-did-ta {
+    width: 75px;
+}
+
+
+.itempurchase-create-vp {
+    width: 35px;
+    padding: 9px;
+}
+
+.itempurchase-create-vamt {
+    width: 65px;
+}
+/*--------------------- End:: Item Purchase ---------------------*/
+
+
+/*------------------- Start:: form Item Store --------------------*/
+.categoryItemStore-xl {
+    display:none;
+}
+
+.categoryItemStore-lg {
+    display:block;
+}
+
+/*-------------------- End :: form Item Store --------------------*/
+
+/*----------------------- Start:: Customer -----------------------*/
+.cus-payment-terms-day {
+    /*float: left;*/
+    position: absolute;
+    right: 0;
+    padding-top: 8px;
+    padding-right: 8px;
+    color: #ff6a00;
+    font-family: 'Montserrat';
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600; 
+    opacity:0.4;
+    top:0;
+} 
+
+@media only screen and (max-width: 1024px) {
+    
+}
+/*------------------------ End :: Customer -----------------------*/
+
+/*----------------------- Start:: bll -----------------------*/
+#form-bill-create #idGroundTotal, #form-bill-create #idSubTotal {
+    padding-right: 20px;
+}
+
+#idGroundTotal .cs-wrapper .cs-select .cs-placeholder {
+    width: 220px;
+}
+
+.bill-create-cat-prod {
+    width: 155px;
+}
+.bill-create-u-q-up-d-ta{
+    width: 85px;
+}
+
+.bill-create-vp {
+    width: 40px;
+}
+
+.bill-create-vamt {
+    width: 65px;
+}
+
+@media only screen and (min-width: 1400px) {
+    .bill-create-cat-prod {
+        width: 450px !important;
+    }
+
+    .bill-create-u-q-up-d-ta {
+        width: 520px !important;
+    }
+
+    .bill-create-vp {
+        width: 60px;
+    }
+
+    .bill-create-vamt {
+        width: 85px;
+    }
+}
+
+
+/*------------------------ End :: bill -----------------------*/
+
+/*------------------ Start:: Sales Quotation -----------------*/
+#form-sales-quotation-create #idGroundTotal, #form-sales-quotation-create #idSubTotal {
+    padding-right: 20px;
+}
+
+/*#idGroundTotal .cs-wrapper .cs-select .cs-placeholder {
+    width: 220px;
+}*/
+
+.sales-quotation-create-cat-prod {
+    width: 155px;
+}
+.sales-quotation-create-u-q-up-d-ta{
+    width: 85px;
+}
+
+.sales-quotation-create-vp {
+    width: 40px;
+}
+
+.sales-quotation-create-vamt {
+    width: 65px;
+}
+
+/*----------------- End:: Sales Quotation ----------------*/
+
+/*---------------- Start:: Sales Delivery ----------------*/
+#form-sales-delivery-create #idGroundTotal, #form-sales-delivery-create #idSubTotal {
+    padding-right: 20px;
+}
+
+/*#idGroundTotal .cs-wrapper .cs-select .cs-placeholder {
+    width: 220px;
+}*/
+
+.sales-delivery-create-cat-prod {
+    width: 155px;
+}
+.sales-delivery-create-u-q-up-d-ta{
+    width: 85px;
+}
+
+.sales-delivery-create-vp {
+    width: 35px;
+    padding: 8px;
+}
+
+.sales-delivery-create-vamt {
+    width: 65px;
+}
+
+/*---------------- End:: Sales Delivery ---------------*/
+
+
+/*---------------- Start:: Sales Order ----------------*/
+#form-sales-order-create #idGroundTotal, #form-sales-order-create #idSubTotal {
+    padding-right: 20px;
+}
+
+/*#idGroundTotal .cs-wrapper .cs-select .cs-placeholder {
+    width: 220px;
+}*/
+
+.sales-order-create-cat-prod {
+    width: 155px;
+}
+.sales-order-create-u-q-up-d-ta{
+    width: 85px;
+}
+
+.sales-order-create-vp {
+    width: 40px;
+}
+
+.sales-order-create-vamt {
+    width: 65px;
+}
+
+/*---------------- End:: Sales Delivery ---------------*/
+
+
+
+
+/*---------------- Start:: Temp Table ----------------*/
+
+/*.table tbody#TmpSalesBodyData tr td {
+     padding: 8px !important;
+}*/
+
+/*---------------- End:: Temp Table ---------------*/
+
+
+/*==================================================================
+========================= Start:: Master =========================*/
+/*-------------------- Start:: System Setting --------------------*/
+.sysset-csd-panel{
+     background-color: transparent !important;
+}
+
+.sysset-csd-heading {
+    background-color: #eeeeee !important;
+    border: 1px solid #eeeeee !important;
+}
+
+.sysset-p-collapse ul li{
+     margin-top:20px !important;
+     padding-right:10px;
+}
+.sysset-p-collapse i {
+     /*margin-top:10px !important;*/
+     padding-right:10px;
+} 
+
+.sysset-csd-contentbody {
+    background-color: #fafafa !important;
+    border: 1px solid #eeeeee !important;
+}
+/*--------------------- End :: System Setting --------------------*/
+
+.voucher-acc-head-lg {
+    display:block;
+}
+.voucher-acc-head-xl {
+    display:none;
+}
+.voucher-acc-number-xl {
+    display:none;
+}
+.voucher-ChequeNumberIsValid {
+    display:none;  
+}
+    .voucher-ChequeNumberIsValid .voucher-textbox-bg {
+        background-color: #f6deb8; font-weight:700;
+    }
+  .voucher-amount-textbox {
+        background-color: #f6deb8; font-weight:700;
+    }
+
+
+
+
+/*****----------- Pop up ---------------*****/
+
+.custom-modal {
+    display: none;
+    position: fixed; 
+    z-index: 999999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.8); 
+   
+}
+
+.custom-modal-content{
+    position: relative;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #ddd;
+    width: 60%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+	height:auto;
+	overflow-y: auto; 
+    background-color: #fff;
+    padding-left: 27px;
+    padding-bottom: 20px;
+}
+
+/* The Close Button */
+.close {
+    color: #000;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+	transition: all 1s ease;
+    padding-right: 10px;
+    padding-top: 16px;
+}
+
+.close:hover,.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.panel .custom-modal-content .panel-heading .panel-title {
+    margin-bottom: 0 !important;
+}
+
+/* Start: Css for Loader */
+ #loading {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: fixed;
+    display: block;
+    opacity: 0.5;
+    background-color: #fff;
+    z-index: 99;
+    text-align: center;
+}
+
+/*#imagen {
+    position: absolute;
+    top: 14%;
+    right: 23%;
+    z-index: 100;
+}*/
+
+#imagen {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.bigdrop {
+    width: 500px !important;
+}
+
+/* End: Css for Loader */
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-50px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-50px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/*****----------- Pop up End ---------------******/
+
+@media only screen and (max-width: 1024px) {
+    
+}
+
+@media only screen and (max-width: 950px) {
+    .mt-org1 {
+        margin-top: 20px !important;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)and (-webkit-min-device-pixel-ratio: 2) {
+   
+}
+
+@media only screen and (max-width: 768px) {
+    .voucher-acc-head-lg {
+        display: none;
+    }
+
+    .voucher-acc-head-xl {
+        display: block;
+    }
+
+    .voucher-acc-number-xl {
+        display: block;
+    }
+
+    .categoryItemStore-xl {
+        display: block !important;
+    }
+
+    .categoryItemStore-lg {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .mt-org1{
+        margin-top: 0px !important;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+
+    .categoryItemStore-xl {
+        display: block !important;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+}
+
+

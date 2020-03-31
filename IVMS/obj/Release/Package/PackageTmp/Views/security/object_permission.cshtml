@@ -1,0 +1,206 @@
+﻿@model IEnumerable<DAL.db.ObjecTPermission>
+@{
+    ViewBag.Title = "Object Permission Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+@section section_top
+{
+    <link href="~/Content/built_in/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" />
+    <link href="~/Content/built_in/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
+}
+
+<div class="container-fluid container-fixed-lg">
+    <div class="panel panel-transparent">
+        <div class="panel-heading">
+            <div class="panel-title">
+                Object Permission Information
+            </div>
+        </div>
+
+        <div class="panel-body">
+            @using (Html.BeginForm("object_permission", "security", FormMethod.Post, new { @id = "form-work", @class = "form-horizontal xl-mlr10", role = "form", autocomplete = "off" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <div style="margin-left:0px; color:#ff6a00; font-size:16px; margin-bottom:10px;" class="viewbag-validation">@ViewBag.Validation</div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                        <div class="form-group">
+                            <div class="form-inner12" style="width:calc(100% - 150px);">
+                                <label for="IdCurrency" class="left-col control-label">User Group</label>
+                                <div class="right-col">
+                                    <div class="ibs-pos-rel">
+                                        @Html.DropDownList("GroupName", (SelectList)ViewData["cboGroupName"], new { @class = "full-width", data_init_plugin = "select2", @id = "idGroupName" })
+                                    </div>
+                                    <span class="ibserror" id="Err_GroupName">Group Name is required.</span>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                            <div class="btn btn-success custom-btn1" id="idBtnView" style="padding:6px;  margin-left:10px; margin-right:0px;">Load</div> 
+                        </div>
+                    </div>  
+                </div>
+
+                <div class="clr-height30"></div>
+                @*------- Start:: Voucher Master Information Show in html.Table*@
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
+                        <div id="security-objectpermission" class="voucher-tablecontainer">
+                            @{ Html.RenderPartial("../security/pv/pv_permission_list"); }
+                        </div>
+                        <div class="clr"></div> 
+                    </div>
+                </div> 
+                @*------- End:: Voucher Master Information Show in html.Table*@
+
+                <div class="clr20"></div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-inner12">
+                            <div class="right-col">
+                                <div class="checkbox check-success">
+                                    <input type="checkbox" value="1" checked="checked" name="ViewInputs" id="check1" class="check1">
+                                    <label for="check1">View</label>
+                                    
+                                    <input type="checkbox" value="2" name="InsertInputs" id="check2">
+                                    <label for="check2">Insert</label>
+
+                                    <input type="checkbox" value="3" name="UpdateInputs" id="check3">
+                                    <label for="check3">Update</label>
+
+                                    <input type="checkbox" value="4" name="DeletetInputs" id="check4">
+                                    <label for="check4">Delete</label> 
+                                </div> 
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
+                        <div class="form-inner12">
+                            <div class="btn btn-success custom-btn1" id="IdBtnApply">Apply</div> 
+                            <button type="submit" class="btn btn-success custom-btn1" name="Reset" id="id-btnReset" value="Reset">Reset</button>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>    
+
+ 
+@section section_footer
+{
+    <script src="~/Content/built_in/assets/plugins/bootstrap-select2/select2.min.js"></script>
+    <script src="~/Content/built_in/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<script src="~/Content/user_define/js/ajax.js"></script>
+<script>
+    $(document).ready(function () {
+         
+        $('#idBtnView').click(function () {
+            var isValidItem = true;
+
+            if ($('#idGroupName').val() == '') {
+                isValidItem = false;
+                $('#Err_GroupName').show();
+            }
+            else {
+                $('#Err_GroupName').hide();
+            }
+
+            if ($('#idGroupName option:selected').text() == 'Administrator') {
+                isValidItem = false;
+                ShowMessageBox_OK('Group Administrator not editable!', "Not Editable", "");
+                $('#Err_GroupName').html('Group Administrator not editable!');
+                $('#Err_GroupName').show();
+            }
+            else {
+                $('#Err_GroupName').hide();
+            }
+
+            if (isValidItem) {
+                UserGroupId = $('#idGroupName').val().trim();
+                ajax_state("/security/FillObjectPermission?UserGroupId=" + UserGroupId, "security-objectpermission");
+            }
+        });
+
+        $('#IdBtnApply').click(function () {
+
+            var chkObjecTabId = $('input[name=chkObjecTabId]:checked').map(function () {
+                return $(this).attr('id');
+            }).get();
+
+            var MenuCode = $('input[name=chkObjecTabId]:checked').map(function () {
+                return $(this).attr('data-menucode');
+            }).get();
+
+            var ObjecTPermissionId  = $('input[name=chkObjecTabId]:checked').map(function () {
+                return $(this).val();
+            }).get();  
+
+            var TotalRows = $("#tableWithExportOptions td :checkbox").length; 
+
+            var data = {
+                ObjecTabId: chkObjecTabId,
+                MenuCode: MenuCode,
+                ObjecTPermissionId: ObjecTPermissionId,
+                UserGroupId: $('#idGroupName option:selected').val().trim(),
+                UserGroupName: $('#idGroupName option:selected').text().trim(),
+                ViewInputs: $('input[name=ViewInputs]:checked').val(),
+                InsertInputs: $('input[name=InsertInputs]:checked').val(),
+                UpdateInputs: $('input[name=UpdateInputs]:checked').val(),
+                DeletetInputs: $('input[name=DeletetInputs]:checked').val(),
+                TotalRows: $("#tableWithExportOptions td :checkbox").length,
+                CheckedCount: $("#tableWithExportOptions td :checkbox:checked").length  
+            }
+
+            $.ajax({
+                url: '@Url.Action("ObjectPermission_Insert", "security")', 
+                type: "POST",
+                data: JSON.stringify(data),
+                dataType: "JSON",
+                contentType: "application/json",
+                success: function (data) { 
+                    if (data.isCompleted == true) { 
+                        ShowMessageBox_OK(data.sMessage, "Permission", "");  
+
+                        $('input').prop('checked', false);
+                        ajax_state('/security/FillObjectPermission?UserGroupId=' + UserGroupId, "security-objectpermission");
+                    }
+                    else {
+                        ShowMessageBox_OK(data.sMessage, "Permission", "");
+                    }
+                },
+                error: function () {
+                    alert('Error. Please try again.');
+                }
+            });
+        });
+    });
+
+</script>
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

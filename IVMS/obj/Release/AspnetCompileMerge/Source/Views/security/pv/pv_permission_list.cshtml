@@ -1,0 +1,96 @@
+﻿@model List<BLL.Common.HC_FormList> 
+ 
+<link href="~/Content/built_in/pages/css/pages.css" rel="stylesheet" />
+<style>
+    .panel-heading a:not(.btn) {
+        color: #ffffff !important;
+        opacity: 1;
+    }
+
+    .table thead tr th:first-child {
+        padding-left: 2px !important;
+    }
+</style> 
+ 
+<table class="table table-striped" id="tableWithExportOptions">
+    <thead>
+        <tr>
+            <th>Select</th>
+            <th>Menu Option</th>
+            <th>Form Caption</th>
+            <th>View</th>
+            <th>Insert</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null)
+        {
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        }
+
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td> 
+                        <div class="checkbox check-success">
+                            <input type="checkbox" value="@item.ObjecTPermissionId" name="chkObjecTabId" id="@item.ObjecTabId" data-menucode="@item.MenuCode" >
+                            <label for="@item.ObjecTabId"></label>
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ObjecTHead)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MenuHead)
+                    </td> 
+
+                    <td>
+                        @if (item.PermissionNumber.IndexOf("V") != -1)
+                        {
+                            <p>Yes</p>
+                        }
+                        else
+                        {
+                            <p>-</p>
+                        }
+                    </td>
+                    <td>
+                        @if (item.PermissionNumber.IndexOf("I") != -1)
+                        {
+                            <p>Yes</p>
+                        }
+                        else
+                        {
+                            <p>-</p>
+                        }
+                    </td>
+                    <td>
+                        @if (item.PermissionNumber.IndexOf("U") != -1)
+                        {
+                            <p>Yes</p>
+                        }
+                        else
+                        {
+                            <p>-</p>
+                        }
+                    </td>
+                    <td>
+                        @if (item.PermissionNumber.IndexOf("D") != -1)
+                        {
+                            <p>Yes</p>
+                        }
+                        else
+                        {
+                            <p>-</p>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>  
+ 

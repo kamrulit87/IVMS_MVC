@@ -1,0 +1,31 @@
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\bin\Debug\App.config
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\bin\Debug\BLL.dll.config
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\bin\Debug\BLL.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\bin\Debug\BLL.pdb
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\bin\Debug\DAL.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\bin\Debug\EntityFramework.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\bin\Debug\EntityFramework.SqlServer.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\bin\Debug\System.Web.Mvc.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\bin\Debug\System.Web.Razor.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\bin\Debug\System.Web.WebPages.Razor.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\bin\Debug\System.Web.WebPages.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\bin\Debug\DAL.pdb
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\bin\Debug\EntityFramework.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\bin\Debug\EntityFramework.SqlServer.xml
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\obj\Debug\BLL.dll
+E:\rajib\Projrct\IVMS All\NCCBankIvms\NCC Bank\NCC Bank\BLL\obj\Debug\BLL.pdb
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Debug\App.config
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Debug\BLL.dll.config
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Debug\BLL.dll
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Debug\BLL.pdb
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Debug\DAL.dll
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Debug\EntityFramework.dll
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Debug\DAL.pdb
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Debug\EntityFramework.xml
+D:\Projects\Visitor_Management\NCC Bank\BLL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Visitor_Management\NCC Bank\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\Projects\Visitor_Management\NCC Bank\BLL\obj\Debug\BLL.dll
+D:\Projects\Visitor_Management\NCC Bank\BLL\obj\Debug\BLL.pdb

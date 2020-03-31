@@ -1,0 +1,365 @@
+﻿@{
+    ViewBag.Title = "Page";
+    if (ViewBag.CallingForm1 == "index")
+    {
+    }
+    else
+    {
+        <ul class="breadcrumb">
+            <li><a href="#">@ViewBag.CallingForm</a></li>
+            <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+            @if (@ViewBag.CallingForm2 != null)
+            {
+                <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+            }
+        </ul>
+    }
+}
+<style>
+        .modal .modal-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-body .form-group {
+            display: flex;
+        }
+
+        .modal .modal-header {
+            padding: 10px 25px !important;
+            border-bottom: 1px solid #e5e5e5 !important;
+        }
+
+            .modal .modal-header h4 {
+                font-weight: bold;
+                color: #fff;
+            }
+
+            .modal .modal-header span {
+                font-weight: bold;
+                color: #fff;
+            }
+
+        .modal .modal-body {
+            padding: 10px 25px !important;
+        }
+
+        .right-col span {
+            padding: 0 10px;
+        }
+
+        .modal .modal-footer {
+            border-top: 1px solid #e5e5e5 !important;
+            padding: 10px 25px !important;
+        }
+
+        .time_group {
+            display: flex;
+            align-items: center;
+        }
+
+        .clockpicker-popover {
+            z-index: 99999999 !important;
+        }
+
+        input.input-sm.form-control.topsearch {
+            margin-left: -91px;
+            width: 234px;
+        }
+
+        a.btn.btn-sm.btn-primary {
+            font-family: 'Montserrat' !important;
+        }
+
+        .expense .form-group:first-child {
+            width: 31.33%;
+            padding-right: 15px;
+        }
+
+        .expense .form-group {
+            width: 31.33%;
+            padding-right: 15px;
+        }
+
+            .expense .form-group .form-inner13 {
+                display: flex;
+                align-items: center;
+            }
+
+                .expense .form-group .form-inner13 .inline-left-col {
+                    width: 80px;
+                    padding-top: 0px;
+                    padding-right: 15px;
+                }
+
+                .expense .form-group .form-inner13 .inline-right-col {
+                    width: calc(100% - 80px);
+                }
+
+
+        .expense .btn_content {
+            width: 6%;
+            margin-bottom: 5px;
+        }
+        /*.width-350 {
+        min-width: 100%;
+        max-width: 100%;
+    }*/
+        .select2-container .select2-choice {
+            background-image: none;
+            border-radius: 2px;
+            border: 1px solid rgba(0,0,0,0.07);
+            padding: 3px 9px;
+            transition: border 0.2s linear 0s;
+            height: 35px;
+        }
+</style>
+<link href="~/Content/built_in/assets/plugins/clock-picker/bootstrap-clockpicker.css" rel="stylesheet" />
+<div class="panel panel-transparent" ng-controller="meetingRoomController">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Meeting Room Requisition
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="panel-body">
+        <table id="tableWithSearch" st-table="data" st-safe-src="meetingRoomList" class="table table-striped" ng-init="loadMeetingRoom()">
+            <thead>
+                <tr>
+                    <td colspan="5">
+                        <input st-search placeholder="Search" class="input-sm form-control topsearch" type="search" style="width:200px;float:right;" autofocus />
+                    </td>
+                </tr>
+                <tr>
+                    <th st-sort="RoomNo">Room NO.</th>
+                    <th st-sort="FloorLocation">Floor</th>
+                    <th st-sort="SeatCapacity">Seat Capacity</th>
+                    <th st-sort="ProjectorAvailable">Projector Available</th>
+                    <th style="width:125px;text-align:right">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="row in data">
+                    <td>{{row.RoomNo}}</td>
+                    <td>{{row.FloorLocation}}</td>
+                    <td>{{row.SeatCapacity}}</td>
+                    <td>{{row.ProjectorAvailable}}</td>
+                    <td align="right">
+                        <a  data-toggle="modal" class="btn btn-sm btn-primary" ng-click="reqRow(row)">Requisition</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Modal start -->
+        <div class="modal fade stick-up" my-modal my-modal-is-open="isModal" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true" ng-init="loadReqDropdowns()">
+            <div class="modal-dialog" style="width: 1000px;top: 60px;">
+                <div class="modal-content">
+                    <div class="modal-header clearfix text-left">
+                        <button type="button" class="close" ng-click="modalClose()" aria-hidden="true">
+                            <i class="pg-close fs-14"></i>
+                        </button>
+                        <div class="row bold padding-10">Meeting Room Requisition :</div>
+                    </div>
+                    <div class="modal-body">
+                        <form name="meetingRoomReqForm">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 xl-mb30">
+                                    <input type="text" class="form-control hidden" ng-model="meetingRoomReq.RequisitionID" placeholder="" readonly />
+
+                                    <div class="form-group">
+                                        <div class="form-inner13">
+                                            <label class="left-col control-label">Room No</label>
+                                            <div class="right-col">
+                                                <select class="form-control" ng-model="meetingRoomReq.MeetingRoomID"
+                                                        ng-options="room.MeetingRoomID as room.RoomNo for room in meetingRoomList" disabled="disabled">
+                                                    <option value=""> Select Room No </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group hidden">
+                                        <div class="form-inner13">
+                                            <label class="left-col control-label">Employee</label>
+                                            <div class="right-col">
+                                                <select class="form-control" ng-model="meetingRoomReq.RequisitionBy"
+                                                        ng-options="emp.EmployeeID as emp.EmpName for emp in employeeList">
+                                                    <option value=""> --Select Employee-- </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="form-inner13">
+                                            <label class="left-col control-label">Required Date</label>
+                                            <div class="right-col">
+                                                <div id="datepicker-component" class="input-group date">
+                                                    <input type="text" class="form-control date_picker1" ng-model="meetingRoomReq.RequiredDate" required ng-change="getMeetingReq()" />
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="time_group">
+
+                                        <div class="form-group">
+                                            <div class="form-inner13">
+                                                <label class="left-col control-label">From Time</label>
+                                                <div class="right-col">
+                                                    @*<input id="FromTime" class="form-control" ng-model="meetingRoomReq.FromTime">*@
+                                                    <div class="input-group bootstrap-timepicker">
+                                                        <input class="form-control " ng-model="meetingRoomReq.FromTime" ng-change="checkTime(meetingRoomReq)" ng-model-onblur clockpicker />
+                                                        <span class="input-group-addon"><i class="pg-clock"></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-inner13">
+                                                <label class="left-col control-label" style="width: 70px;">To Time</label>
+                                                <div class="right-col" style="width: calc(100% - 80px);">
+                                                    @*<input id="ToTime" class="form-control" ng-model="meetingRoomReq.ToTime" ng-change="checkTime(meetingRoomReq)">*@
+                                                    <div class="input-group bootstrap-timepicker">
+                                                        <input class="form-control " ng-model="meetingRoomReq.ToTime" ng-change="checkTime(meetingRoomReq)" ng-model-onblur clockpicker />
+                                                        <span class="input-group-addon"><i class="pg-clock"></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="form-inner13">
+                                            <label class="left-col control-label">Remarks</label>
+                                            <div class="right-col">
+                                                <textarea rows="3" class="form-control" ng-model="meetingRoomReq.Remarks" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 xl-mb30">
+                                    <table id="tableWithSearch" st-table="req" st-safe-src="reqList" class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th st-sort="OrderNO">Remarks</th>
+                                                <th st-sort="SupplierName">Time</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-ng-repeat="row in req">
+                                                <td>{{row.Remarks}}</td>
+                                                <td>{{row.Time}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </form>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30" style="margin-top: 20px;">
+                            <div class="div-info bold padding-10">Participant</div>
+                            <table st-table="department" st-safe-src="departmentList" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Department</th>
+                                        <th>Employee</th>
+                                        @*<th>Designation</th>*@
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="detail in dataDtls">
+                                        <td>
+                                            <select2 class="width-350" style="width:150px;" ng-model="detail.DepartmentID" s2-options="dep.DepartmentID as dep.DepartmentName for dep in departmentList"
+                                                     required placeholder="--Select Department--">
+                                            </select2>
+                                        </td>
+                                        <td>
+                                            <select2 class="width-350" style="width:150px;" ng-model="detail.EmployeeID"
+                                                     s2-options="emp.EmployeeID as emp.EmpName for emp in employeeList" placeholder="--Select Employee--" required>
+
+                                            </select2>
+                                        </td>
+
+                                        @*<td>
+                                            <select2 style="width:150px;" placeholder="--Select Designation--" ng-model="detail.DesignationID" s2-options="store.DesignationID as store.DesignationName for store in designationList" required>
+
+                                            </select2>
+                                        </td>*@
+
+
+                                        <td align="right">
+                                            <button type="button" ng-click="removeRow($index, detail)" class="btn btn-danger btn-xs">
+                                                <i class="fa fa-close"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="land_name_input expense">
+                                        <td>
+                                            <select2 class="width-350" style="width:150px;" ng-model="detail.DepartmentID" s2-options="dep.DepartmentID as dep.DepartmentName for dep in departmentList"
+                                                     required ng-change="getDepWiseEmployee()" placeholder="--Select Department--">
+                                            </select2>
+                                        </td>
+                                        <td>
+                                            <select2 class="width-350" style="width:150px;" ng-model="detail.EmployeeID"
+                                                     s2-options="emp.EmployeeID as emp.EmpName for emp in depEmployeeList" placeholder="--Select Employee--" ng-change="designationbyEmp(detail.EmployeeID)" required>
+
+                                            </select2>
+                                        </td>
+
+                                        @*<td>
+                                            <select2 style="width:150px" placeholder="--Select Designation--" ng-model="detail.DesignationID" s2-options="store.DesignationID as store.DesignationName for store in designationListsbyEmp" required>
+
+                                            </select2>
+                                        </td>*@
+
+                                        <td align="right">
+                                            <button type="button" ng-click="addStoreReqRow(detail)" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success custom-btn1" ng-disabled="disabledSaveBtn" type="button" ng-click="saveMeetingReqRoom()">Submit</button>
+                        <button class="btn btn-default custom-btn1" name="Clear" type="button" ng-click="clearReqData()"><i class="pg-close"></i> Clear</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
+    </div>
+</div>
+<script src="~/Content/built_in/assets/plugins/clock-picker/bootstrap-clockpicker.js"></script>
+@*<script type="text/javascript">
+    var fromInput = $('#FromTime');
+    var toInput = $('#ToTime');
+    fromInput.clockpicker({
+        autoclose: true
+    });
+    toInput.clockpicker({
+        autoclose: true
+    });
+</script>*@
+<script>
+    $(".date_picker1").datepicker({
+        changeMonth: true,
+        autoclose: true,
+        changeYear: true
+    });
+</script>
+

@@ -1,0 +1,423 @@
+﻿@model DAL.db.PasswordCore
+
+@{
+    ViewBag.Title = "login";
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Login Information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
+
+    <link rel="apple-touch-icon" href="pages/ico/60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="pages/ico/120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="pages/ico/152.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+
+    <link href="~/Content/built_in/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" />
+    <link href="~/Content/built_in/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
+
+
+    <link href="~/Content/built_in/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" />
+    <link href="~/Content/built_in/assets/plugins/boostrapv3/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/built_in/pages/css/pages.css" rel="stylesheet" />
+    <link href="~/Content/user_define/form-style/fonts.css" rel="stylesheet" />
+    <link href="~/Content/user_define/form-style/form-style.css" rel="stylesheet" />
+    <link href="~/Content/user_define/form-style/flexslider.css" rel="stylesheet" />
+    <link href="~/Content/built_in/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/user_define/form-style/form-control.css" rel="stylesheet" />
+
+   
+
+    @*Start :: jQuery Alert Message*@
+    <link href="~/Content/user_define/js/message/jquery-impromptu.css" rel="stylesheet" />
+    @*End :: jQuery Alert Message*@
+    <script src="~/Content/built_in/jquery.min.js"></script>
+
+    <style>
+        .login-branch {
+            width: 310px !important;
+        }
+
+        .branch-form {
+            display: none;
+        }
+
+        .login-form {
+            display: block;
+        }
+
+        .inv_mkl_left {
+            margin-left: -6%;
+            font-family: 'Montserrat' !important;
+            color: #999999;
+            font-size: 7px;
+            font-weight: 400;
+        }
+
+        .content-login {
+            position: absolute;
+            z-index: 15;
+            top: 47%;
+            left: 0px;
+            padding-left: 37px;
+            margin: -100px 0 0 0px;
+        }
+
+        .slidelogin {
+            overflow: hidden;
+        }
+
+        .slidelogin img {
+            position: absolute;
+            bottom: 0px;
+        }
+        #loading {
+            position: absolute;
+            opacity: 0.5;
+            background-color: #fff !important;
+            z-index: 99999;
+            width: 100%;
+            height: 100%;
+        }
+
+        #imagen {
+            position: absolute;
+            top: 7%;
+            left: 77%;
+            z-index: 100;
+        }
+
+        #s2id_autogen1 {
+            width: 330px;
+        }
+    </style>
+</head>
+<body class="fixed-header ">
+    <section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 nopad">
+                <div class="slidelogin hidden-xs">
+                    <img src="~/Content/user_define/images/slid4.png" alt="invogue" title="invogue" />
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 nopad">
+                <div class="login-container bg-white ">
+                    <div id="loading">
+                        <img id="imagen" src="~/Content/built_in/pages/img/progress/progress-circle-success.svg" alt="Loading..." />
+                    </div>
+                    <div class="p-l-20 p-r-20">
+                        <div class="panel-body">
+                            @using (Html.BeginForm("login", "security", FormMethod.Post, new { @id = "form-login", @class = "p-t-15", role = "form", autocomplete = "off" }))
+                            {
+                                <div class="content-login">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                                            <div class="form-group" style=" font-size:20px; font-family:Segoe UI; margin-bottom:40px;">
+                                                <strong style="color:#e36204;">Visitor</strong> Management System
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="login-form">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                                                <div class="form-group">
+                                                    @Html.TextBoxFor(model => model.UserId, new { @class = "form-control ", @id = "UserId", @placeholder = "User Id", required = "required" })
+                                                    <span class="error">*</span>
+                                                    <span id="Err_objSalesQuotationDetailQuantity" class="text-danger"></span>
+                                                    <div class="clr"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                                                <div class="form-group">
+                                                    @Html.TextBoxFor(model => model.PasswordH, new { @class = "form-control input ", @id = "PasswordH", @placeholder = "Password", type = "password", required = "required" })
+                                                    <span class="error">*</span>
+                                                    <span id="Err_objSalesQuotationDetailQuantity" class="text-danger"></span>
+                                                    <div class="clr"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6 no-padding">
+                                                <div class="checkbox ">
+                                                    <input type="checkbox" value="1" id="checkbox1">
+                                                    <label for="checkbox1">Keep Me Signed in</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div style="margin-bottom:20px"></div>
+                                        <div class="btn btn-success custom-btn1 mr0" id="btnSignin">Sign in</div>
+                                    </div>
+
+                                    @*//after login*@
+                                    <div class="branch-form" style="margin-top:0px;">                                        
+                                        <div class="row"> 
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                                                <label class="left-col control-label" for="cboVoucherMode">Branch</label>
+                                                <div class="right-col">
+                                                    @Html.DropDownList("Branch", (SelectList)ViewData["cboBranch"], new { @class = "login-branch", data_init_plugin = "select2", @style = "width:310px !important;" })
+
+                                                    <span class="error">*</span>
+                                                </div>
+                                                <div class="clr"></div>
+                                            </div>
+                                        </div>
+                                        <div style="margin-bottom:20px"></div>
+                                        <div class="btn btn-success custom-btn1 mr0" id="btnStart">Start</div>
+                                        <div class="btn btn-default custom-btn1 mr0" id="btnBack">Back</div>
+                                    </div>                                   
+                                </div>
+
+    
+
+                                <div style="bottom:30px;  left:32px;  position: absolute;">
+                                    <div style="float:left;" class="">
+                                        <img style="float:left;" src="@Url.Content("~/Content/built_in/assets/img/logo6.png")" alt="logo" data-src="@Url.Content("~/Content/built_in/assets/img/logo6.png")" data-src-retina="@Url.Content("~/Content/built_in/assets/img/logo_2x.png")" width="20" height="30">
+
+                                        <div class="inv_mkl_left" style="width:200px; margin-top:8px;"> invoguesoft.com (880) 989-3572</div>
+                                    </div>
+                                    <div class="inv_mkl_left" style="float:left; margin-top:8px; right:0;">a INVOGUE SOFTWARE LIMITED Company</div>
+                                </div>
+
+   
+                            }
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+
+    @*Progrss Bar*@
+    @*<div class="container-fluid container-fixed-lg">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-body text-center no-padding">
+                        <img alt="Determinate circle" src="~/Content/built_in/assets/img/demo/determinate_circle.gif">
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    @*<script src="~/Content/built_in/assets/plugins/jquery/jquery-1.11.1.min.js"></script>*@
+
+
+    <script src="~/Content/built_in/assets/plugins/bootstrap-select2/select2.min.js"></script>
+    <script src="~/Content/built_in/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+    <script src="~/Content/built_in/assets/plugins/boostrapv3/js/bootstrap.min.js"></script>
+    <script src="~/Content/built_in/assets/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="~/Content/built_in/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="~/Content/built_in/pages/js/pages.min.js"></script>
+    <script src="~/Content/built_in/assets/js/form_layouts.js"></script>
+    <script src="~/Content/user_define/js/jquery.flexslider.js"></script>
+    <script src="~/Content/built_in/assets/plugins/classie/classie.js"></script>
+
+
+    @*Start :: jQuery Alert Message*@
+    <script src="~/Content/user_define/js/message/jquery-impromptu.js"></script>
+    @*End :: jQuery Alert Message*@
+
+    <script src="~/Content/user_define/js/custom.js"></script>
+    <script src="~/Content/user_define/js/jquery.cookie.js"></script>
+    <script>
+    $(document).ready(function () {
+        var slideloginHeight = $(window).outerHeight();
+        $(".slidelogin").css({ "height": slideloginHeight });
+
+        $(".slidelogin img").css({ "height": slideloginHeight + 100 });
+        // Login after enter key press in password textbox.
+        $('.input').keypress(function (e) {
+            if (e.which == 13) {
+                login();
+                return false;
+            }
+        });
+        // Hide Loader
+        $('#loading').hide();
+        
+
+        // Set Value from Cookie In Login Form
+        var uName = $.cookie('UserName');
+        var pass = $.cookie('password');
+        if (uName != null && pass != null) {
+            $('#UserId').val(uName);
+            $('#PasswordH').val(pass);
+           // $('#checkbox1').prop('checked', true);
+            $('#checkbox1').attr('checked', 'checked');
+        }
+        else {
+            $('#UserId').val('');
+            $('#PasswordH').val('');
+            $('#checkbox1').removeAttr('checked');
+        }
+        
+        // Sign In Button
+        $("#btnSignin").click(function () {
+            login();
+        });
+
+        function login() {
+            var isValidItem = true;
+            if ($('#UserId').val() == '') {
+                isValidItem = false;
+                $('#UserId').siblings('span.error').css('visibility', 'visible');
+            }
+            else {
+                $('#UserId').siblings('span.error').css('visibility', 'hidden');
+            }
+
+            if ($('#PasswordH').val() == '') {
+                isValidItem = false;
+                $('#PasswordH').siblings('span.error').css('visibility', 'visible');
+            }
+            else {
+                $('#PasswordH').siblings('span.error').css('visibility', 'hidden');
+            }
+
+
+            //Login if valid
+            if (isValidItem) {
+                var data = {
+                    UserId: $('#UserId').val(),
+                    PasswordH: $('#PasswordH').val()
+                };
+                var loggedin = $('#checkbox1').is(':checked');
+                $.ajax({
+                    url: '@Url.Action("Fxlogin", "security")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ passwordCore: data, loggedinMe: loggedin }),
+                    async: false,
+                    processData: false,
+                    cache: false,
+                    beforeSend: function () {
+                        $('#loading').show();
+                    },
+                    complete: function () {
+                        //setTimeout(function () { $(".login-form").hide(); }, 2000);
+                        setTimeout(function () { $("#loading").hide(); }, 2000);
+                        //setTimeout(function () { $(".branch-form").show(); }, 2020);
+                    },
+                    success: function (data) {
+                        if (data.isCompleted == true) {
+                            window.location.href = data.url;
+                            $("#Branch").html("");
+                            var item = "";
+                            //item += "<option value=''> >> Select Item</option>";
+                            $.each(data.sBranch, function () {
+                                item += "<option value='" + this.BranchId + "'>" + this.BranchName + "</option>";
+                            });
+                            $("#Branch").html(item);
+                            $("#Branch option:first").attr('selected', 'selected').trigger("change");
+                            
+                        }
+                        else {
+                            ShowOpMessage("Sign In", false, "");
+                        }
+                    },
+                    error: function (xhr) {
+                        alert("error");
+                    }
+                });
+            }
+            else {
+                alert('error');
+            };
+        }
+
+        // Sign In Button
+        $("#btnStart").click(function () {
+            var isValidItem = true;
+
+            if ($('#Branch').val() == '') {
+                isValidItem = false;
+                $('#Branch').siblings('span.error').css('visibility', 'visible');
+            }
+            else {
+                $('#Branch').siblings('span.error').css('visibility', 'hidden');
+            }
+
+            //Start if valid
+            if (isValidItem) {
+                var data = {
+                    BranchCode: $('#Branch').val(),
+                    UserId: $('#UserId').val()
+                };
+
+                $.ajax({
+                    url: '@Url.Action("FxStart", "security")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(data),
+                    async: false,
+                    processData: false,
+                    cache: false,
+                    beforeSend: function () {
+                        $('#loading').show();
+                    },
+                    complete: function () {
+                        setTimeout(function () { $("#loading").hide(); }, 2000);
+                    },
+                    success: function (data) {
+                        if (data.isCompleted == true) {
+                                @*window.location.href = '@Url.Action("index", "mstr_basic")'*@
+                                window.location.href = data.url;
+                            }
+                        },
+                        error: function (xhr) {
+                            ShowOpMessage("Sign In", false);
+                        }
+                    });
+                }
+                else {
+                    alert('error');
+                };
+            });
+
+            //$("#btnBack").click(function () {
+            //    $('.branch-form').css("display", "none");
+            //    $('.login-form').css("display", "block");
+            //});
+        });
+
+        //Windows Load
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                controlsContainer: ".slider-num",
+                //animation: "slide",
+                animation: "fade",
+                animationSpeed: 1000,
+                slideshowSpeed: 5000,
+                directionNav: false,
+                slideshow: true,
+                sync: ".flexslider-manual-controls-second"
+            });
+        });
+    </script>
+</body>
+</html>

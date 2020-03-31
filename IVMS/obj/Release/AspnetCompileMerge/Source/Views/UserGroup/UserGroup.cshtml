@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "User";
+    if (ViewBag.CallingForm1 == "index")
+    {
+    }
+    else
+    {
+        <ul class="breadcrumb">
+            <li><a href="#">@ViewBag.CallingForm</a></li>
+            <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+            @if (@ViewBag.CallingForm2 != null)
+            {
+                <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+            }
+        </ul>
+    }
+}
+<style>
+    input[type=search] {
+        -webkit-appearance: unset;
+        margin-left: 79%;
+        width: 21%;
+    }
+
+    .panel.panel-transparent.pt4.ng-scope {
+        margin-top: -24px;
+    }
+
+    .btn-info, .btn-info:focus {
+        color: #ffffff;
+        width: 70px;
+    }
+
+    .panel-heading a:not(.btn) {
+        color: #efeeee !important;
+        opacity: 1;
+    }
+
+    th {
+        color: #484747 !important;
+    }
+</style>
+<div ng-controller="userGroupController">
+    <div class="panel panel-transparent">
+        <div class="panel-heading">
+            <div class="panel-title">
+                Page Permission
+            </div>
+
+            <div class="pull-right m-t-15">
+                <div id="show-modal" class="btn btn-success">
+                    <i class="fa fa-plus pr1"></i>
+                    <a href="#!/CreateUserGroup" ng-click="removeCookies()">Add New</a>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="panel-body">
+            <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped" ng-init="getUserGroup()">
+                <thead>
+                    <tr>
+                        <td colspan="3">
+                            <input st-search placeholder="Search" class="input-sm form-control topsearch" type="search" />
+                        </td>
+                    </tr>
+                    <tr>
+                    <tr>
+                        <th st-sort="UserFullName" style="width:75%">User Group</th>
+                        <th st-sort="User" style="width:15%"> Is Admin</th>
+                        <th style="width:10%">Action </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in displayedCollection">
+                        <td>{{row.UserGroup}}</td>
+                        <td><input type="checkbox" ng-model=row.IsAdmin ng-disabled="true" /></td>
+                        <td align="center">
+                            <button type="button" ng-click="editRow(row)" class="btn btn-primary btn-xs">
+                                <i class="fa fa-pencil"></i>
+                            </button>
+                            <button type="button" ng-click="deleteRow(row.ID)" class="btn btn-danger btn-xs">
+                                <i class="fa fa-remove"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7" class="text-center">
+                            <div st-pagination="" st-items-by-page="itemsByPage"></div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,166 @@
+﻿div#calender {
+    padding-left: 5px;
+    padding-top: 13px;
+}
+/*div#myModal {
+    padding-top: 78px;
+}
+     span.fc-time {
+    display: none !important;
+}
+   .modal-header {
+       background-color: #343d52;
+       padding-top: 2px; 
+       margin-top: -16px;
+} 
+   
+     .modal-footer {
+    background-color: #343d52;
+    padding-bottom: 7px; 
+    padding-top: 5px;
+    padding-bottom: 4px;
+} 
+     .close {
+        color: #fff;
+        opacity: 1;
+    }
+   
+     span#eventTitle {
+    font-family: 'Montserrat';
+    color: aliceblue;
+}
+     .modal .modal-header {
+    text-align: center;
+    border-bottom: 0;
+    padding: 10px 10px;
+}
+    .modal .modal-footer {
+    border-top: none;
+    box-shadow: none;
+    margin-top: 0;
+    padding: 10px 10px;
+}*/
+.close {
+    color: #000;
+    opacity: 1;
+}
+
+.modal .modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-body .form-group {
+    display: flex;
+}
+
+.modal .modal-header {
+    padding: 10px 25px !important;
+    border-bottom: 1px solid #e5e5e5 !important;
+}
+
+    .modal .modal-header h4 {
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .modal .modal-header span {
+        font-weight: bold;
+        color: #000;
+        font-family: 'Montserrat' !important;
+        font-size: 16px;
+    }
+
+.modal .modal-body {
+    padding: 10px 25px !important;
+}
+
+.right-col span {
+    padding: 0 10px;
+}
+
+.modal .modal-footer {
+    border-top: 1px solid #e5e5e5 !important;
+    padding: 10px 25px !important;
+}
+
+button.btn.btn-sm.btn-primary {
+    font-family: 'Montserrat' !important;
+}
+
+button.btn.btn-sm.btn-danger {
+    font-family: 'Montserrat' !important;
+}
+
+button.btn.btn-default {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+h4.modal-title {
+    font-family: auto;
+}
+
+h2 {
+    margin-top: 15px !important;
+    margin-bottom: 30px !important;
+    font-family: 'Montserrat' !important;
+}
+
+.fc td, .fc th {
+    border-style: solid;
+    border-width: 1px;
+    padding: 0;
+    vertical-align: top;
+    background-color: #e0ecec63;
+}
+
+.modal .modal-body {
+    box-shadow: crimson;
+    padding: 10px 0px !important;
+    white-space: normal;
+    text-align: inherit;
+    padding-left: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .modal .modal-body p {
+        margin: 0 !important;
+    }
+
+button.fc-month-button.fc-button.fc-state-default.fc-corner-left.fc-state-active {
+    text-transform: capitalize;
+    font-family: 'Montserrat';
+}
+
+button.fc-basicWeek-button.fc-button.fc-state-default {
+    text-transform: capitalize;
+    font-family: 'Montserrat';
+}
+
+button.fc-basicDay-button.fc-button.fc-state-default {
+    text-transform: capitalize;
+    font-family: 'Montserrat';
+}
+
+button.fc-agenda-button.fc-button.fc-state-default.fc-corner-right {
+    text-transform: capitalize;
+    font-family: 'Montserrat';
+}
+
+button.fc-today-button.fc-button.fc-state-default.fc-corner-left.fc-corner-right.fc-state-disabled {
+    text-transform: capitalize;
+    font-family: 'Montserrat';
+}
+
+button.fc-today-button.fc-button.fc-state-default.fc-corner-left.fc-corner-right {
+    text-transform: capitalize;
+    font-family: 'Montserrat';
+}
+
+button.fc-month-button.fc-button.fc-state-default.fc-corner-left {
+    text-transform: capitalize;
+    font-family: 'Montserrat';
+}

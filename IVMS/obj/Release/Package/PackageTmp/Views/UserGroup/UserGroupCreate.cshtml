@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "UserCreate";
+    if (ViewBag.CallingForm1 == "index")
+    {
+    }
+    else
+    {
+        <ul class="breadcrumb">
+            <li><a href="#">@ViewBag.CallingForm</a></li>
+            <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+            @if (@ViewBag.CallingForm2 != null)
+            {
+                <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+            }
+        </ul>
+    }
+}
+<div class="panel panel-transparent">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Page Permission
+        </div>
+    </div>
+
+    <div class="panel-body" ng-controller="userGroupController">
+        <div class="row form-horizontal xl-mlr10" ng-init="loadDropdowns()">
+
+            <form name="CreateUserGroupForm">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label class="left-col control-label">User Group</label>
+                                    <div class="right-col">
+                                        <input type="text" style="padding-top:5px;" class="form-control input-sm custome-textbox" ng-minlength="1" ng-maxlength="30" ng-model="userGroup.Name" required placeholder="User Group Name" />
+
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-bottom:40px;text-align:right">
+                        <div class="form-group">
+                            <div class="form-inner12">
+                                <label for="fname" class="left-col control-label"></label>
+                                <div class="right-col mt-org1">
+                                    <button class="btn btn-success custom-btn1 " name="Submit" ng-click="saveUserGroup()">Submit</button>
+                                    <button class="btn btn-default custom-btn1" ng-click="Reload()"><i class="pg-close"></i> Clear</button>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+

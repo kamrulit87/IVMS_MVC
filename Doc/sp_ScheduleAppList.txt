@@ -1,0 +1,42 @@
+USE [IVMS_DB]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_VisitorInOutList]    Script Date: 1/22/2020 12:22:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+alter Procedure [dbo].[sp_ScheduleAppList]
+@iEmployeeID int
+As
+Declare @lBossID int
+Set @lBossID = (Select isnull(EmployeeID,0) From Employee where EmployeeID = @iEmployeeID and OnBehalfEmployeeID != @iEmployeeID)
+	
+
+IF @lBossID > 0 
+BEGIN
+	select a.AppointmentBy, a.AppointmentID, a.AppointmentDate, a.EmployeeID, a.VisitorMobile,
+	a.CompanyName, a.Purpose, a.AppointmentTime, a.ReachTime, a.CardNO, a.Status, a.VisitorName,
+	a.VisitorEmail, a.CreatedBy, a.CreatedDate, a.CheckedInTime, a.CheckedOutTime,
+	a.AccessFloors, a.NotifyMessage, a.ReplayMessage, FirstWordMsg = a.ReplayMessage,
+	d.DepartmentID, d.DepartmentName, dg.DesignationID, dg.DesignationName, a.ReplayMessage as FirstWordMsg, e.EmpName  from Appointment a 
+	left join Employee e on a.EmployeeID = e.EmployeeID
+	left join Department d on e.DepartmentID = d.DepartmentID
+	left join Designation dg on e.DesignationID = dg.DesignationID
+	where a.EmployeeID = @iEmployeeID and a.Status != 'C' and a.Status != 'O'
+END
+ELSE
+BEGIN
+	select a.AppointmentBy, a.AppointmentID, a.AppointmentDate, a.EmployeeID, a.VisitorMobile,
+	a.CompanyName, a.Purpose, a.AppointmentTime, a.ReachTime, a.CardNO, a.Status, a.VisitorName,
+	a.VisitorEmail, a.CreatedBy, a.CreatedDate, a.CheckedInTime, a.CheckedOutTime,
+	a.AccessFloors, a.NotifyMessage, a.ReplayMessage, FirstWordMsg = a.ReplayMessage,
+	d.DepartmentID, d.DepartmentName, dg.DesignationID, dg.DesignationName, a.ReplayMessage as FirstWordMsg, e.EmpName  from Appointment a 
+	left join Employee e on a.EmployeeID = e.EmployeeID
+	left join Department d on e.DepartmentID = d.DepartmentID
+	left join Designation dg on e.DesignationID = dg.DesignationID
+	where e.OnBehalfEmployeeID = @iEmployeeID and a.Status != 'C' and a.Status != 'O'
+END
+
+
+--execute sp_ScheduleAppList 2034

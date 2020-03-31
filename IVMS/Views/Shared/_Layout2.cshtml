@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    @*Start:: Theme default CSS*@
+    @System.Web.Optimization.Styles.Render("~/bundles/css")
+    <link href="~/Content/built_in/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" />
+    <link href="~/Content/built_in/pages/css/pages.css" rel="stylesheet" />
+    <link href="~/Content/angucomplete-alt.css" rel="stylesheet" />
+    <link href="~/Content/built_in/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/built_in/pages/css/pages-icons.css" rel="stylesheet" />
+    @*End:: Theme default CSS*@
+
+    @*Start:: Custom CSS*@
+    <link href="~/Content/user_define/form-style/main.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="~/Content/user_define/form-style/form-style.css" rel="stylesheet" />
+    <link href="~/Content/user_define/form-style/form-control.css" rel="stylesheet" />
+    <link href="~/Content/user_define/form-style/form-manage.css" rel="stylesheet" />
+    <link href="~/Content/treeGrid.css" rel="stylesheet" />
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <link href="~/Content/custom.css" rel="stylesheet" />
+
+    @RenderSection("section_top", required: false)
+
+    <script src="~/Content/built_in/jquery.min.js"></script>
+    <script src="~/Content/user_define/tab/jquery-ui-1.10.4.custom.js"></script>
+    <script src="~/Content/user_define/js/custom.js"></script>
+    <!--Toaster-->
+    <script src="~/Content/js/toastr.min.js"></script>
+
+    <style>
+        .panel-heading a:not(.btn) {
+            color: #ffffff !important;
+            opacity: 1;
+        }
+
+        .close {
+            color: #000;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body ng-app="app" class="fixed-header windows desktop sidebar-visible menu-pin">
+    <nav class="page-sidebar" data-pages="sidebar">
+        <div class="sidebar-header">
+            <a href="@Url.Action("index", "mstr_basic", new { area=""})">
+                <img src="@Url.Content("~/Content/built_in/assets/img/logo6.png")" alt="logo" class="brand" data-src="@Url.Content("~/Content/built_in/assets/img/logo6.png")" data-src-retina="@Url.Content("~/Content/built_in/assets/img/logo6.png")" width="35" height="40">
+            </a>
+
+            <div class="sidebar-header-controls">
+                <button type="button" class="btn btn-link visible-lg-inline" data-toggle-pin="sidebar" id="togglePin">
+                    <i class="fa fs-12"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Left Side top Menu -->
+        <!--- Menu -->
+        <div class="sidebar-menu">
+            @{
+                HttpCookie reqCookies = Request.Cookies["cookie"];
+                var cockName = reqCookies["UserGroupHead"].ToString();
+            }
+            <ul class="menu-items" id="admin">
+
+                <li class="m-t-30">@Html.ActionLink("Home", "index", "mstr_basic", new { area = "" }, null)<span class="bg-success icon-thumbnail"><i class="fa fa-desktop" aria-hidden="true"></i></span></li>
+
+                @if (@cockName == "Reception")
+                {
+                    <li class="">@Html.ActionLink("All Appointments", "UnScheduleAppointmentList", "UnScheduleAppointment", new { area = "" }, null)</li>
+                }
+                @if (@cockName == "Employee")
+                {
+                    <li class="">@Html.ActionLink("Schedule Appointment", "ScheduleAppointmentList", "ScheduleAppointment", new { area = "" }, null)</li>
+                    <li class="">@Html.ActionLink("Meeting Room Requisition", "MeetingRoomReqList", "MeetingRoom", new { area = "" }, null)</li>
+                }
+                @if (@cockName == "Administrator")
+                {
+                    <li class="">@Html.ActionLink("Schedule Appointment", "ScheduleAppointmentList", "ScheduleAppointment", new { area = "" }, null)</li>
+                    <li class="">@Html.ActionLink("All Appointments", "UnScheduleAppointmentList", "UnScheduleAppointment", new { area = "" }, null)</li>
+                    <li class="">@Html.ActionLink("Meeting Room", "MeetingRoomList", "MeetingRoom", new { area = "" }, null)</li>
+                    <li class="">@Html.ActionLink("Meeting Room Requisition", "MeetingRoomRequisitionList", "MeetingRoom", new { area = "" }, null)</li>
+
+                    <li class="">
+                        <a href="javascript:;">
+                            <span class="title">Settings</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <span class="icon-thumbnail"><i class="pg-menu_lv"></i></span>
+                        <ul class="sub-menu">
+                            <li class="">@Html.ActionLink("Branch", "BranchList", "Branch", new { area = "" }, null)</li>
+                            <li class="">@Html.ActionLink("Department", "DepartmentList", "Department", new { area = "" }, null)</li>
+                            <li class="">@Html.ActionLink("Designation", "DesignationList", "Designation", new { area = "" }, null)</li>
+                            <li class="">@Html.ActionLink("Employee", "EmployeeList", "Employee", new { area = "" }, null)</li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </li>
+
+                    <li class="hidden">
+                        <a href="javascript:;">
+                            <span class="title">Security</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <span class="icon-thumbnail"><i class="pg-menu_lv"></i></span>
+                        <ul class="sub-menu">
+                            <li class="">@Html.ActionLink("User Group", "usergroup", "security", new { area = "" }, new { @href1 = "usergroup_create" })</li>
+                            <li class="">@Html.ActionLink("User Management", "usergroup_manager", "security", new { area = "" }, new { @href1 = "usergroup_manager_create" })</li>
+                            <li class="">@Html.ActionLink("Permission Status", "object_permission", "security", new { area = "" }, null)</li>
+                            <li class="">@Html.ActionLink("Change My Account", "change_password", "security", new { area = "" }, null)</li>
+                            <li class="hidden">@Html.ActionLink("User Multiple Access", "multiple_usergroup_manager", "security", new { area = "" }, new { @href1 = "multiple_usergroup_manager_create" })</li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </li>
+
+                    <li class="hidden">@Html.ActionLink("Data Backup", "", "")<span class="icon-thumbnail">DB</span></li>
+
+                }
+
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+
+        @*Menu*@
+    </nav>
+
+    <div class="page-container ">
+        <div class="header ">
+            <!--Logo Section -->
+            <div class="container-fluid relative">
+                <div class="pull-left full-height visible-sm visible-xs">
+                    <div class="header-inner">
+                        <a href="#" class="btn-link toggle-sidebar visible-sm-inline-block visible-xs-inline-block padding-5" data-toggle="sidebar">
+                            <span class="icon-set1 menu-hambuger">|||</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="pull-center hidden-md hidden-lg">
+                    <div class="header-inner">
+                        @*<div class="brand inline">
+                            <img src="@Url.Content("~/Content/built_in/assets/img/logo4.png")" alt="logo" data-src="@Url.Content("~/Content/built_in/assets/img/logo4.png")" data-src-retina="@Url.Content("~/Content/built_in/assets/img/logo4.png")" width="86" height="22" class="logo-ml70">
+                            </div>*@
+                    </div>
+                </div>
+
+                <div class="pull-right full-height visible-sm visible-xs">
+                    <div class="header-inner">
+                        <a href="#" class="btn-link visible-sm-inline-block visible-xs-inline-block" data-toggle="quickview" data-toggle-element="#quickview">
+                            <span class="icon-set1 menu-hambuger-plus">|||</span>
+                            @*<span class="icon-set menu-hambuger-plus"></span>*@
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class=" pull-left sm-table hidden-xs hidden-sm">
+                <div class="header-inner">
+                    <div class="brand inline">
+                        <img src="@Url.Content("~/Content/built_in/assets/img/logo6.png")" alt="logo" data-src="@Url.Content("~/Content/built_in/assets/img/logo6.png")" data-src-retina="@Url.Content("~/Content/built_in/assets/img/logo6.png")" width="35" height="40">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logo Section -->
+            <!-- Right Login Menu -->
+            <div class=" pull-right">
+            </div>
+
+            <div class=" pull-right">
+                <div class="visible-lg visible-md m-t-10">
+                    <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
+                        <span class="semi-bold">
+                            @{
+                                var name = Session["UserName"] != null ? Session["UserName"].ToString() : "";
+                                @name;
+                            }
+                        </span>
+
+                    </div>
+                    <div class="dropdown pull-right">
+                        <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="thumbnail-wrapper d32 circular inline m-t-5">
+                                <img src="@Url.Content("~/Content/built_in/assets/img/profiles/avatar.jpg")" alt="" data-src="@Url.Content("~/Content/built_in/assets/img/profiles/avatar.jpg")" data-src-retina="@Url.Content("~/Content/built_in/assets/img/profiles/avatar_small2x.jpg")" width="50" height="50">
+                            </span>
+                        </button>
+                        <ul class="dropdown-menu profile-dropdown" role="menu">
+                            <li class="bg-master-lighter" id="logout">
+                                <a href="#" class="clearfix">
+                                    <span class="pull-left">Logout</span>
+                                    <span class="pull-right"><i class="pg-power"></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Login Menu -->
+        </div>
+
+        <!-- Start Body -->
+        <div class="page-content-wrapper ">
+            <div class="content ">
+                <div class="container-fluid container-fixed-lg">
+                    @{
+                        if (ViewBag.CallingForm1 == "index")
+                        {
+
+                        }
+                        else
+                        {
+                            <ul class="breadcrumb">
+                                <li><a href="#">@ViewBag.CallingForm</a></li>
+                                <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+                                @if (@ViewBag.CallingForm2 != null)
+                                {
+                                    <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+                                }
+                            </ul>
+                        }
+                    }
+
+                    <div id="loading">
+                        <img id="imagen" src="~/Content/built_in/pages/img/progress/progress-circle-success.svg" alt="Loading..." />
+                        <div id="timer">Timer</div>
+                        @*<img id="imagen" src="~/Content/user_define/images/test-loader.gif" alt="Loading..." />*@
+                    </div>
+
+                    @RenderBody()
+                </div>
+
+
+
+            </div>
+
+            <div class="container-fluid container-fixed-lg footer">
+                <div class="copyright sm-text-center">
+                    <p class="small no-margin pull-left sm-pull-reset">
+                        <span class="hint-text">Copyright &copy; 2019 </span>
+                        <span class="font-montserrat">Invogue Software Limited</span>.
+                        <span class="hint-text">All rights reserved. </span>
+                        <span class="sm-block"><a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
+                    </p>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Body -->
+    </div>
+
+
+    <script>
+        $(document).ready(function ($) {
+            // Hide Loader
+            $("#loading").hide();
+            //$("#btnPre").click(function () {
+            // $('#loading').show();
+            //})
+            // menu
+            var device_width = $(window).width();
+            if (device_width < 1000) {
+                $("body").removeClass('windows');
+                $("body").removeClass('desktop');
+                $("body").removeClass('sidebar-visible');
+                $("body").removeClass('menu-pin');
+            }
+
+            //menu selected
+            $(".menu-items a").each(function () {
+                var curURL = window.location.href; // Current full URL
+                curURL = curURL.replace(/\/$/, "");
+                curURL = decodeURIComponent(curURL);
+
+                var originUrl = window.location.origin; // Domain Part from curURL
+                var newUrl = curURL.replace(originUrl, '');// Remove Domain Part
+
+                var href = $(this).attr('href');
+
+                if (newUrl === href) {
+                    $(this).closest('li').addClass('open active');
+                    $(this).closest('li').parents("li").addClass('open active');
+                    $(this).closest('li').parents("ul").css({ "display": "block" });
+                }
+                else {
+                    var secondurl = $("ul.breadcrumb a:eq(1)").attr("href");
+                    if (secondurl === href) {
+                        $(this).closest('li').addClass('open active');
+                        $(this).closest('li').parents("li").addClass('open active');
+                        $(this).closest('li').parents("ul").css({ "display": "block" });
+                    }
+                }
+            });
+            //Logout Information
+            $("#logout").click(function () {
+                $.ajax({
+                    url: '/security/FxSignOut/',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    async: false,
+                    processData: false,
+                    cache: false,
+                    success: function (data) {
+                        if (data.isCompleted == true) {
+                            window.location.href = '/security/login/';
+                        }
+                    },
+                    error: function (xhr) {
+                        ShowOpMessage("Sign Out", false, "");
+                    }
+                });
+            });
+
+
+            //$(".validNumber").keypress(function (e) {
+            // if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+            // return false;
+            // }
+            //});
+
+
+
+        });
+
+    </script>
+
+    @RenderSection("section_footer", required: false)
+
+    @*Start:: Theme default JS*@
+
+    @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+    <script src="~/Content/built_in/pages/js/pages.min.js"></script>
+    <script src="~/Content/js/custom.js"></script>
+
+    @*End:: Theme default JS*@
+
+    <!--Start Angular js-->
+    <script type="text/javascript" src="~/Content/angular/angular.js"></script>
+    <script type="text/javascript" src="~/Content/angular/angular-route.js"></script>
+    <script type="text/javascript" src="~/Content/angular/angular-touch.js"></script>
+    <script type="text/javascript" src="~/Content/angular/angular-animate.js"></script>
+
+    <script type="text/javascript" src="~/Content/angular/angular-sanitize.js"></script>
+    <script type="text/javascript" src="~/Content/angular/angular-cookies.js"></script>
+    <script type="text/javascript" src="~/Content/angular/angular-resource.js"></script>
+    <script src="~/Content/angular/angular-select2.min.js"></script>
+
+    <script src="~/Content/smart-table.js"></script>
+
+    <script type="text/javascript" src="~/Content/angular/ngDialog.js"></script>
+
+    <script src="~/Content/angular-user-define/tree-grid-directive.js"></script>
+    <script src="~/Content/angular/angucomplete-alt.js"></script>
+
+    <script src="~/Content/angular/angular-idle.js"></script>
+
+    <script src="~/Content/angular-user-define/route.js"></script>
+
+    <!-- Angular repository-->
+    <script src="~/Content/angular-user-define/commonRepository.js"></script>
+    <script src="~/Content/angular-user-define/appointment/service/appointmentRepository.js"></script>
+    <script src="~/Content/angular-user-define/meeting-room/service/meetingRoomRepository.js"></script>
+    <script src="~/Content/angular-user-define/Settings/Service/settingsRepository.js"></script>
+
+    @*Diractive*@
+    <script type="text/javascript" src="~/Content/angular-user-define/deractive.js"></script>
+    <!-- Angular controller-->
+    <script src="~/Content/angular-user-define/appointment/controller/appointmentController.js"></script>
+    <script src="~/Content/angular-user-define/meeting-room/controller/meetingRoomController.js"></script>
+
+
+    <script src="~/Content/angular-user-define/Settings/Controller/branchController.js"></script>
+    <script src="~/Content/angular-user-define/Settings/Controller/departmentController.js"></script>
+    <script src="~/Content/angular-user-define/Settings/Controller/designationController.js"></script>
+    <script src="~/Content/angular-user-define/Settings/Controller/employeeController.js"></script>
+</body>
+
+</html>

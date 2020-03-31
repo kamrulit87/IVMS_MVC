@@ -1,0 +1,183 @@
+﻿@{
+    ViewBag.Title = "Page";
+    if (ViewBag.CallingForm1 == "index")
+    {
+    }
+    else
+    {
+        <ul class="breadcrumb">
+            <li><a href="#">@ViewBag.CallingForm</a></li>
+            <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+            @if (@ViewBag.CallingForm2 != null)
+            {
+                <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+            }
+        </ul>
+    }
+}
+<div class="panel panel-transparent" ng-controller="meetingRoomController">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Meeting Room Requistion Approval
+        </div>
+
+        @*<div class="row form-horizontal">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-4 ">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label class="left-col control-label">From Date</label>
+                                <div class="right-col">
+                                    <div id="datepicker-component" class="input-group date">
+                                        <input type="text" class="form-control date_picker1" ng-model="approved.FDate" />
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <div class="form-inner13">
+                                <label class="left-col control-label">To Date</label>
+                                <div class="right-col">
+                                    <div id="datepicker-component" class="input-group date">
+                                        <input type="text" class="form-control date_picker1" ng-model="approved.TDate" />
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    </div>
+
+    <div class="panel-body">
+        <ul id="myTab" class="nav nav-tabs">
+            <li ng-class="{active:isSet(1)}"><a ng-click="setTab(1);getMeetingRoomAppData()">Pending</a></li>
+            <li ng-class="{active:isSet(2)}"><a ng-click="setTab(2);getMeetingRoomAppData()">Approved</a></li>
+            <li ng-class="{active:isSet(3)}"><a ng-click="setTab(3);getMeetingRoomAppData()">Cancel</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content" style="padding-left: 0px; padding-right: 0px;">
+            <div class="tab-pane fade" ng-class="{active:isSet(1), in:isSet(1)}" ng-show="isSet(1)">
+                <div class="tableFixHead table-responsive">
+                    <table st-table="pending" st-safe-src="meetingRoomApprovedList" ng-init="getMeetingRoomAppData()" class="table table-striped cust_table_unSch">
+
+                        <thead>
+
+                            <tr>
+                                <th>M.Room No</th>
+                                <th>Floor Location</th>
+                                <th>Seat Capacity</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Raise By</th>
+                                <th style="text-align:right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="row in pending">
+                                <td>{{row.RoomNo}}</td>
+                                <td>{{row.FloorLocation}}</td>
+                                <td>{{row.SeatCapacity}}</td>
+                                <td>{{row.RequiredDate}}</td>
+                                <td>{{row.FromTime}}-{{row.ToTime}}</td>
+                                <td>{{row.RequisitionByName}}</td>
+                                <td style="text-align:right">
+                                    <button type="button" class="btn btn-sm btn-success custBtn1" href="#" ng-click="approvedMeetingRoom(row)">Approved</button>
+                                    <button type="button" class="btn btn-sm btn-danger custBtn1" href="#" ng-click="CancelMeetingRoom(row)">Cancel</button>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" ng-class="{active:isSet(2), in:isSet(2)}" ng-show="isSet(2)">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                        <table st-table="approved" st-safe-src="meetingRoomApprovedList" class="table table-striped">
+
+                            <thead>
+
+                                <tr>
+                                    <th>M.Room No</th>
+                                    <th>Floor Location</th>
+                                    <th>Seat Capacity</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Raise By</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="row in approved">
+                                    <td>{{row.RoomNo}}</td>
+                                    <td>{{row.FloorLocation}}</td>
+                                    <td>{{row.SeatCapacity}}</td>
+                                    <td>{{row.RequiredDate}}</td>
+                                    <td>{{row.FromTime}}-{{row.ToTime}}</td>
+                                    <td>{{row.RequisitionByName}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="tab-pane fade" ng-class="{active:isSet(3), in:isSet(3)}" ng-show="isSet(3)">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                        <table id="" st-table="cancel" st-safe-src="meetingRoomApprovedList" class="table table-striped">
+                            
+
+                            <thead>
+
+                                <tr>
+                                    <th>M.Room No</th>
+                                    <th>Floor Location</th>
+                                    <th>Seat Capacity</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Raise By</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="row in cancel">
+                                    <td>{{row.RoomNo}}</td>
+                                    <td>{{row.FloorLocation}}</td>
+                                    <td>{{row.SeatCapacity}}</td>
+                                    <td>{{row.RequiredDate}}</td>
+                                    <td>{{row.FromTime}}-{{row.ToTime}}</td>
+                                    <td>{{row.RequisitionByName}}</td>
+                                </tr>
+                            </tbody>
+
+
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<script>
+      $(".date_picker1").datepicker({
+          changeMonth: true,
+          autoclose: true,
+          changeYear: true
+      });
+</script>
+

@@ -1,0 +1,415 @@
+﻿/* ==== first section start ====*/ 
+@font-face {
+	font-family: 'GillSans-SemiBold';
+	src: url('../form-style/fonts/GillSans-SemiBold.eot');
+	src: local('?'), url('../form-style/fonts/GillSans-SemiBold.woff') format('woff'), url('../form-style/fonts/GillSans-SemiBold.ttf') format('truetype'), url('../form-style/fonts/GillSans-SemiBold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'gillsanslight';
+	src: url('../form-style/fonts/gillsanslight.eot');
+	src: local('gillsanslight'), url('../form-style/fonts/gillsanslight.woff') format('woff'), url('../form-style/fonts/gillsanslight.ttf') format('truetype');
+}
+
+.fontsforweb_fontid_1416 {
+	font-family: 'gillsanslight' !important;
+}
+
+@font-face {
+    font-family: 'GillSans-SemiBold';
+    src: url('../form-style/fonts/GillSans-SemiBold.eot') format('embedded-opentype');
+}
+
+body{
+	/* font-family: 'GillSans','gillsanslight','Helvetica Neue',Helvetica,Arial; */
+	padding: 0px;
+	background-color:#FFFFFF;
+}
+p{
+	margin: 0;
+}
+.ils_admin_padding{
+	padding-right: 23px;
+	padding-left: 3px;
+}
+.ils_admin_padding2{
+	padding-left: 23px;
+	padding-right: 3px;
+}
+/*===Nav Section===*/
+.ils_Nav_main_container{
+	background-color: #ffffff;
+	width: 100%;
+	overflow: hidden;
+	height: 89px;
+}
+.ils_logo{
+	padding: 26px 6%;
+	font-family: 'GillSans-SemiBold';
+	font-size: 34px;
+	color: #000;
+	line-height: 36px;
+}
+/*===ILS Section===*/
+
+.inv_newhome_container{
+	background-color: #f2f2f2;
+	width:100%;
+	overflow: hidden;
+}
+.inv_newhome_container_ils{
+	padding-left:6%;
+	overflow: hidden;
+}
+.ils_left_container{
+	width:50%;
+	float: left;
+	overflow:hidden;
+	padding-right:6%;
+	border-right: 1px solid #303030;
+	height: 607px !important;
+}
+
+.ils_details{
+	overflow:hidden;
+	display: table-cell;
+	vertical-align:middle;
+	padding-top: 129px;
+}
+.ils_dhess{
+	width: 40px;
+	height: 4px;
+	background-color:#ab080d;
+	
+}
+.ils_heading{
+	color:#f5f5f5;
+	font-size: 34px;
+	padding-bottom: 40px;
+	padding-top: 32px;
+	font-family: 'GillSans-SemiBold';
+}
+.ils_titel{
+	color: #bfbfbf;
+	font-size: 15px;
+	line-height:32px;
+	text-align:justify;
+	font-family: 'gillsanslight';
+}
+.ils_right_container{
+	float:left;
+	width:50%;
+	position:relative;
+	overflow: hidden;
+	height: 607px !important;
+}
+.ils_img{
+	background: url("imgs/ibs_image.png")no-repeat center;
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: block;
+	
+}
+/*===ILS Section===*/
+.inv_newhome_container_login{
+	/* background-color: #f6f6f6; */
+	border-bottom: 5px solid #ab080d;
+	overflow: hidden;
+	padding: 107px 6%;
+}
+.login_heading{
+	font-size:50px;
+	font-family: 'GillSans-SemiBold';
+	color: #3a3939;
+	padding-bottom: 107px;
+}
+.login_span{
+	font-family: 'gillsanslight';
+}
+.ils_login_admin{
+	position: relative;
+	overflow: hidden;
+	height: 370px;
+	box-shadow: 1px 1px 9px 0px #e3e3e3;
+}
+.ils_login_all{
+	position: relative;
+	overflow: hidden;
+	height: 370px;
+	box-shadow: 1px 1px 9px 0px #e3e3e3;
+}
+.ils_admin{
+	position: relative;
+	overflow: hidden;
+	height: 288px;	
+	background-color: #f6f6f6;
+}
+.ils_admin_img { 
+    background: url(imgs/my_courses.png) no-repeat left !important;
+    position: absolute;
+    top: -29px;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+.ils_admin_text{
+	font-family: 'GillSans-SemiBold';
+	font-size: 25px;
+	color: #ab080d;
+	position: absolute;
+	z-index: 3;
+	bottom: 50px;
+	left: 30px;
+}
+.ils_admin_UserPass{
+	background-color: #fff;
+	position: absolute;
+	bottom: 0;
+	left: 0px;
+	width: 100%;
+	height: auto;
+}
+.userName{
+	padding: 25px 0 25px 30px;
+	font-family: 'gillsanslight';
+	font-size: 17px;
+	color: #3b3b3b;
+	line-height: 31px;
+}
+/*===contact Us===*/
+.ils_contact_main_container{
+	background-color: #282828;
+	width: 100%;
+	overflow: hidden;
+}
+.IlsContact{
+	text-align: center;
+	display: table;
+	vertical-align: middle;
+	width: 100%;
+	padding: 125px 0;
+}
+.contactUs{
+	font-family: 'GillSans-SemiBold';
+	font-size: 36px;
+	color: #f5f5f5;
+	padding-bottom: 25px;
+}
+.contactEnail{
+	font-family: 'gillsanslight';
+	font-size: 22px;
+	color: #c6c4c4;
+}
+/*===footer==*/
+.ils_footer{
+	background-color: #181818;
+	width: 100%;
+	overflow: hidden;
+	margin: 0;
+	height: 62px;
+}
+.ils_footer_copyright{
+	text-align: center;
+	width: 100%;
+}
+.ilsCopyright{
+	font-family: 'gillsanslight';
+	font-size: 14px;
+	color: #c7c6c6;
+	padding: 21px 0;	
+	letter-spacing: 1px;
+}
+.mkl_background{
+	background-color:#282828;
+}
+/* ==== first section end ====*/
+p{
+	margin:0;
+}
+li{
+	list-style-type:none;
+}
+.overview_container{
+	display:table;
+	width:100%;
+	position:relative;
+}
+.overview_left{
+    display: inline-block;
+    float: left;
+	width:37.2%;
+	position: absolute;
+}
+.overview_right{
+    display: inline-block;
+    float: right;
+	width:62.8%;
+	/* background-color:#c0c0c0; */
+	position:relative;
+	overflow: hidden;
+	height:869px;
+}
+.overview_left ul {
+	padding:0;
+	margin:0;
+}
+.overview_left ul li {
+	display:block;
+	margin-bottom:0px;
+	border-bottom:1px solid #e9e9e9;
+}
+.overview_left ul li:first-child {
+	border-top:1px solid #e9e9e9;
+}
+.overview_left ul li a {
+	border-left:7px solid transparent;
+	display: block;
+	text-decoration:none;
+	padding-top:35px;
+	padding-bottom:35px;
+	transition:all .5s;
+}
+.modules_container{
+	text-align:center;
+}
+.module_img{
+	display:block;
+	width:100%;
+	text-align:center;
+}
+.module_title{
+	font-size:22px;
+	font-family: 'GillSans-SemiBold';
+	color:#353535;
+	margin-top:0px;
+}
+.module_sort_title{
+	font-size:16px;
+	font-family: 'gillsanslight';
+	color:#929292;
+}
+.module_active{
+	border-left:7px solid #ab080d !important;
+	transition:all .5s;	
+}
+.module_active .module_title{
+	color:#ab080d;
+	transition:all .3s;	
+}
+.overview_module1, .overview_module2, .overview_module3, .overview_module4, .overview_module5, .overview_module6, .overview_module7{
+    display:block;		
+    float:left;	
+    width:100%;
+	height:100%;	
+    position:absolute;
+    opacity:0;
+    left:0;
+    top:0;
+    z-index:1;
+}
+.overview_module_zindex{
+    z-index:3;
+    position:relative;
+	opacity:1;	
+}
+.overview_module1{
+	/* background-color:#f00; */
+}
+.overview_right img{
+	width:100%;
+}
+.ils_circle{
+	cursor: pointer;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    /* background-color: #666666; */
+	border:1.7px solid #FFFFFF;
+    position: absolute;
+    left: 50%;
+    margin-left: -10px;
+    bottom: 20px;
+    z-index: 99999999;
+}
+.ils_circle2{
+	cursor: pointer;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    /* background-color: #666666; */
+	border:1.7px solid #FFFFFF;
+    position: absolute;
+    left: 50%;
+    margin-left: 10px;
+    bottom: 20px;
+    z-index: 99999999;
+}
+.ils_circle3{
+	cursor: pointer;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    /* background-color: #666666; */
+	border:1.7px solid #FFFFFF;
+    position: absolute;
+    left: 50%;
+    margin-left: 30px;
+    bottom: 20px;
+    z-index: 99999999;
+}
+.isl_circle_active{
+	background-color: #FFFFFF !important;
+}
+.inv_mkl_overlay{
+	position:absolute;
+	bottom:0;
+	left:0;
+	background-color:#393939;
+	z-index:555;
+	width:100%;
+	display:block;
+	height: 52px;
+}
+.overview_call1, .overview_call2, .overview_call3, .overview_call4, .overview_call5, .overview_call6, .overview_call7, .overview_call8, .overview_call9, .overview_call10, .overview_call11, .overview_call12, .overview_call13, .overview_call14, .overview_call15, .overview_call17, .overview_call18, .overview_call19, .overview_call20, .overview_call21, .overview_call22, .overview_call23{
+	position:absolute;
+	opacity:0;
+	z-index:1;
+	left:0;
+}
+.overview_call_active{
+	position:relative;
+	opacity:1;
+	z-index:3;
+}
+.ils_font_feature_heading{
+	padding-top: 107px;
+	padding-left:6%;
+}
+
+@media screen and (max-width: 1450px) {	
+	.overview_left ul li a {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	.overview_right{
+		height:799px;
+		width:70%;
+	}
+	.overview_left{
+		width:30%;
+	}
+	.ils_login_admin {
+		height: 350px;
+	}
+	.ils_login_all {
+		height: 350px;
+	}
+	.userName {
+		padding: 15px 0 15px 30px;
+	}
+}

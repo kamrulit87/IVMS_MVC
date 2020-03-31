@@ -1,0 +1,286 @@
+﻿@{
+    ViewBag.Title = "Page";
+    if (ViewBag.CallingForm1 == "index")
+    {
+    }
+    else
+    {
+        <ul class="breadcrumb">
+            <li><a href="#">@ViewBag.CallingForm</a></li>
+            <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+            @if (@ViewBag.CallingForm2 != null)
+            {
+                <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+            }
+        </ul>
+    }
+}
+<style>
+    .width-350 {
+        min-width: 100%;
+        max-width: 100%;
+    }
+</style>
+<style>
+    .time_group {
+        display: flex;
+        align-items: center;
+    }
+
+    .ui-timepicker-wrapper {
+        width: 140px;
+    }
+
+    .input-group-addon, .input-group-btn {
+        vertical-align: top !important;
+    }
+</style>
+<div class="panel panel-transparent">
+    <div class="panel-heading">
+        <div class="panel-title">
+            EMPLOYEE REGISTRATION
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="row form-horizontal xl-mlr10" ng-controller="employeeController" ng-init="loadDefault();">
+            <form name="empForm">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                    <input class="form-control in-ctrl" ng-model="emp.EmployeeID" style="display:none;" type="text" value="">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label class="left-col control-label">Branch</label>
+                                    <div class="right-col">
+                                        <select class="form-control" ng-model="emp.BranchID" required
+                                                ng-options="branch.BranchID as branch.Name for branch in branchlist">
+                                            <option value="">--Select Branch Name--</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label class="left-col control-label">Floor</label>
+                                    <div class="right-col">
+                                        <input type="text" class="form-control" ng-model="emp.Floor" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label class="left-col control-label">Employee Code</label>
+                                    <div class="right-col">
+                                        <input type="text" value="EMP058" ng-model="emp.EmpCode" class="form-control" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label class="left-col control-label">Employee NAME</label>
+                                    <div class="right-col">
+                                        <input type="text" class="form-control" ng-model="emp.EmpName" required />
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="form-group">
+                    <div class="form-inner13">
+                        <label class="left-col control-label">DEPARTMENT</label>
+                        <div class="right-col">
+                            <select class="form-control"
+                                    ng-model="emp.DepartmentID"
+                                    ng-options="dept.DepartmentID as dept.DepartmentName for dept in deptList">
+
+                                <option value="">--Select Department--</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>*@
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label class="left-col control-label">Department</label>
+                                    <div class="right-col">
+                                        <select2 class="width-350" ng-model="emp.DepartmentID" s2-options="dep.DepartmentID as dep.DepartmentName for dep in deptList"
+                                                 required ng-change="getDepWiseDropdownEmployee()" placeholder="--Select Department--">
+                                        </select2>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label class="left-col control-label">DESIGNATION</label>
+                                    <div class="right-col">
+                                        <select type="text" class="form-control" ng-model="emp.DesignationID" required
+                                                ng-options="desig.DesignationID as desig.DesignationName for desig in designationList" ng-change="getOnBeHalfEmp(emp.DesignationID)">
+
+                                            <option value="">--Select Designation--</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="empOnbeHalf">
+
+                                @*Multiple Employee*@
+                                <div class="form-group" ng-repeat="emp in multiEmployeeList">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Employee</label>
+                                        <div class="right-col">
+                                            <div class="input-group width-350">
+                                                @*<select2 style="width: 100%; max-width: 302px;" ng-model="emp.EmployeeID" s2-options="emp.EmployeeID as emp.EmpName for emp in depEmployeeList"
+                                             required disabled="disabled" placeholder="--Select Employee--">
+                                    </select2>*@
+                                                <select2 class="width-350" ng-model="emp.OnBehalfEmployeeID" s2-options="emp.EmployeeID as emp.EmpName for emp in depEmployeeList"
+                                                         required disabled="disabled" placeholder="--Select Employee--">
+
+                                                </select2>
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-danger" name="Add" ng-click="removeEmployee($index, emp)">
+                                                        <i class="fa fa-close"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Employee</label>
+                                        <div class="right-col">
+                                            <div class="input-group width-350">
+                                                <select2 class="width-350" ng-model="emp.OnBehalfEmployeeID" s2-options="emp.EmployeeID as emp.EmpName for emp in depEmployeeList"
+                                                         placeholder="--Select Employee--">
+                                                </select2>
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default" name="Add" ng-click="addEmployee($index, emp)">
+                                                        <i class="fa fa-plus-circle"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="form-group " ng-show="empOnbeHalf">
+                    <div class="form-inner13">
+                        <label class="left-col control-label">Employee</label>
+                        <div class="right-col">
+                            <select2 class="width-350" ng-model="emp.OnBehalfEmployeeID"
+                                     s2-options="emp.EmployeeID as emp.EmpName for emp in depEmployeeList" placeholder="--Select Employee--">
+
+                            </select2>
+                        </div>
+                    </div>
+                </div>*@
+
+
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label class="left-col control-label">MOBILE</label>
+                                    <div class="right-col">
+                                        <input type="text" class="form-control" ng-model="emp.Mobile" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label class="left-col control-label">PBX Number</label>
+                                    <div class="right-col">
+                                        <input type="text" class="form-control" ng-model="emp.PbxNumber" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label class="left-col control-label">EMAIL</label>
+                                    <div class="right-col">
+                                        <input type="email" class="form-control" ng-model="emp.Email" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label class="left-col control-label">Create User</label>
+                                    <div class="right-col">
+                                        <input type="checkbox" class="checkbox" ng-change="showUserInfo()" ng-model="isCreateUser" />
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <div class="form-group">
+                                <div class="form-inner12">
+                                    <label for="fname" class="left-col control-label"></label>
+                                    <div class="right-col mt-org1" style="text-align: right;">
+                                        <button type="button" class="btn btn-success custom-btn1 " name="Submit" ng-click="saveEmp()" ng-disabled="empSubmitDisabled">Save</button>
+                                        <button class="btn btn-default custom-btn1" name="Clear" ng-click="clearData()"><i class="pg-close"></i> Clear</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                            <div ng-show="userInfo">
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">User Name (Employee Code)</label>
+                                        <div class="right-col">
+                                            <input type="text" class="form-control " ng-maxlength="20" ng-model="user.UserName" ng-trim="false" placeholder="Max. 20 Characters. User lowercase" readonly />
+
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label for="DepartmentName" class="left-col control-label">User Group</label>
+                                        <div class="right-col">
+                                            <select class="form-control" ng-model="user.UserGroupID" ng-options="UserGroup.ID as UserGroup.Name for UserGroup in userGroupList">
+                                                <option value=""> Select User Group</option>
+                                            </select>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Password</label>
+                                        <div class="right-col">
+                                            <input type="password" id="txtNewPassword" class="form-control" minlength="6" ng-model="user.Password" placeholder="Min. 6 Characters" required />
+
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Confirm Password</label>
+                                        <div class="right-col">
+                                            <input type="password" id="txtConfirmPassword" class="form-control " minlength="6" ng-model="user.ConfirmPassword" placeholder="Min. 6 Characters" required />                                           
+                                        </div>
+                                        <div class="clr"></div>
+                                        <div id="divCheckPasswordMatch" style="color: red; font-size: 15px; font-weight: bold"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-inner13">
+                                        <label class="left-col control-label">Default Password</label>
+                                        <div class="right-col">
+                                            <label class="form-control" style="text-transform:lowercase">admin123</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,209 @@
+﻿@{
+    ViewBag.Title = "Page";
+    if (ViewBag.CallingForm1 == "index")
+    {
+    }
+    else
+    {
+        <ul class="breadcrumb">
+            <li><a href="#">@ViewBag.CallingForm</a></li>
+            <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+            @if (@ViewBag.CallingForm2 != null)
+            {
+                <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+            }
+        </ul>
+    }
+}
+<style>
+input[type=search] {
+    -webkit-appearance: unset;
+     margin-left: 79%;
+        width: 21%;
+}
+
+    .panel.panel-transparent.pt4.ng-scope {
+        margin-top: -24px;
+    }
+
+    .btn-info, .btn-info:focus {
+        color: #ffffff;
+        width: 70px;
+    }
+
+    .panel-heading a:not(.btn) {
+        color: #efeeee !important;
+        opacity: 1;
+    }
+
+    th {
+        color: #484747 !important;
+    }
+</style>
+<div class="panel panel-transparent" ng-controller="employeeController" ng-init="empList()">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Employee List
+        </div>
+        <div class="pull-right m-t-15">
+            <div id="show-modal" class="btn btn-success">
+                <i class="fa fa-plus pr1"></i>
+                <a href="#!/EmployeeCreate" ng-click="clearData()">Add New</a>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="panel-body">
+        <div>
+            <input style="width: 200px; float:right;" id="myInput" placeholder="Search" class="form-control" type="search" autofocus />
+        </div>
+        <table id="tableWithSearch" st-table="emp" st-safe-src="empList" class="table table-striped table-hover">
+
+            <thead>
+
+                <tr>
+                    <th width="10%" st-sort="MillName">Employee Name</th>
+                    <th width="10%" st-sort="ContactPerson1">Branch Name</th>
+                    <th width="10%" st-sort="ContactPerson1">Department</th>
+                    <th width="10%" st-sort="ContactPerson2">Designation</th>
+                    <th width="10%" st-sort="ContactPerson2">Floor</th>
+                    <th width="10%" st-sort="ContactPerson2">Employee Code</th>
+                    <th width="10%" st-sort="ContactPerson2">Mobile</th>
+                    <th width="10%" st-sort="ContactPerson2">PBX</th>
+                    <th width="10%" st-sort="Email">Email</th>
+                    <th width="10%" st-sort="Email">On Behalf</th>
+                    <th width="10%" style="width: 180px;text-align:right">Action</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+
+                <tr ng-repeat="row in emp">
+                    <td>{{row.EmpName}}</td>
+                    <td>{{row.BranchName}}</td>
+                    <td>{{row.DepartmentName}}</td>
+                    <td>{{row.DesignationName}}</td>
+                    <td>{{row.Floor}}</td>
+                    <td>{{row.EmpCode}}</td>
+                    <td>{{row.Mobile}}</td>
+                    <td>{{row.PbxNumber}}</td>
+                    <td>{{row.Email}}</td>
+                    <td align="right">
+                        <a class="btn btn-sm btn-success" ng-click="modalOpen(row.EmployeeID)">
+                            <i class="fa fa-picture-o"></i>
+                        </a>
+                    </td>
+                    <td align="right">
+                        <a class="btn btn-sm btn-success btn-xs" ng-click="editRow(row)">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="modal fade stick-up" my-modal my-modal-is-open="isModal" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" style="width: 1000px;top: 60px;">
+                <div class="modal-content">
+                    <div class="modal-header clearfix text-left">
+                        <button type="button" class="close" ng-click="modalClose()" aria-hidden="true">
+                            <i class="pg-close fs-14"></i>
+                        </button>
+                        <div class="row bold padding-10">On Behalf Employee :</div>
+                    </div>
+                    <div class="modal-body">
+                        <table st-table="emps" st-safe-src="onBehalfEmpList" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Employee</th>
+                                    <th>Department</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="row in emps">
+                                    <td>{{row.EmpName}}</td>
+                                    <td>{{row.DepartmentName}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default custom-btn1" name="Clear" type="button" ng-click="modalClose()"><i class="pg-close"></i> Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+@*@section section_footer
+{
+
+    <script src="~/Content/built_in/assets/js/datatables.js" type="text/javascript"></script>
+    <script src="~/Content/built_in/assets/plugins/bootstrap-select2/select2.min.js"></script>
+
+
+    <script>
+        (function (document) {
+            'use strict';
+
+            var LightTableFilter = (function (Arr) {
+
+                var _input;
+
+                function _onInputEvent(e) {
+                    _input = e.target;
+                    var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+                    Arr.forEach.call(tables, function (table) {
+                        Arr.forEach.call(table.tBodies, function (tbody) {
+                            Arr.forEach.call(tbody.rows, _filter);
+                        });
+                    });
+                }
+
+                function _filter(row) {
+                    var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+                    row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+                }
+
+                return {
+                    init: function () {
+                        var inputs = document.getElementsByClassName('light-table-filter');
+                        Arr.forEach.call(inputs, function (input) {
+                            input.oninput = _onInputEvent;
+                        });
+                    }
+                };
+            })(Array.prototype);
+
+            document.addEventListener('readystatechange', function () {
+                if (document.readyState === 'complete') {
+                    LightTableFilter.init();
+                }
+            });
+
+        })(document);
+    </script>
+
+}*@

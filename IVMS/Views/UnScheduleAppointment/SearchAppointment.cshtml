@@ -1,0 +1,400 @@
+﻿@{
+    ViewBag.Title = "Page";
+    if (ViewBag.CallingForm1 == "index")
+    {
+    }
+    else
+    {
+        <ul class="breadcrumb">
+            <li><a href="#">@ViewBag.CallingForm</a></li>
+            <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+            @if (@ViewBag.CallingForm2 != null)
+            {
+                <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+            }
+        </ul>
+    }
+}
+
+@*<link href="~/Content/calender.css" rel="stylesheet" />
+<link href="~/Content/fullcalendar.min.css" rel="stylesheet" />
+<link href="~/Content/fullcalendar.print.css" rel="stylesheet" media="print" />*@
+
+<style>
+    button.btn.btn-sm.btn-danger {
+        font-family: 'Montserrat' !important;
+    }
+
+    span.fc-time {
+        display: none !important;
+    }
+
+    span.fc-time {
+        display: none !important;
+    }
+
+    .width-350 {
+        min-width: 241px;
+        max-width: 241px;
+    }
+    /*.table thead tr th{
+        font-size: 10px;
+    }*/
+
+    .table-responsive {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 0px solid transparent;
+    }
+
+        .table-responsive > .table {
+            margin-bottom: 0;
+        }
+
+            .table-responsive > .table > tbody > tr > td, .table-responsive > .table > tbody > tr > th, .table-responsive > .table > tfoot > tr > td, .table-responsive > .table > tfoot > tr > th, .table-responsive > .table > thead > tr > td, .table-responsive > .table > thead > tr > th {
+                white-space: nowrap;
+            }
+
+    .tableFixHead {
+        overflow-y: auto;
+        height: 401px;
+    }
+
+        .tableFixHead thead th {
+            position: sticky;
+            top: 0;
+        }
+    /* Just common table stuff. Really. */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px 16px;
+    }
+
+    th {
+        background: #eee;
+        color: #000 !important;
+        opacity: 1;
+    }
+</style>
+<div class="panel panel-transparent" ng-controller="appointmentController" ng-init="loadDropdownsUnschedule()">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Visitors List
+        </div>
+
+        @*<div class="pull-right m-t-15">
+                <div id="show-modal" class="btn btn-success">
+                    <i class="fa fa-plus pr1"></i>
+                    <a href="#!/ScheduleCreate" ng-click="removeCookies()">Add New</a>
+                </div>
+            </div>*@
+        <div class="clearfix"></div>
+    </div>
+    <div class="col-md-12 form-horizontal">
+        <div class="row">
+            <div class="col-md-4">
+
+                <div class="form-group">
+                    <div class="form-inner13">
+                        <label class="left-col control-label">Department</label>
+                        <div class="right-col">
+                            <select2 style="width: 100%;" ng-model="appointment.DepartmentID" s2-options="dep.DepartmentID as dep.DepartmentName for dep in departmentList"
+                                     ng-change="getDepWiseDropdownEmployee()" placeholder="--Select Department--">
+                            </select2>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-inner13">
+                        <label class="left-col control-label">From Date</label>
+                        <div class="right-col">
+                            <div id="datepicker-component" class="input-group date">
+                                <input type="text" class="form-control date_picker1" ng-model="search.FromDate" />
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-inner13">
+                        <label class="left-col control-label">Visitor Name</label>
+                        <div class="right-col">
+                            <input type="text" ng-model="search.VisitorName" ng-model-onblur  class="form-control" placeholder="Visitor Name" />
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                </div>
+           
+               
+           
+             
+
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <div class="form-inner13">
+                        <label class="left-col control-label">Employee</label>
+                        <div class="right-col">
+                            @*<div class="input-group width-350">*@
+                            <select2 style="width: 100%;" ng-model="search.EmployeeID" s2-options="emp.EmployeeID as emp.EmpName for emp in depEmployeeList"
+                                     placeholder="--Select Employee--">
+                            </select2>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-inner13">
+                        <label class="left-col control-label">To Date</label>
+                        <div class="right-col">
+                            <div id="datepicker-component" class="input-group date">
+                                <input type="text" class="form-control date_picker1" ng-model="search.ToDate" />
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-inner13">
+                        <label class="left-col control-label">Visitor Mobile No.</label>
+                        <div class="right-col">
+                            <input type="text" ng-model="search.VisitorMobile" ng-model-onblur class="form-control" placeholder="Visitor Mobile No." />
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                </div>
+            
+
+              
+            </div>
+                <div class="col-md-4">
+
+
+                   
+
+                    @*Multiple Employee*@
+                
+                    <div class="form-group">
+                        <div class="form-inner13">
+                            <label class="left-col control-label">Meeting Status</label>
+                            <div class="right-col">
+                                <select type="text" class="form-control" ng-model="search.Status">
+
+                                    <option value="">--Select Meeting Status--</option>
+                                    <option value="A">New Appointment</option>
+                                    <option value="N">Notify to Employee</option>
+                                    <option value="P">Pending</option>
+                                    <option value="AP">Approved</option>
+                                    <option value="I">Checked In</option>
+                                    <option value="B">Break </option>
+                                    <option value="O">Check Out</option>
+                                    <option value="C">Cancel</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="form-inner13">
+                            <label class="left-col control-label">Visitor Card</label>
+                            <div class="right-col">
+                                <input type="text" ng-model="search.VisitorCard" ng-model-onblur class="form-control" placeholder="Visitor Card" />
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-inner13">
+                            <label class="left-col control-label">Company</label>
+                            <div class="right-col">
+                                <input type="text" ng-model="search.CompanyName" ng-model-onblur class="form-control" placeholder="Company Name" />
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <div class="form-inner12">
+                                    <label for="fname" class="left-col control-label"></label>
+                                    <div class="right-col mt-org1" style="text-align:right">
+                                        <button class="btn btn-success custom-btn1" name="Submit" type="button" data-ng-click="searchAppointment()">Search</button>
+                                        <button type="button" class="btn btn-default custom-btn1" name="Clear" ng-click="clearSearch()"><i class="pg-close"></i> Clear</button>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+    <div class="panel-body ">
+        <div class="tableFixHead table-responsive">
+            <table st-table="scheduleList" st-safe-src="appointmentList" class="table table-striped">
+                <thead>
+                    <tr>
+                        <td colspan="15" style="text-align: right;">
+                            <input style="width: 200px; float: right;" st-search placeholder="Search" class="input-sm form-control topsearch" type="search" autofocus />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th st-sort="OrderNO">SL</th>
+                        <th st-sort="OrderNO">Visitor Name</th>
+                        <th st-sort="OrderDate">Visitor Mobile No.</th>
+                        <th st-sort="OrderDate">Company Name</th>
+                     
+                        <th st-sort="SupplierName">Employee Name</th>
+                            <th st-sort="SupplierName">Department</th>
+                            <th st-sort="SupplierName">Designation</th>
+                        <th st-sort="Status">Purpose</th>
+                        <th st-sort="SupplierName">Appointment Date</th>
+                        <th st-sort="Status">Appointment Time</th>
+                        <th st-sort="Status">Reach Time</th>
+                        <th st-sort="Status">Check In</th>
+                        <th st-sort="Status">Break</th>
+                        <th st-sort="Status">Check Out</th>
+                     
+                        @*<th style="width:500px;text-align:right;z-index: 2;">Action</th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="row in scheduleList">
+                        <td>{{$index+1}}</td>
+                        <td>{{row.VisitorName}}</td>
+                        <td>{{row.VisitorMobile}}</td>
+                        <td>{{row.CompanyName}}</td>
+                      
+                        <td>{{row.EmpName}}</td>
+                            <td>{{row.DepartmentName}}</td>
+                            <td>{{row.DesignationName}}</td>
+                        <td>{{row.Purpose}}</td>
+                        <td>{{row.AppointmentDate}}</td>
+                        <td>{{row.AppointmentTime}} - {{row.EndTime}}</td>
+                        <td>{{row.ReachTime}} </td>
+
+                        <td>{{row.CheckedInTime}} </td>
+                        <td>{{row.BreakInTime}} - {{row.BreakOutTime}} </td>
+                        <td>{{row.CheckedOutTime}} </td>
+                  
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+</div>
+
+
+@*calendar css*@
+
+
+
+@*<script>
+        $(document).ready(function () {
+            var events = [];
+            $.ajax({
+                type: "GET",
+                url: "/mstr_basic/GetEvents",
+                success: function (data) {
+                    $.each(data,
+                        function (i, v) {
+                            if (v.AppointmentBy == "E" || v.AppointmentBy == "R" || v.AppointmentBy == "F") {
+                                events.push({
+                                    title: 'Meeting With : ' + v.VisitorName,
+                                    companyName: v.CompanyName,
+                                    purpose: v.Purpose,
+                                    start: moment(v.AppointmentDate),
+                                    end: v.AppointmentTime != null ? moment(v.AppointmentTime) : null,
+                                    color: "#7986CB",
+                                    allDay: v.IsFullDay
+
+                                });
+                            }
+                        });
+                    GenerateCalender(events);
+                },
+                error: function (error) {
+                    alert('failed');
+                }
+            });
+            function GenerateCalender(events) {
+                $('#calender').fullCalendar('destroy');
+                $('#calender').fullCalendar({
+                    contentHeight: 400,
+                    defaultDate: new Date(),
+                    timeFormat: 'h(:mm)a',
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,basicWeek,basicDay'
+                    },
+                    eventLimit: true,
+                    eventColor: '#378006',
+                    events: events,
+                    eventClick: function (calEvent, jsEvent, view) {
+                        $('#myModal #eventTitle').text(calEvent.title);
+                        var $purpose = $('<div/>');
+                        $purpose.append($('<p/>').html('<b>Company: </b>' + calEvent.companyName));
+                        $purpose.append($('<p/>').html('<b>Date: </b>' + calEvent.start.format("DD-MMM-YYYY ")));
+                        if (calEvent.end != null) {
+                            $purpose.append($('<p/>').html('<b>Time: </b>' + calEvent.end.format("HH:mm a")));
+                        }
+                        $purpose.append($('<p/>').html('<b>Purpose: </b>' + calEvent.purpose));
+
+
+                        $('#myModal #pDetails').empty().html($purpose);
+
+                        $('#myModal').modal();
+                    }
+                })
+            }
+        })
+    </script>*@
+
+@*<script>
+    $(document).ready(function () {
+        setInterval('refreshPage()', 20000);
+        setTimeout(function () {
+            $('#notifySearch').trigger('click');
+        }, 20000);
+    });
+
+    function refreshPage() {
+        setTimeout(function () {
+            $('#notifySearch').trigger('click');
+        }, 20000);
+    }
+
+</script>*@
+  <script>
+      $(".date_picker1").datepicker({
+          changeMonth: true,
+          autoclose: true,
+          changeYear: true
+      });
+  </script>
+
+
+

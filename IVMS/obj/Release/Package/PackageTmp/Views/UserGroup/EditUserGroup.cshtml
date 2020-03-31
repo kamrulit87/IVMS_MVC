@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "UserCreate";
+    if (ViewBag.CallingForm1 == "index")
+    {
+    }
+    else
+    {
+        <ul class="breadcrumb">
+            <li><a href="#">@ViewBag.CallingForm</a></li>
+            <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+            @if (@ViewBag.CallingForm2 != null)
+            {
+                <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+            }
+        </ul>
+    }
+}
+<div class="panel panel-transparent">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Page Permission
+        </div>
+    </div>
+
+    <div class="panel-body" ng-controller="userGroupController">
+        <div class="row form-horizontal xl-mlr10" ng-init="loadUserGroupById()">
+            <form name="EditUserGroupForm">
+                <div class="box-body" style="margin-top: 4%">
+                    <div class="col-md-12 ">
+                        <div class="col-md-4 form-group">
+                            <label>
+                                User Group
+                            </label>
+                            <input type="text" style="padding-top:5px;" class="form-control input-sm custome-textbox" ng-minlength="1" ng-maxlength="30" ng-model="editUserGroup.UserGroup" required placeholder="User Group Name" />
+                        </div>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <label>
+                            User Group Page Permission
+                        </label>
+                        <table>
+                            <tree-grid tree-data="tree_data"
+                                       col-defs="col_defs"
+                                       expand-on="expanding_property"
+                                       on-select="my_tree_handler(branch)"
+                                       on-click="my_tree_handler(branch)"
+                                       expand-level="2">
+                            </tree-grid>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="box-footer form-group" style="float: right; padding-right: 1%">
+                    <button type="submit" value="Save" ng-click="updateUserGroup()" class="btn btn-success button-size-small glyphicon">Update</button>
+                    <button value="Clear" ng-click="Reload()" class="btn btn-default button-size-small">Clear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

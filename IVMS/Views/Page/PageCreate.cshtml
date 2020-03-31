@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Page Create";
+    if (ViewBag.CallingForm1 == "index")
+    {
+    }
+    else
+    {
+        <ul class="breadcrumb">
+            <li><a href="#">@ViewBag.CallingForm</a></li>
+            <li><a href="@ViewBag.CallingViewPage" class="active">@ViewBag.CallingForm1</a></li>
+            @if (@ViewBag.CallingForm2 != null)
+            {
+                <li><a href="#" class="active">@ViewBag.CallingForm2</a></li>
+            }
+        </ul>
+    }
+}
+<div class="panel panel-transparent">
+    <div class="panel-heading">
+        <div class="panel-title">
+            User
+        </div>
+    </div>
+
+    <div class="panel-body" ng-controller="pageController">
+        <div class="row form-horizontal xl-mlr10" ng-init="loadDropdowns()">
+            <form name="CreatePageForm">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 xl-mb30">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 xl-mb30">
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label for="Name" class="left-col control-label">Module</label>
+                                    <div class="right-col">
+                                        <select data-ng-model="page.ModuleID" class=" form-control "
+                                                ng-options="module.ID as module.Name for module in moduleList" required>
+                                            <option value=""> Select Module </option>
+                                        </select>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label for="Name" class="left-col control-label">Name</label>
+                                    <div class="right-col">
+                                        <input type="text" class="form-control " ng-maxlength="50" ng-model="page.Name" placeholder="Max. 50 Characters" required />
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-inner13">
+                                    <label class="left-col control-label">Page Name</label>
+                                    <div class="right-col">
+                                        <input type="text" class="form-control " ng-maxlength="50" ng-model="page.UIPageName" ng-trim="false" placeholder="Max. 50 Characters" required />
+
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-bottom:40px;text-align:right">
+                            <div class="form-group">
+                                <div class="form-inner12">
+                                    <label for="fname" class="left-col control-label"></label>
+                                    <div class="right-col mt-org1">
+                                        <button type="button" class="btn btn-success custom-btn1 " name="Submit" ng-click="savePage()">Submit</button>
+                                        <button type="button" class="btn btn-default custom-btn1" name="Clear" ng-click="Reload()"><i class="pg-close"></i> Clear</button>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $("#txtConfirmPassword").keyup(function () {
+            var password = $("#txtNewPassword").val();
+            $("#divCheckPasswordMatch").html(password == $(this).val() ? "" : "Password does not match!");
+        });
+    });
+</script>
+
+
